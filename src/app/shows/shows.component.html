@@ -1,0 +1,50 @@
+<div class='fluid-container'>
+<div class='container'>
+<div class='row show-header'>
+  <div class='col-4'>
+<h1>LATEST SHOWS<span class='strikethrough'>&nbsp;</span></h1>
+  </div>
+      <div class='col-6'>
+        <p class='genre' *ngIf="currentGenre !== ''"><i style='margin-right: 14px;cursor:pointer;' (click)='closeGenre()' class="fas fa-times-circle"></i><span style='color: #555;font-family: "Josefin Sans"'>{{currentGenre}}</span></p>
+        </div>
+        <div class='col-1'>
+          <button class='controls' (click)='prevShowPage()'><</button>
+          </div>
+          <div class='col-1'>
+            <button class='controls' (click)='nextShowPage()'>></button>
+            </div>
+    <!-- <div class='col-2'>
+      <a routerLink="../archive"><h2 class='archive-button'>ARCHIVE <i class="fas fa-archive"></i></h2></a>
+    </div> -->
+</div>
+</div>
+</div>
+<div class='container'>
+<div class='row' *ngIf='isLoading'>
+  <div class='col-12' style='text-align: center;margin-top: 32px;'><img src='assets/loading.gif'>
+  </div>
+</div>
+<div class='row' style='width:98%;margin-left:1%;'>
+
+  <div class='col-md-4 col-sm-6 col-12' *ngFor='let show of shows; let x = index'>
+  <div class='show-card'>
+    <div class='row'>
+      <div class='col-6'>
+    <div class='show-image' (click)='listenShow(show.excerpt)'>
+      <i class="fas fa-play play-icon"></i>
+      <img [src]="show.featured_image">
+    </div>
+    </div>
+    <div class='col-6'>
+    <div class='show-copy'>
+      <h2  (click)='listenShow(show.excerpt)'>{{show.title}}</h2>
+      <ul>
+        <li *ngFor='let tag of show.tags; let i = index;' (click)='sortByTag(show.tagIDs[i], i, x)'>{{tag}}</li>
+      </ul>
+    </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</div>
+</div>

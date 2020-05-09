@@ -1,0 +1,28 @@
+<div class='container-fluid'>
+  <h1>SCHEDULE</h1>
+  <div class='container' style="width:90%;margin-left:0;padding:0;padding-bottom: 21px;">
+  <ul>
+    <li (click)='toggleDay(0)'>MON</li>
+    <li (click)='toggleDay(1)'>TUE</li>
+    <li (click)='toggleDay(2)'>WED</li>
+    <li (click)='toggleDay(3)'>THU</li>
+    <li (click)='toggleDay(4)'>FRI</li>
+    <li (click)='toggleDay(5)'>SAT</li>
+    <li (click)='toggleDay(6)'>SUN</li>
+  </ul>
+  <div class='row' *ngIf='isLoading'>
+    <div class='col-12' style='text-align: center;margin-top: 32px;'><img src='assets/loading.gif'>
+    </div>
+  </div>
+  <div class='schedule-item' *ngFor="let schedule of scheduleListing[this.currentDay]">
+    <div class='row'>
+      <div class='col-4'>
+        <h6 style='font-family:monospace;'>{{schedule.time}}</h6>
+      </div>
+      <div class='col-8'>
+        <p>{{schedule.content}}</p>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

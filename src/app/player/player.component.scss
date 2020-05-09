@@ -1,0 +1,37 @@
+.player {
+  position: fixed;
+  background-color: #ff0000;
+  height: 60px;
+  width: 100%;
+  z-index: 99;
+
+}
+
+.close-player {
+  background-color: rgba(255,222,0,1);
+  box-shadow: 0px -4px 6px 0px rgba(255,255,255,0.8) inset;
+  color: #000;
+  border-radius: 12px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid #ffdf00;
+  font-size: 0.75em;
+  font-weight: 700;
+  font-family: "Josefin Sans";
+  position: fixed;
+  bottom: 60px;
+  right: 24px;
+  border: none;
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.close-player:hover {
+  background-color: rgba(255,236,0,1);
+  box-shadow: 0px -2px 6px 0px rgba(255,255,255,0.4) inset;
+
+}
