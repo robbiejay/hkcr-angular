@@ -27,7 +27,6 @@ margin-top: 14px;}
 .show-card {
 background-color: #fff;
 margin-bottom: 14px;
-min-height: 120px;
 border-radius: 14px;
 overflow: hidden;
 }
@@ -50,8 +49,8 @@ overflow: hidden;
   font-size: 2em;
   text-align: center;
   width: 100%;
-  line-height: 112px;
-  vertical-align: middle;
+  height:100%;
+  padding-top: 33%;
   z-index: 2;
   color: rgba(255,255,255,0.66);
   transition: 0.1s;
@@ -66,7 +65,6 @@ overflow: hidden;
   font-family: "Josefin Sans";
   font-weight: 700;
   margin-top: 7px;
-
   font-size: 0.75em;
   width: 90%;
 }
@@ -177,4 +175,56 @@ color: #ffdf00;
 .archive-button:hover {
   border-bottom: 14px solid #e0e0e0;
   box-shadow: 0px 21px 0px 0px #e0e0e0;
+}
+
+@media (max-width: 960px) {
+  .container {
+    margin-left: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .show-card {
+  background-color: #fff;
+  margin-bottom: 14px;
+  min-height: 100px;
+  border-radius: 14px;
+  overflow: hidden;
+  }
+
+  .container {
+    margin-left: 12.5%;
+  }
+}
+
+@media (max-width: 576px) {
+  .show-card {
+  background-color: #fff;
+  margin-bottom: 14px;
+  min-height: 70px;
+  border-radius: 14px;
+  overflow: hidden;
+  }
+
+  .genre {
+    margin-bottom: 14px;
+    margin-top: 0px;
+    font-size: 0.9em;
+  }
+
+  .genre i {
+    font-size: 1.333em;
+  }
+
+.genre span {
+  position: relative;
+  top: -3px;
+}
+
+h1 {
+font-size: 1em;}
+
+.container {
+  margin-left: 5%;
+}
 }

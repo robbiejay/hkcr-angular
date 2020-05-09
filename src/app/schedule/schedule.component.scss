@@ -2,6 +2,13 @@
 padding-top: 14px;
 }
 
+.container {
+  width:90%;
+  margin-left:0;
+  padding:0;
+  padding-bottom: 21px;
+}
+
 h1 {
 
   font-family: "Orbitron";
@@ -56,4 +63,10 @@ li:hover {
 
 .schedule-item:nth-of-type(odd) {
   background-color: rgba(255,255,255,0.2);
+}
+
+@media (max-width: 960px) {
+  .container {
+    margin-left: 5%;
+  }
 }
