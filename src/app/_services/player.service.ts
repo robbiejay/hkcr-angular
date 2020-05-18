@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Observable, Subscription, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { map, mapTo } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +15,7 @@ export class PlayerService {
   public playerVisibilityChange: Subject<boolean> = new Subject<boolean>();
   //public state = 'slidOut';
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.show = '';
     this.playerVisibilityChange.subscribe((value) => {
       this.isPlayerVisible = value
@@ -22,16 +26,29 @@ export class PlayerService {
   //    this.state = 'slidIn';
       this.playerVisibilityChange.next(true);
       this.show = show;
-      console.log(this.show);
-      console.log(document.getElementsByClassName('widget-play-button'))
-      console.log(document.getElementsByClassName('ng-tns-c2-0')[0]);
-      
-    //  console.log(this.state);
+
+        // this.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget")).ready.then(function() {
+        // console.log(this.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget")));
+        // this.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget")).events.play.on();
+        // this.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget")).play();
+        // this.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget")).togglePlay();
+        // this.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget")).events.play();
+        // this.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget")).events.togglePlay();
+        //     });
 
     }
 
     closePlayer() {
       this.playerVisibilityChange.next(false);
       console.log(this.playerVisibilityChange);
+    }
+
+    checkStream(): Observable<any> {
+      let url = 'http://161.35.20.148/hls/test.m3u8';
+      return this.http.get(
+        url,
+        {responseType: 'text',
+        observe:'response'},
+      )
     }
 }

@@ -24,8 +24,8 @@ export class PostsService {
   }
 
   getShowsByTag(tagID, page): Observable<any> {
-    console.log('tagID from posts.service : ' + tagID);
-    console.log('page from posts.service : ' + page);
+    console.log('tagID from SortByTag() in posts.service : ' + tagID);
+    console.log('page from SortByTag() in posts.service : ' + page);
     let url = 'http://hkcr.live/wp-json/wp/v2/posts?_embed&categories=14&page=' + page + '&tags='+ tagID + '&per_page=9'
     return this.http.get(
       url,

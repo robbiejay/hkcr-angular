@@ -1,0 +1,23 @@
+<div class='on-air'>
+  <div class='row'>
+    <i *ngIf='!radioActive' class="fas fa-play livestream-play-button" (click)='playRadio()'></i>
+    <i *ngIf='radioActive' class="fas fa-pause livestream-play-button" (click)='pauseRadio()'></i>
+  <div style='float: left; display: inline-block; width: 240px;'>
+  <h1><i style="color: #f00;margin-right: 7px;font-size:0.75em;" class="fas fa-circle"></i><span style="font-size: 0.5em;position:relative;top:-2px;">Live Now</span></h1>
+  <h2 *ngIf='!radioActive'>HKCR LIVE RADIO</h2>
+  <div class='now-playing-icon-container'>
+  <img *ngIf='radioActive' src='assets/now-playing.gif'>
+  </div>
+  <h2 *ngIf='radioActive'>NOW PLAYING : A Spiritual Journey</h2>
+  </div>
+  </div>
+</div>
+<div class='radiostream-container'>
+  <!-- <video data-dashjs-player
+       [width]="livestreamPlayerWidth" controls autoplay
+       src="http://161.35.20.148/dash/test.mpd">
+</video> -->
+<video id="video_holder"  #video
+class="video-js vjs-default-skin vjs-big-play-centered vjs-big-play-button" controls
+data-setup='{}'data-res="auto" ></video>
+</div>

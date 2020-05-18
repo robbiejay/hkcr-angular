@@ -16,6 +16,7 @@ import { PlayerComponent } from './player/player.component';
 import { SafePipe } from './_pipes/safe.pipe';
 import { ArchiveComponent } from './archive/archive.component';
 import { HomeComponent } from './home/home.component';
+import { RadiostreamComponent } from './radiostream/radiostream.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { HomeComponent } from './home/home.component';
     PlayerComponent,
     SafePipe,
     ArchiveComponent,
-    HomeComponent
+    HomeComponent,
+    RadiostreamComponent
   ],
   imports: [
     BrowserModule,

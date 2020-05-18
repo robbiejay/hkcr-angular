@@ -9,41 +9,28 @@ import "@videojs/http-streaming";
 import 'videojs-contrib-quality-levels';
 import 'videojs-resolution-switcher';
 
-
 @Component({
-  selector: 'app-livestream',
-  templateUrl: './livestream.component.html',
-  styleUrls: ['./livestream.component.scss']
+  selector: 'app-radiostream',
+  templateUrl: './radiostream.component.html',
+  styleUrls: ['./radiostream.component.scss']
 })
-export class LivestreamComponent implements OnInit {
-
-
-  livestreamPlayerHeight = window.innerHeight;
-  livestreamPlayerWidth = window.innerWidth;
+export class RadiostreamComponent implements OnInit {
+  radioActive: boolean;
+  video: any;
 
   constructor(private playerService: PlayerService) { }
   @ViewChild('video') videoElement: ElementRef;
-  name = 'Angular 6';
 
 
   ngOnInit() {
-    if(this.livestreamPlayerWidth > 960) {
-      this.livestreamPlayerWidth = 960;
-    }
+    this.radioActive = false;
   }
 
   ngAfterViewInit() {
-    this.playerService.checkStream().subscribe(
-      data => {
-        console.log(data);
-      }
-    )
-        if(this.livestreamPlayerWidth > 960) {
-          this.livestreamPlayerWidth = 960;
-        }
     const options = {
                   "preload": "auto",
-                  "width": this.livestreamPlayerWidth - 10,
+                  "width": 0,
+                  "controls": false,
                   hls: {
                     withCredentials: true
                   },
@@ -55,16 +42,24 @@ export class LivestreamComponent implements OnInit {
                   }
                };
 
-                  const video = videojs(this.videoElement.nativeElement, options);
+                  this.video = videojs(this.videoElement.nativeElement, options);
 
-                  video.src([
+                  this.video.src([
                     {
                       type: "application/x-mpegURL",
-                      src: "http://161.35.20.148/hls/test.m3u8"
+                      src: "http://161.35.20.148/audio/index.m3u8"
                       }
                   ]);
-                  video.play();
-                  console.log(video.userActive());
-                  console.log(video.readyState());
-      }
+                  //video.play();
+  }
+
+playRadio() {
+  this.video.play();
+  this.radioActive = true;
+}
+
+pauseRadio() {
+  this.video.pause();
+  this.radioActive = false;
+}
 }

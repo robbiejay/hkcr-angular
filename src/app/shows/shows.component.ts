@@ -48,13 +48,16 @@ export class ShowsComponent implements OnInit {
               }
             );
           })
-          if(item._embedded["wp:featuredmedia"][0].source_url == undefined) {
-            console.log(item.title["rendered"])
+          let featured_img = ''
+          if(item._embedded["wp:featuredmedia"] == undefined) {
+            featured_img = "assets/default_show.png";
+          } else {
+            featured_img = item._embedded["wp:featuredmedia"][0].source_url
           }
           let postData = {
             title: HtmlEncode(item.title["rendered"]),
             excerpt: HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
-            featured_image: item._embedded["wp:featuredmedia"][0].source_url,
+            featured_image: featured_img,
             tags: tagList,
             tagIDs: item.tags
           }
@@ -87,13 +90,16 @@ export class ShowsComponent implements OnInit {
                       }
                     );
                   })
-                  if(item._embedded["wp:featuredmedia"][0].source_url == undefined) {
-                    console.log(item.title["rendered"])
+                  let featured_img = ''
+                  if(item._embedded["wp:featuredmedia"] == undefined) {
+                    let featured_img = "assets/default_show.png";
+                  } else {
+                    let featured_img = item._embedded["wp:featuredmedia"][0].source_url
                   }
                   let postData = {
                     title: HtmlEncode(item.title["rendered"]),
                     excerpt: HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
-                    featured_image: item._embedded["wp:featuredmedia"][0].source_url,
+                    featured_image: featured_img,
                     tags: tagList,
                     tagIDs: item.tags
                   }
@@ -131,13 +137,16 @@ export class ShowsComponent implements OnInit {
                     }
                   );
                 })
-                if(item._embedded["wp:featuredmedia"][0].source_url == undefined) {
-                  console.log(item.title["rendered"])
+                let featured_img = ''
+                if(item._embedded["wp:featuredmedia"] == undefined) {
+                  let featured_img = "assets/default_show.png";
+                } else {
+                  let featured_img = item._embedded["wp:featuredmedia"][0].source_url
                 }
                 let postData = {
                   title: HtmlEncode(item.title["rendered"]),
                   excerpt: HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
-                  featured_image: item._embedded["wp:featuredmedia"][0].source_url,
+                  featured_image: featured_img,
                   tags: tagList,
                   tagIDs: item.tags
                 }
@@ -177,13 +186,16 @@ export class ShowsComponent implements OnInit {
               }
             );
           })
-          if(item._embedded["wp:featuredmedia"][0].source_url == undefined) {
-            console.log(item.title["rendered"])
+          let featured_img = ''
+          if(item._embedded["wp:featuredmedia"] == undefined) {
+            let featured_img = "assets/default_show.png";
+          } else {
+            let featured_img = item._embedded["wp:featuredmedia"][0].source_url
           }
           let postData = {
             title: HtmlEncode(item.title["rendered"]),
             excerpt: HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
-            featured_image: item._embedded["wp:featuredmedia"][0].source_url,
+            featured_image: featured_img,
             tags: tagList,
             tagIDs: item.tags
           }
@@ -214,13 +226,16 @@ export class ShowsComponent implements OnInit {
               }
             );
           })
-          if(item._embedded["wp:featuredmedia"][0].source_url == undefined) {
-            console.log(item.title["rendered"])
+          let featured_img = ''
+          if(item._embedded["wp:featuredmedia"] == undefined) {
+            let featured_img = "assets/default_show.png";
+          } else {
+            let featured_img = item._embedded["wp:featuredmedia"][0].source_url
           }
           let postData = {
             title: HtmlEncode(item.title["rendered"]),
             excerpt: HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
-            featured_image: item._embedded["wp:featuredmedia"][0].source_url,
+            featured_image: featured_img,
             tags: tagList,
             tagIDs: item.tags
           }

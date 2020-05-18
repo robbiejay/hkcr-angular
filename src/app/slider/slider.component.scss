@@ -1,6 +1,6 @@
 .slider {
   width: 100%;
-  height: 240px;
+  height: calc(66.666vh - 48px);
   background-color: #555;
   position: relative;
   overflow-y: hidden;
@@ -58,13 +58,13 @@
   background-color: #000;
   font-family: "Josefin Sans";
   color: #fff;
-  height: 240px;
+  height: calc(66.666vh - 48px);
   max-width: 100vw;
 }
 
 .slide-copy h1 {
-  font-size: 2.109em;
-  padding-top: 24px;
+  font-size: 4.209em;
+  padding-top: 44px;
   margin-left: 24px;
   padding-right: 48px;
   font-family: 'Josefin Sans', sans-serif;
@@ -98,12 +98,19 @@
   width: 100%;
   max-width:100vw;
   height: 280px;
-
-
 }
 
 .slide-image img {
   width: 100%;
 
+}
+}
+@media (max-width: 540px) {
+.slider {
+  height: 420px;
+}
+
+.slide-image {
+  height: 180px;
 }
 }
