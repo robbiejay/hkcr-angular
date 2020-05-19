@@ -10,13 +10,13 @@
       <div class='row' style='margin-right: 0; margin-left: 0;'>
         <div class='col-12 col-md-7' style='padding: 0px;'>
           <div class='slide-image'>
-          <img src="assets/slider_1.jpg">
+          <img [src]="highlights[0].featured_image">
           </div>
         </div>
         <div class='col-12 col-md-5' style='padding: 0px;'>
           <div class='slide-copy'>
-          <h1>Donate to HKCR and support the station</h1>
-          <h2>Click here to see what we will do with your donation and our aims to use the funding raised</h2>
+          <h1>{{highlights[0].title}}</h1>
+          <h2>{{highlights[0].content}}</h2>
           </div>
         </div>
       </div>
@@ -26,13 +26,13 @@
       <div class='row' style='margin-right: 0; margin-left: 0;'>
         <div class='col-12 col-md-7' style='padding: 0px;'>
           <div class='slide-image'>
-          <img src="assets/slider_2.png">
+          <img [src]="highlights[1].featured_image">
           </div>
         </div>
         <div class='col-12 col-md-5' style='padding: 0px;'>
           <div class='slide-copy'>
-          <h1>Donate to HKCR and support the station</h1>
-          <h2>Click here to see what we will do with your donation and our aims to use the funding raised</h2>
+            <h1>{{highlights[1].title}}</h1>
+            <h2>{{highlights[1].content}}</h2>
           </div>
         </div>
       </div>
@@ -42,13 +42,13 @@
       <div class='row' style='margin-right: 0; margin-left: 0;'>
         <div class='col-12 col-md-7' style='padding: 0px;'>
           <div class='slide-image'>
-          <img src="assets/slider_3.png">
+          <img [src]="highlights[2].featured_image">
           </div>
         </div>
         <div class='col-12 col-md-5' style='padding: 0px;'>
           <div class='slide-copy'>
-          <h1>Donate to HKCR and support the station</h1>
-          <h2>Click here to see what we will do with your donation and our aims to use the funding raised</h2>
+            <h1>{{highlights[2].title}}</h1>
+            <h2>{{highlights[2].content}}</h2>
           </div>
         </div>
       </div>

@@ -2,13 +2,13 @@
   <h1>SCHEDULE</h1>
   <div class='container'>
   <ul>
-    <li (click)='toggleDay(0)'>MON</li>
-    <li (click)='toggleDay(1)'>TUE</li>
-    <li (click)='toggleDay(2)'>WED</li>
-    <li (click)='toggleDay(3)'>THU</li>
-    <li (click)='toggleDay(4)'>FRI</li>
-    <li (click)='toggleDay(5)'>SAT</li>
-    <li (click)='toggleDay(6)'>SUN</li>
+    <li (click)='toggleDay(0)' [class.active]='currentDay === 0'>MON</li>
+    <li (click)='toggleDay(1)' [class.active]='currentDay === 1'>TUE</li>
+    <li (click)='toggleDay(2)' [class.active]='currentDay === 2'>WED</li>
+    <li (click)='toggleDay(3)' [class.active]='currentDay === 3'>THU</li>
+    <li (click)='toggleDay(4)' [class.active]='currentDay === 4'>FRI</li>
+    <li (click)='toggleDay(5)' [class.active]='currentDay === 5'>SAT</li>
+    <li (click)='toggleDay(6)' [class.active]='currentDay === 6'>SUN</li>
   </ul>
   <div class='row' *ngIf='isLoading'>
     <div class='col-12' style='text-align: center;margin-top: 32px;'><img src='assets/loading.gif'>

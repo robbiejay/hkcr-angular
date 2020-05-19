@@ -47,4 +47,11 @@ export class PostsService {
       {responseType: 'json'}
     );
   }
+
+  getHighlights(): Observable<any> {
+    return this.http.get(
+      'http://hkcr.live/wp-json/wp/v2/posts?_embed&categories=164',
+      {responseType: 'json'}
+    );
+  }
 }

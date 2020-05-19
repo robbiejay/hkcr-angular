@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { PostsService } from '../_services/posts.service';
+import { HtmlEncode } from '../_helpers/helpers';
 
 @Component({
   selector: 'app-slider',
@@ -29,11 +31,31 @@ export class SliderComponent implements OnInit {
   sliderState = 'slide1';
   slideNumber: number;
   autoplayActive: boolean;
-  constructor() { }
+  highlights = [];
+  constructor(private postsService: PostsService) { }
 
   ngOnInit() {
     this.autoplayActive = true;
     setInterval(()=> { this.autoplay(this.autoplayActive) }, 8 * 1000);
+
+    this.postsService.getHighlights().subscribe(
+      data => {
+        console.log(data);
+        data.forEach((item, index) => {
+          // let highlightContent = HtmlEncode(item.content["rendered"].replace(/<[^>]*>/g, ''));
+          // console.log(highlightContent);
+          let sliderData = {
+            title: HtmlEncode(item.title["rendered"]),
+            excerpt: HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
+            content: HtmlEncode(item.content["rendered"].replace(/<[^>]*>/g, '')),
+            featured_image: item._embedded["wp:featuredmedia"][0].source_url
+          }
+          this.highlights.push(sliderData);
+        });
+        console.log(this.highlights);
+      }
+    )
+
   }
 
   nextSlide() {

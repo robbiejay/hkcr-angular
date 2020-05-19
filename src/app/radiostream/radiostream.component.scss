@@ -56,3 +56,52 @@
   float: left;
   margin-right: 4px;
 }
+
+.up-next {
+  padding-left: 24px;
+  display: inline-block;
+  float: left;
+  width: 320px;
+}
+
+.up-next h1 {
+font-size: 0.666em;
+background-color: #fff;
+color: #000;
+font-weight: 700;
+border-radius: 14px;
+padding: 2px 14px;
+text-align: center;
+display: inline-block;
+}
+
+.see-schedule {
+  display: inline-block;
+  float: right;
+  margin-top: 4px;
+}
+
+.video-stream {
+  display: inline-block;
+  float: right;
+  margin-top: 4px;
+}
+
+.see-schedule h1 {
+
+  color: #fff;
+  margin-right: 14px;
+  padding: 5px 14px;
+  border-radius: 4px;
+  font-size: 0.75em;
+  border: 1px solid #fff;
+}
+
+.video-stream h1 {
+  color: #fff;
+  margin-right: 14px;
+  padding: 5px 14px;
+  border-radius: 4px;
+    font-size: 0.75em;
+      border: 1px solid #fff;
+}

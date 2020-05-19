@@ -42,12 +42,21 @@ li {
   font-size: 0.75em;
   margin-top: 4px;
   color: #c0c0c0;
-  cursor: pointer;
   transition: 0.2s;
+  padding: 4px;
 
 }
 
-li:hover {
+li:not(.active) {
+    cursor: pointer;
+}
+
+.active {
+  background-color: #000;
+  color: #fff;
+}
+
+li:not(.active):hover {
   color: #000;
 }
 

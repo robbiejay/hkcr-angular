@@ -139,9 +139,9 @@ export class ShowsComponent implements OnInit {
                 })
                 let featured_img = ''
                 if(item._embedded["wp:featuredmedia"] == undefined) {
-                  let featured_img = "assets/default_show.png";
+                  featured_img = "assets/default_show.png";
                 } else {
-                  let featured_img = item._embedded["wp:featuredmedia"][0].source_url
+                  featured_img = item._embedded["wp:featuredmedia"][0].source_url
                 }
                 let postData = {
                   title: HtmlEncode(item.title["rendered"]),
@@ -186,12 +186,14 @@ export class ShowsComponent implements OnInit {
               }
             );
           })
+
           let featured_img = ''
           if(item._embedded["wp:featuredmedia"] == undefined) {
-            let featured_img = "assets/default_show.png";
+            featured_img = "assets/default_show.png";
           } else {
-            let featured_img = item._embedded["wp:featuredmedia"][0].source_url
+            featured_img = item._embedded["wp:featuredmedia"][0].source_url
           }
+          console.log(featured_img);
           let postData = {
             title: HtmlEncode(item.title["rendered"]),
             excerpt: HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
@@ -228,9 +230,9 @@ export class ShowsComponent implements OnInit {
           })
           let featured_img = ''
           if(item._embedded["wp:featuredmedia"] == undefined) {
-            let featured_img = "assets/default_show.png";
+            featured_img = "assets/default_show.png";
           } else {
-            let featured_img = item._embedded["wp:featuredmedia"][0].source_url
+            featured_img = item._embedded["wp:featuredmedia"][0].source_url
           }
           let postData = {
             title: HtmlEncode(item.title["rendered"]),

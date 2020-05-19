@@ -2,14 +2,29 @@
   <div class='row'>
     <i *ngIf='!radioActive' class="fas fa-play livestream-play-button" (click)='playRadio()'></i>
     <i *ngIf='radioActive' class="fas fa-pause livestream-play-button" (click)='pauseRadio()'></i>
-  <div style='float: left; display: inline-block; width: 240px;'>
+  <div *ngIf="this.playerService.nowPlaying == ''" style='float: left; display: inline-block; width: 320px; border-right: 1px solid #fff; height: 35px;'>
+    <img src="assets/radio-loading.gif">
+  </div>
+  <div *ngIf="this.playerService.nowPlaying !== ''" style='float: left; display: inline-block; width: 320px; border-right: 1px solid #fff; height: 35px;'>
   <h1><i style="color: #f00;margin-right: 7px;font-size:0.75em;" class="fas fa-circle"></i><span style="font-size: 0.5em;position:relative;top:-2px;">Live Now</span></h1>
-  <h2 *ngIf='!radioActive'>HKCR LIVE RADIO</h2>
+  <h2 *ngIf='!radioActive'>{{this.playerService.nowPlaying}}</h2>
   <div class='now-playing-icon-container'>
   <img *ngIf='radioActive' src='assets/now-playing.gif'>
   </div>
-  <h2 *ngIf='radioActive'>NOW PLAYING : A Spiritual Journey</h2>
+  <h2 *ngIf='radioActive'>NOW PLAYING : {{this.playerService.nowPlaying}}</h2>
   </div>
+  <div *ngIf="this.playerService.upNext !== ''" class='up-next' style='d-none md-block'>
+    <h1>UP NEXT</h1>
+    <h2>{{this.playerService.upNext}}</h2>
+  </div>
+  <div class='col'>
+  <div class='video-stream' style='d-none lg-block'>
+    <h1><i class="fas fa-tv"></i>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;WATCH LIVESTREAM NOW</h1>
+    </div>
+    <div class='see-schedule' style='d-none lg-block'>
+      <h1><i class="fas fa-calendar-week"></i>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;SEE SCHEDULE</h1>
+      </div>
+      </div>
   </div>
 </div>
 <div class='radiostream-container'>

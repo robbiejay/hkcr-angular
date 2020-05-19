@@ -18,7 +18,7 @@ export class RadiostreamComponent implements OnInit {
   radioActive: boolean;
   video: any;
 
-  constructor(private playerService: PlayerService) { }
+  constructor(public playerService: PlayerService) { }
   @ViewChild('video') videoElement: ElementRef;
 
 

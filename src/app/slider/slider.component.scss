@@ -63,7 +63,7 @@
 }
 
 .slide-copy h1 {
-  font-size: 4.209em;
+  font-size: 3.157em;
   padding-top: 44px;
   margin-left: 24px;
   padding-right: 48px;
@@ -76,6 +76,28 @@
   margin-left: 24px;
   line-height: 1.2em;
   padding-right: 48px;
+}
+
+@media (max-width: 1200px) {
+  .slider {
+    height: 380px;
+  }
+  .slide-image {
+    height: 380px;
+  }
+}
+
+@media (max-width: 992px) {
+  .slider {
+    height: 240px;
+  }
+  .slide-image {
+    height: 240px;
+  }
+
+  .slide-copy h1 {
+    font-size: 1.777em;
+  }
 }
 
 @media (max-width: 768px) {
@@ -104,11 +126,16 @@
   width: 100%;
 
 }
+.slide-copy h1 {
+  font-size: 2.109em;
+}
 }
 @media (max-width: 540px) {
 .slider {
   height: 420px;
 }
+
+
 
 .slide-image {
   height: 180px;

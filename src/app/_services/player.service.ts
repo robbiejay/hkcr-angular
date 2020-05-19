@@ -13,6 +13,8 @@ export class PlayerService {
   public show: string;
   public isPlayerVisible: boolean;
   public playerVisibilityChange: Subject<boolean> = new Subject<boolean>();
+  public nowPlaying = '';
+  public upNext = '';
   //public state = 'slidOut';
 
   constructor(private http: HttpClient) {
