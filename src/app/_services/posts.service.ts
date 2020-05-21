@@ -24,8 +24,6 @@ export class PostsService {
   }
 
   getShowsByTag(tagID, page): Observable<any> {
-    console.log('tagID from SortByTag() in posts.service : ' + tagID);
-    console.log('page from SortByTag() in posts.service : ' + page);
     let url = 'http://hkcr.live/wp-json/wp/v2/posts?_embed&categories=14&page=' + page + '&tags='+ tagID + '&per_page=9'
     return this.http.get(
       url,
@@ -51,6 +49,13 @@ export class PostsService {
   getHighlights(): Observable<any> {
     return this.http.get(
       'http://hkcr.live/wp-json/wp/v2/posts?_embed&categories=164',
+      {responseType: 'json'}
+    );
+  }
+
+  getLatestShow(): Observable<any> {
+    return this.http.get(
+      'http://hkcr.live/wp-json/wp/v2/posts?_embed&categories=14&per_page=1',
       {responseType: 'json'}
     );
   }

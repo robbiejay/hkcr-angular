@@ -17,6 +17,7 @@ import { SafePipe } from './_pipes/safe.pipe';
 import { ArchiveComponent } from './archive/archive.component';
 import { HomeComponent } from './home/home.component';
 import { RadiostreamComponent } from './radiostream/radiostream.component';
+import { GenresComponent } from './genres/genres.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { RadiostreamComponent } from './radiostream/radiostream.component';
     SafePipe,
     ArchiveComponent,
     HomeComponent,
-    RadiostreamComponent
+    RadiostreamComponent,
+    GenresComponent
   ],
   imports: [
     BrowserModule,

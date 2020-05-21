@@ -35,9 +35,7 @@ export class ShowsComponent implements OnInit {
   getShows() {
     this.postsService.getShows(this.showPage).subscribe(
       data => {
-        console.log(data);
         this.totalPages = data.headers.get('X-WP-TotalPages');
-        console.log(this.totalPages);
         this.isLoading = false;
         data.body.forEach(item => {
           let tagList = [];
@@ -63,7 +61,6 @@ export class ShowsComponent implements OnInit {
           }
           this.shows.push(postData);
         })
-      console.log(this.shows);
       }
     );
   }
@@ -71,15 +68,12 @@ export class ShowsComponent implements OnInit {
   prevShowPage() {
     if(this.showPage > 1){
       this.showPage--;
-      console.log(this.showPage);
       this.shows = [];
       this.isLoading = true;
       if(this.currentGenre !== '') {
         this.postsService.getShowsByTag(this.currentGenreID, this.showPage).subscribe(
               data => {
-                console.log(data);
                 this.totalPages = data.headers.get('X-WP-TotalPages');
-                console.log(this.totalPages);
                 this.isLoading = false;
                 data.body.forEach(item => {
                   let tagList = [];
@@ -105,7 +99,6 @@ export class ShowsComponent implements OnInit {
                   }
                   this.shows.push(postData);
                 })
-              console.log(this.shows);
               }
             );
       } else {
@@ -117,16 +110,12 @@ export class ShowsComponent implements OnInit {
   nextShowPage(){
   if(this.showPage < this.totalPages){
     this.showPage++;
-    console.log(this.showPage);
     this.shows = [];
     this.isLoading = true;
     if(this.currentGenre !== '') {
       this.postsService.getShowsByTag(this.currentGenreID, this.showPage).subscribe(
             data => {
-              console.log(data);
-              console.log(this.showPage);
               this.totalPages = data.headers.get('X-WP-TotalPages');
-              console.log(this.totalPages);
               this.isLoading = false;
               data.body.forEach(item => {
                 let tagList = [];
@@ -152,7 +141,6 @@ export class ShowsComponent implements OnInit {
                 }
                 this.shows.push(postData);
               })
-            console.log(this.shows);
             }
           );
     } else {
@@ -162,10 +150,6 @@ export class ShowsComponent implements OnInit {
   }
 
   sortByTag(tagID, index, showIndex) {
-    console.log(tagID);
-    console.log(index);
-    console.log()
-    console.log(this.shows[showIndex].tags[index])
     this.currentGenre = this.shows[showIndex].tags[index];
     this.currentGenreID = tagID;
       this.shows = [];
@@ -173,9 +157,7 @@ export class ShowsComponent implements OnInit {
     let page = 1;
     this.postsService.getShowsByTag(tagID, page).subscribe(
       data => {
-        console.log(data);
         this.totalPages = data.headers.get('X-WP-TotalPages');
-        console.log(this.totalPages);
         this.isLoading = false;
         data.body.forEach(item => {
           let tagList = [];
@@ -193,7 +175,6 @@ export class ShowsComponent implements OnInit {
           } else {
             featured_img = item._embedded["wp:featuredmedia"][0].source_url
           }
-          console.log(featured_img);
           let postData = {
             title: HtmlEncode(item.title["rendered"]),
             excerpt: HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
@@ -203,7 +184,6 @@ export class ShowsComponent implements OnInit {
           }
           this.shows.push(postData);
         })
-      console.log(this.shows);
       }
     );
   }
@@ -215,9 +195,7 @@ export class ShowsComponent implements OnInit {
     this.currentGenre = '';
     this.postsService.getShows(this.showPage).subscribe(
       data => {
-        console.log(data);
         this.totalPages = data.headers.get('X-WP-TotalPages');
-        console.log(this.totalPages);
         this.isLoading = false;
         data.body.forEach(item => {
           let tagList = [];
@@ -243,7 +221,6 @@ export class ShowsComponent implements OnInit {
           }
           this.shows.push(postData);
         })
-      console.log(this.shows);
       }
     );
   }

@@ -49,13 +49,9 @@ export class ScheduleComponent implements OnInit {
         this.isLoading = false;
         this.todayTimes.forEach((timeItem, timeIndex) => {
           let timeArr = timeItem.time.split('-');
-          console.log(timeArr);
           if((+this.currentTimeHK >= +timeArr[0]) && (+this.currentTimeHK <= +timeArr[1])) {
               this.playerService.nowPlaying = timeItem.content;
               this.playerService.upNext = this.todayTimes[timeIndex + 1].content;
-              console.log(timeItem.content);
-              console.log(timeIndex);
-              console.log(this.todayTimes[timeIndex + 1].content);
           }
         })
       }

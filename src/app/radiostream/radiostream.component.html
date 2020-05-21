@@ -1,7 +1,7 @@
 <div class='on-air'>
   <div class='row'>
-    <i *ngIf='!radioActive' class="fas fa-play livestream-play-button" (click)='playRadio()'></i>
-    <i *ngIf='radioActive' class="fas fa-pause livestream-play-button" (click)='pauseRadio()'></i>
+    <i *ngIf='!radioActive' class="fas fa-play livestream-play-button" (click)='playRadio($event)'></i>
+    <i *ngIf='radioActive' class="fas fa-pause livestream-play-button" (click)='pauseRadio($event)'></i>
   <div *ngIf="this.playerService.nowPlaying == ''" style='float: left; display: inline-block; width: 320px; border-right: 1px solid #fff; height: 35px;'>
     <img src="assets/radio-loading.gif">
   </div>

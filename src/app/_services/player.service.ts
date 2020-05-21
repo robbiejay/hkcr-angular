@@ -42,7 +42,6 @@ export class PlayerService {
 
     closePlayer() {
       this.playerVisibilityChange.next(false);
-      console.log(this.playerVisibilityChange);
     }
 
     checkStream(): Observable<any> {

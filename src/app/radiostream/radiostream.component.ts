@@ -31,6 +31,11 @@ export class RadiostreamComponent implements OnInit {
                   "preload": "auto",
                   "width": 0,
                   "controls": false,
+                  fullscreen: {
+                    options: {
+                      navigationUI: 'hide'
+                    }
+                  },
                   hls: {
                     withCredentials: true
                   },
@@ -53,13 +58,17 @@ export class RadiostreamComponent implements OnInit {
                   //video.play();
   }
 
-playRadio() {
+playRadio($event) {
+  $event.preventDefault();
   this.video.play();
+  this.video.exitFullscreen();
   this.radioActive = true;
 }
 
-pauseRadio() {
+pauseRadio($event) {
+  $event.preventDefault();
   this.video.pause();
+  this.video.exitFullscreen();
   this.radioActive = false;
 }
 }

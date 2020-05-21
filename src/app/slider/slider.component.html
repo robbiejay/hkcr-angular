@@ -3,8 +3,25 @@
     <p (click)='prevSlide()'><i class="fas fa-arrow-left"></i></p>
     <p (click)='nextSlide()'><i class="fas fa-arrow-right"></i></p>
   </div>
-
   <div class='slide-container' [@slide]='sliderState'>
+
+    <div class='slide listen-back-slide'(click)='listenToLatestShow(listenBack[0].excerpt)'>
+      <div class='row' style='margin-right: 0; margin-left: 0;'>
+        <div class='col-12 col-md-7' style='padding: 0px;'>
+          <div class='slide-image'>
+          <img [src]="listenBack[0].featured_image">
+          <i class="listen-back-icon fas fa-play"></i>
+          </div>
+        </div>
+        <div class='col-12 col-md-5' style='padding: 0px;'>
+          <div class='slide-copy'>
+          <h3>LISTEN BACK <i class="fas fa-headphones"></i></h3>
+          <h1>{{listenBack[0].title}}</h1>
+          <h2>{{listenBack[0].content}}</h2>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class='slide'>
       <div class='row' style='margin-right: 0; margin-left: 0;'>
