@@ -1,6 +1,5 @@
 .livestream-container {
 width: 100%;
-background-color: #444;
 
 }
 // @media (min-width: 960px) {
@@ -24,4 +23,23 @@ background-color: #444;
   margin-left: 50%;
   transform: translateX(-480px);
 }
+}
+
+h1 {
+  position: absolute;
+  font-size: 1.777em;
+  font-family: 'Orbitron';
+color: #ffdf00;
+  padding: 7px;
+  border-radius: 4px;
+margin-right: 35px;
+margin-top: 14px;
+right: 0px;
+opacity: 0.77;
+transition: 0.2s;
+cursor: pointer;
+}
+
+h1:hover {
+  opacity: 1;
 }

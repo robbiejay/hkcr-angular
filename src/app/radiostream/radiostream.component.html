@@ -19,7 +19,7 @@
   </div>
   <div class='col'>
   <div class='video-stream' style='d-none lg-block'>
-    <h1><i class="fas fa-tv"></i>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;WATCH LIVESTREAM NOW</h1>
+    <h1 (click)='activateLivestream()'><i class="fas fa-tv"></i>&nbsp;&nbsp;&nbsp;WATCH LIVESTREAM NOW</h1>
     </div>
     <div class='see-schedule' style='d-none lg-block'>
       <h1><i class="fas fa-calendar-week"></i>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;SEE SCHEDULE</h1>
@@ -32,7 +32,7 @@
        [width]="livestreamPlayerWidth" controls autoplay
        src="http://161.35.20.148/dash/test.mpd">
 </video> -->
-<video id="video_holder"  #video
+<video id="video_holder"  #radio
 class="video-js vjs-default-skin vjs-big-play-centered vjs-big-play-button" controls
 data-setup='{}'data-res="auto" ></video>
 </div>

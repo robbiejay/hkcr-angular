@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, OnInit, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { PlayerService } from '../_services/player.service';
 import videojs from 'video.js';
 // import 'hls.js';
@@ -14,12 +14,12 @@ import 'videojs-resolution-switcher';
   templateUrl: './radiostream.component.html',
   styleUrls: ['./radiostream.component.scss']
 })
-export class RadiostreamComponent implements OnInit {
+export class RadiostreamComponent implements OnInit, OnDestroy {
   radioActive: boolean;
-  video: any;
+  radio: any;
 
   constructor(public playerService: PlayerService) { }
-  @ViewChild('video') videoElement: ElementRef;
+  @ViewChild('radio') radioElement: ElementRef;
 
 
   ngOnInit() {
@@ -47,28 +47,45 @@ export class RadiostreamComponent implements OnInit {
                   }
                };
 
-                  this.video = videojs(this.videoElement.nativeElement, options);
 
-                  this.video.src([
+
+                  this.radio = videojs(this.radioElement.nativeElement, options);
+
+                  this.radio.src([
                     {
                       type: "application/x-mpegURL",
                       src: "http://161.35.20.148/audio/index.m3u8"
                       }
                   ]);
+                  this.radio.on('error', ((error) => {
+                    console.log(error);
+                    console.log(window);
+                  }))
+                  console.log(this.radio);
+                                    console.log(this.radio.Player);
+                       console.log(this.radioElement);
+                       console.log(this.radioElement.nativeElement.error.MediaError)
                   //video.play();
+  }
+
+  ngOnDestroy() {
+    this.radio.dispose();
   }
 
 playRadio($event) {
   $event.preventDefault();
-  this.video.play();
-  this.video.exitFullscreen();
+  this.radio.play();
   this.radioActive = true;
 }
 
 pauseRadio($event) {
   $event.preventDefault();
-  this.video.pause();
-  this.video.exitFullscreen();
+  this.radio.pause();
+  this.radio.exitFullscreen();
   this.radioActive = false;
+}
+
+activateLivestream() {
+  this.playerService.livestreamActive = true;
 }
 }

@@ -52,7 +52,7 @@ export class SliderComponent implements OnInit {
 
     this.postsService.getLatestShow().subscribe(
       data => {
-        console.log(data);
+
         data.forEach((item, index) => {
           // let highlightContent = HtmlEncode(item.content["rendered"].replace(/<[^>]*>/g, ''));
           // console.log(highlightContent);
@@ -64,13 +64,11 @@ export class SliderComponent implements OnInit {
           }
           this.listenBack.push(latestShowData);
         });
-        console.log(this.listenBack);
       }
     )
 
     this.postsService.getHighlights().subscribe(
       data => {
-        console.log(data);
         data.forEach((item, index) => {
           // let highlightContent = HtmlEncode(item.content["rendered"].replace(/<[^>]*>/g, ''));
           // console.log(highlightContent);
@@ -82,7 +80,6 @@ export class SliderComponent implements OnInit {
           }
           this.highlights.push(sliderData);
         });
-        console.log(this.highlights);
       }
     )
 

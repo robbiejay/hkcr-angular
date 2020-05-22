@@ -87,6 +87,16 @@ display: inline-block;
   margin-top: 4px;
 }
 
+.video-stream h1 {
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.video-stream h1:hover {
+  color: #ffdf00;
+  border: 1px solid #ffdf00;
+}
+
 .see-schedule h1 {
 
   color: #fff;

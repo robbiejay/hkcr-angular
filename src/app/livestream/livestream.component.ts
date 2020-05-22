@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, OnInit, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { PlayerService } from '../_services/player.service';
 import videojs from 'video.js';
 // import 'hls.js';
@@ -15,11 +15,12 @@ import 'videojs-resolution-switcher';
   templateUrl: './livestream.component.html',
   styleUrls: ['./livestream.component.scss']
 })
-export class LivestreamComponent implements OnInit {
+export class LivestreamComponent implements OnInit, OnDestroy {
 
 
   livestreamPlayerHeight = window.innerHeight;
   livestreamPlayerWidth = window.innerWidth;
+  video: any;
 
   constructor(private playerService: PlayerService) { }
   @ViewChild('video') videoElement: ElementRef;
@@ -55,16 +56,24 @@ export class LivestreamComponent implements OnInit {
                   }
                };
 
-                  const video = videojs(this.videoElement.nativeElement, options);
+                  this.video = videojs(this.videoElement.nativeElement, options);
 
-                  video.src([
+                  this.video.src([
                     {
                       type: "application/x-mpegURL",
                       src: "http://161.35.20.148/hls/test.m3u8"
                       }
                   ]);
-                  video.play();
-                  console.log(video.userActive());
-                  console.log(video.readyState());
+                  this.video.play();
+                  console.log(this.video.userActive());
+                  console.log(this.video.readyState());
+      }
+
+      ngOnDestroy() {
+        this.video.dispose();
+      }
+
+      deactivateLivestream() {
+        this.playerService.livestreamActive = false;
       }
 }
