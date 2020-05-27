@@ -9,6 +9,6 @@ import { PlayerService } from './_services/player.service';
 export class AppComponent {
   title = 'hkcr';
   livestreamActive = false;
-  constructor(private playerService: PlayerService) {  }
+  constructor(public playerService: PlayerService) {  }
 
 }

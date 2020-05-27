@@ -50,6 +50,8 @@ export class ScheduleComponent implements OnInit {
         this.todayTimes.forEach((timeItem, timeIndex) => {
           let timeArr = timeItem.time.split('-');
           if((+this.currentTimeHK >= +timeArr[0]) && (+this.currentTimeHK <= +timeArr[1])) {
+            console.log('This is the object for now playing');
+            console.log(timeItem);
               this.playerService.nowPlaying = timeItem.content;
               if(this.todayTimes.length !== 0 ) {
               this.playerService.upNext = this.todayTimes[timeIndex + 1].content;
