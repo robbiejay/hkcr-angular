@@ -18,6 +18,7 @@ import { ArchiveComponent } from './archive/archive.component';
 import { HomeComponent } from './home/home.component';
 import { RadiostreamComponent } from './radiostream/radiostream.component';
 import { GenresComponent } from './genres/genres.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { GenresComponent } from './genres/genres.component';
     ArchiveComponent,
     HomeComponent,
     RadiostreamComponent,
-    GenresComponent
+    GenresComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

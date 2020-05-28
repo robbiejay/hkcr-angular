@@ -50,7 +50,8 @@ export class ShowsComponent implements OnInit {
           if(item._embedded["wp:featuredmedia"] == undefined) {
             featured_img = "assets/default_show.png";
           } else {
-            featured_img = item._embedded["wp:featuredmedia"][0].source_url
+                        console.log(item._embedded);
+            featured_img = item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url;
           }
           let postData = {
             title: HtmlEncode(item.title["rendered"]),
@@ -88,7 +89,7 @@ export class ShowsComponent implements OnInit {
                   if(item._embedded["wp:featuredmedia"] == undefined) {
                     let featured_img = "assets/default_show.png";
                   } else {
-                    let featured_img = item._embedded["wp:featuredmedia"][0].source_url
+                    let featured_img = item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
                   }
                   let postData = {
                     title: HtmlEncode(item.title["rendered"]),
@@ -130,7 +131,7 @@ export class ShowsComponent implements OnInit {
                 if(item._embedded["wp:featuredmedia"] == undefined) {
                   featured_img = "assets/default_show.png";
                 } else {
-                  featured_img = item._embedded["wp:featuredmedia"][0].source_url
+                  featured_img = item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
                 }
                 let postData = {
                   title: HtmlEncode(item.title["rendered"]),
@@ -173,7 +174,7 @@ export class ShowsComponent implements OnInit {
           if(item._embedded["wp:featuredmedia"] == undefined) {
             featured_img = "assets/default_show.png";
           } else {
-            featured_img = item._embedded["wp:featuredmedia"][0].source_url
+            featured_img = item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
           }
           let postData = {
             title: HtmlEncode(item.title["rendered"]),
@@ -210,7 +211,7 @@ export class ShowsComponent implements OnInit {
           if(item._embedded["wp:featuredmedia"] == undefined) {
             featured_img = "assets/default_show.png";
           } else {
-            featured_img = item._embedded["wp:featuredmedia"][0].source_url
+            featured_img = item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
           }
           let postData = {
             title: HtmlEncode(item.title["rendered"]),

@@ -8,8 +8,8 @@
     <div class='slide listen-back-slide'(click)='listenToLatestShow(listenBack[0].excerpt)'>
       <div class='row' style='margin-right: 0; margin-left: 0;'>
         <div class='col-12 col-md-7' style='padding: 0px;'>
-          <div class='slide-image'>
-          <img *ngIf='listenBack[0] !== undefined' [src]="listenBack[0].featured_image">
+          <div class='slide-image listen-back-image-container'>
+          <img class='listen-back-image' *ngIf='listenBack[0] !== undefined' [src]="listenBack[0].featured_image">
           <i class="listen-back-icon fas fa-play"></i>
           </div>
         </div>
