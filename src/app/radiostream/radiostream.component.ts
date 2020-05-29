@@ -17,6 +17,7 @@ import 'videojs-resolution-switcher';
 export class RadiostreamComponent implements OnInit, OnDestroy {
   radioActive: boolean;
   radio: any;
+  errorActive: boolean;
 
   constructor(public playerService: PlayerService) { }
   @ViewChild('radio') radioElement: ElementRef;
@@ -58,13 +59,11 @@ export class RadiostreamComponent implements OnInit, OnDestroy {
                       }
                   ]);
                   this.radio.on('error', ((error) => {
-                    console.log(error);
-                    console.log(window);
+                    this.errorActive = true;
                   }))
-                  console.log(this.radio);
-                                    console.log(this.radio.Player);
-                       console.log(this.radioElement);
-                       console.log(this.radioElement.nativeElement.error.MediaError)
+                  // console.log(this.radio);
+                  // console.log(this.radio.Player);
+                  // console.log(this.radioElement);
                   //video.play();
   }
 
@@ -75,13 +74,13 @@ export class RadiostreamComponent implements OnInit, OnDestroy {
 playRadio($event) {
   $event.preventDefault();
   this.radio.play();
+  document.exitFullscreen();
   this.radioActive = true;
 }
 
 pauseRadio($event) {
   $event.preventDefault();
   this.radio.pause();
-  this.radio.exitFullscreen();
   this.radioActive = false;
 }
 

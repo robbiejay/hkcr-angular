@@ -16,7 +16,7 @@ export class PostsService {
   private showSubscription: Subscription;
 
   getShows(page): Observable<any> {
-    let url = 'http://hkcr.live/wp-json/wp/v2/posts?_embed&categories=14&page=' + page + '&per_page=6'
+    let url = 'http://hkcr.live/wp-json/wp/v2/posts?_embed&categories=14&page=' + page + '&per_page=9'
     return this.http.get(
       url,
       {observe: 'response'},

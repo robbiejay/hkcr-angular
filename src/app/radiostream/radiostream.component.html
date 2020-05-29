@@ -1,5 +1,9 @@
 <div class='on-air'>
-  <div class='row'>
+  <div class='row' *ngIf='errorActive'>
+    <h1 style='margin-left: 21px; margin-top: 7px;'><i class="fas fa-bed"></i> Stream Offline</h1>
+    <h2 style='margin-left: 21px; margin-top: 12px;font-weight: 100;' class='d-none d-sm-block'>The livestream is currently offline! Please check out our recent shows below</h2>
+  </div>
+  <div class='row' *ngIf='!errorActive'>
     <div class='col-12 col-lg-6'>
     <i *ngIf='!radioActive' class="fas fa-play livestream-play-button" (click)='playRadio($event)'></i>
     <i *ngIf='radioActive' class="fas fa-pause livestream-play-button" (click)='pauseRadio($event)'></i>
@@ -12,7 +16,7 @@
   <div class='now-playing-icon-container'>
   <img *ngIf='radioActive' src='assets/now-playing.gif'>
   </div>
-  <h2 *ngIf='radioActive'>NOW PLAYING : {{this.playerService.nowPlaying}}</h2>
+  <h2 *ngIf='radioActive'>{{this.playerService.nowPlaying}}</h2>
   </div>
   <div *ngIf="this.playerService.upNext !== ''" class='up-next' style='d-none md-block'>
     <h1>UP NEXT</h1>

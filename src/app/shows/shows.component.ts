@@ -40,9 +40,13 @@ export class ShowsComponent implements OnInit {
         data.body.forEach(item => {
           let tagList = [];
           item.tags.forEach(tag => {
+            tagList.push('');
+          })
+          item.tags.forEach((tag, index) => {
             this.postsService.getTag(tag).subscribe(
               tagData => {
-                tagList.push(tagData.name);
+                tagList[index] = HtmlEncode(tagData.name);
+            //    tagList.push(tagData.name);
               }
             );
           })
@@ -50,7 +54,7 @@ export class ShowsComponent implements OnInit {
           if(item._embedded["wp:featuredmedia"] == undefined) {
             featured_img = "assets/default_show.png";
           } else {
-                        console.log(item._embedded);
+                        // console.log(item._embedded);
             featured_img = item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url;
           }
           let postData = {
@@ -66,6 +70,9 @@ export class ShowsComponent implements OnInit {
     );
   }
 
+  getShowsByFunction() {
+  }
+
   prevShowPage() {
     if(this.showPage > 1){
       this.showPage--;
@@ -79,9 +86,12 @@ export class ShowsComponent implements OnInit {
                 data.body.forEach(item => {
                   let tagList = [];
                   item.tags.forEach(tag => {
+                    tagList.push('');
+                  })
+                  item.tags.forEach((tag, index) => {
                     this.postsService.getTag(tag).subscribe(
                       tagData => {
-                        tagList.push(tagData.name);
+                        tagList[index] = HtmlEncode(tagData.name);
                       }
                     );
                   })
@@ -121,9 +131,12 @@ export class ShowsComponent implements OnInit {
               data.body.forEach(item => {
                 let tagList = [];
                 item.tags.forEach(tag => {
+                  tagList.push('');
+                })
+                item.tags.forEach((tag, index) => {
                   this.postsService.getTag(tag).subscribe(
                     tagData => {
-                      tagList.push(tagData.name);
+                    tagList[index] = HtmlEncode(tagData.name);
                     }
                   );
                 })
@@ -152,6 +165,9 @@ export class ShowsComponent implements OnInit {
 
   sortByTag(tagID, index, showIndex) {
     this.currentGenre = this.shows[showIndex].tags[index];
+    console.log(tagID);
+    console.log(index);
+    console.log(showIndex);
     this.currentGenreID = tagID;
       this.shows = [];
     this.isLoading = true;
@@ -163,9 +179,12 @@ export class ShowsComponent implements OnInit {
         data.body.forEach(item => {
           let tagList = [];
           item.tags.forEach(tag => {
+            tagList.push('');
+          })
+          item.tags.forEach((tag, index) => {
             this.postsService.getTag(tag).subscribe(
               tagData => {
-                tagList.push(tagData.name);
+              tagList[index] = HtmlEncode(tagData.name);
               }
             );
           })
@@ -201,9 +220,12 @@ export class ShowsComponent implements OnInit {
         data.body.forEach(item => {
           let tagList = [];
           item.tags.forEach(tag => {
+            tagList.push('');
+          })
+          item.tags.forEach((tag, index) => {
             this.postsService.getTag(tag).subscribe(
               tagData => {
-                tagList.push(tagData.name);
+              tagList[index] = HtmlEncode(tagData.name);
               }
             );
           })

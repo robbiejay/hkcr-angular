@@ -22,18 +22,7 @@ import { HtmlEncode } from '../_helpers/helpers';
       state('slide4', style({
         'left':'-300vw'
       })),
-      transition('slide1 => slide2', animate(500)),
-      transition('slide1 => slide3', animate(500)),
-      transition('slide1 => slide4', animate(500)),
-      transition('slide2 => slide1', animate(500)),
-      transition('slide2 => slide3', animate(500)),
-      transition('slide2 => slide4', animate(500)),
-      transition('slide3 => slide1', animate(500)),
-      transition('slide3 => slide2', animate(500)),
-      transition('slide3 => slide4', animate(500)),
-      transition('slide4 => slide1', animate(500)),
-      transition('slide4 => slide2', animate(500)),
-      transition('slide4 => slide3', animate(500)),
+      transition('* => *', animate(500)),
     ])
   ]
 })
@@ -48,14 +37,11 @@ export class SliderComponent implements OnInit {
 
   ngOnInit() {
     this.autoplayActive = true;
-    setInterval(()=> { this.autoplay(this.autoplayActive) }, 8 * 1000);
+    setInterval(()=> { this.autoplay(this.autoplayActive) }, 12 * 1000);
 
     this.postsService.getLatestShow().subscribe(
       data => {
-
         data.forEach((item, index) => {
-          // let highlightContent = HtmlEncode(item.content["rendered"].replace(/<[^>]*>/g, ''));
-          // console.log(highlightContent);
           let latestShowData = {
             title: HtmlEncode(item.title["rendered"]),
             excerpt: HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
@@ -70,8 +56,6 @@ export class SliderComponent implements OnInit {
     this.postsService.getHighlights().subscribe(
       data => {
         data.forEach((item, index) => {
-          // let highlightContent = HtmlEncode(item.content["rendered"].replace(/<[^>]*>/g, ''));
-          // console.log(highlightContent);
           let sliderData = {
             title: HtmlEncode(item.title["rendered"]),
             excerpt: HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
@@ -82,7 +66,6 @@ export class SliderComponent implements OnInit {
         });
       }
     )
-
   }
 
   nextSlide() {

@@ -1,3 +1,20 @@
+@mixin theme-color {
+  color: #ffdf00;
+}
+
+@mixin black-bg {
+  color: #000;
+}
+
+@mixin primary-font {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+
+$primary-color: #ffdf00;
+$secondary-color: #000;
+$tertiary-color: #ffdf00;
+
 
 .stream-container {
   background-color: #000;

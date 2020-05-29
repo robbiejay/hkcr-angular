@@ -36,17 +36,9 @@ function update_post_cache_file() {
  $_wfs_cache = [];
  foreach($posts as $post){
    $_wfs_cache[$post->ID]= array(
-     'name' => $product->post_title,
-     'desc' =>  $product->post_content,
-     'date' => strtotime($product->post_modified),
-     'sku' => $product->meta['_sku'],
-     'price' => $product->meta['_price'],
-     'sale_price' => $product->meta['_sale_price'],
-     'stock' => $product->meta['_stock'],
-     'rating' => $product->meta['_wc_average_rating'],
-     'upsell' => $product->meta['_upsell_ids'],
-     'crosssell' => $product->meta['_crosssell_ids'],
-     'sales' => $product->meta['total_sales'],
+     'title' => $post->post_title,
+     'content' =>  $product->post_content,
+     'date' => strtotime($post->post_modified),
    );
   }
   file_put_contents(plugin_dir_path( __FILE__ ) .
