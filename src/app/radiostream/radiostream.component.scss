@@ -23,6 +23,16 @@ background-color: #000;
 
 }
 
+.fa-circle {
+animation: live 1s infinite;
+}
+
+@keyframes live {
+  0% {opacity: 1;}
+  50% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
 .livestream-play-button {
   position: relative;
   color: #fff;
@@ -128,6 +138,13 @@ border: 1px solid #fff;
     overflow-y: hidden;
     height: 48px;
     margin-top: 7px;
+}
+
+.livestream-play-button {
+
+  width: 36px;
+  margin-left: 11px;
+
 }
 
 .see-schedule {

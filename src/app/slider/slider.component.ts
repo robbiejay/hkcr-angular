@@ -41,20 +41,20 @@ export class SliderComponent implements OnInit {
 
     this.postsService.getLatestShow().subscribe(
       data => {
-        data.forEach((item, index) => {
+
           let latestShowData = {
-            title: HtmlEncode(item.title["rendered"]),
-            excerpt: HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
-            content: HtmlEncode(item.content["rendered"].replace(/<[^>]*>/g, '')),
-            featured_image: item._embedded["wp:featuredmedia"][0].source_url
+            title: HtmlEncode(data[0].title),
+            excerpt: HtmlEncode(data[0].excerpt),
+            content: HtmlEncode(data[0].content),
+            featured_image: data[0].image_thumbnail
           }
           this.listenBack.push(latestShowData);
-        });
       }
     )
 
     this.postsService.getHighlights().subscribe(
       data => {
+        console.log(data);
         data.forEach((item, index) => {
           let sliderData = {
             title: HtmlEncode(item.title["rendered"]),

@@ -32,11 +32,6 @@ export class RadiostreamComponent implements OnInit, OnDestroy {
                   "preload": "auto",
                   "width": 0,
                   "controls": false,
-                  fullscreen: {
-                    options: {
-                      navigationUI: 'hide'
-                    }
-                  },
                   hls: {
                     withCredentials: true
                   },
@@ -55,7 +50,7 @@ export class RadiostreamComponent implements OnInit, OnDestroy {
                   this.radio.src([
                     {
                       type: "application/x-mpegURL",
-                      src: "http://161.35.20.148/audio/index.m3u8"
+                      src: "https://161.35.20.148/audio/index.m3u8"
                       }
                   ]);
                   this.radio.on('error', ((error) => {
@@ -74,7 +69,6 @@ export class RadiostreamComponent implements OnInit, OnDestroy {
 playRadio($event) {
   $event.preventDefault();
   this.radio.play();
-  document.exitFullscreen();
   this.radioActive = true;
 }
 

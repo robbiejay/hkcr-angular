@@ -77,7 +77,7 @@ export class PlayerService {
     }
 
     checkStream(): Observable<any> {
-      let url = 'http://161.35.20.148/hls/test.m3u8';
+      let url = 'https://161.35.20.148/hls/test.m3u8';
       return this.http.get(
         url,
         {responseType: 'text',

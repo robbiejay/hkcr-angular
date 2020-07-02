@@ -25,6 +25,7 @@ export class ShowsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.totalPages = 46;
     this.getShows()
   }
 
@@ -32,46 +33,23 @@ export class ShowsComponent implements OnInit {
     this.playerService.playShow(show);
   }
 
+
   getShows() {
+    this.isLoading = true;
     this.postsService.getShows(this.showPage).subscribe(
       data => {
-        this.totalPages = data.headers.get('X-WP-TotalPages');
         this.isLoading = false;
-        data.body.forEach(item => {
-          let tagList = [];
-          item.tags.forEach(tag => {
-            tagList.push('');
-          })
-          item.tags.forEach((tag, index) => {
-            this.postsService.getTag(tag).subscribe(
-              tagData => {
-                tagList[index] = HtmlEncode(tagData.name);
-            //    tagList.push(tagData.name);
-              }
-            );
-          })
-          let featured_img = ''
-          if(item._embedded["wp:featuredmedia"] == undefined) {
-            featured_img = "assets/default_show.png";
-          } else {
-                        // console.log(item._embedded);
-            featured_img = item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url;
+        data.body.forEach(show => {
+          let showData = {
+            title: HtmlEncode(show.title),
+            excerpt: HtmlEncode(show.excerpt),
+            featured_image: show.image_thumbnail,
+            tags: show.tags,
           }
-          let postData = {
-            title: HtmlEncode(item.title["rendered"]),
-            excerpt: HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
-            featured_image: featured_img,
-            tags: tagList,
-            tagIDs: item.tags
-          }
-          this.shows.push(postData);
+          this.shows.push(showData);
         })
-      }
-    );
-  }
-
-  getShowsByFunction() {
-  }
+        })
+    }
 
   prevShowPage() {
     if(this.showPage > 1){
@@ -79,34 +57,15 @@ export class ShowsComponent implements OnInit {
       this.shows = [];
       this.isLoading = true;
       if(this.currentGenre !== '') {
-        this.postsService.getShowsByTag(this.currentGenreID, this.showPage).subscribe(
+        this.postsService.getShowsByTag(this.currentGenre.replace(/ /g, "_").toLowerCase(), this.showPage).subscribe(
               data => {
-                this.totalPages = data.headers.get('X-WP-TotalPages');
                 this.isLoading = false;
                 data.body.forEach(item => {
-                  let tagList = [];
-                  item.tags.forEach(tag => {
-                    tagList.push('');
-                  })
-                  item.tags.forEach((tag, index) => {
-                    this.postsService.getTag(tag).subscribe(
-                      tagData => {
-                        tagList[index] = HtmlEncode(tagData.name);
-                      }
-                    );
-                  })
-                  let featured_img = ''
-                  if(item._embedded["wp:featuredmedia"] == undefined) {
-                    let featured_img = "assets/default_show.png";
-                  } else {
-                    let featured_img = item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
-                  }
                   let postData = {
-                    title: HtmlEncode(item.title["rendered"]),
-                    excerpt: HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
-                    featured_image: featured_img,
-                    tags: tagList,
-                    tagIDs: item.tags
+                    title: HtmlEncode(item.title),
+                    excerpt: HtmlEncode(item.excerpt),
+                    featured_image: item.image_thumbnail,
+                    tags: item.tags,
                   }
                   this.shows.push(postData);
                 })
@@ -124,34 +83,15 @@ export class ShowsComponent implements OnInit {
     this.shows = [];
     this.isLoading = true;
     if(this.currentGenre !== '') {
-      this.postsService.getShowsByTag(this.currentGenreID, this.showPage).subscribe(
+      this.postsService.getShowsByTag(this.currentGenre.replace(/ /g, "_").toLowerCase(), this.showPage).subscribe(
             data => {
-              this.totalPages = data.headers.get('X-WP-TotalPages');
               this.isLoading = false;
               data.body.forEach(item => {
-                let tagList = [];
-                item.tags.forEach(tag => {
-                  tagList.push('');
-                })
-                item.tags.forEach((tag, index) => {
-                  this.postsService.getTag(tag).subscribe(
-                    tagData => {
-                    tagList[index] = HtmlEncode(tagData.name);
-                    }
-                  );
-                })
-                let featured_img = ''
-                if(item._embedded["wp:featuredmedia"] == undefined) {
-                  featured_img = "assets/default_show.png";
-                } else {
-                  featured_img = item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
-                }
                 let postData = {
-                  title: HtmlEncode(item.title["rendered"]),
-                  excerpt: HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
-                  featured_image: featured_img,
-                  tags: tagList,
-                  tagIDs: item.tags
+                  title: HtmlEncode(item.title),
+                  excerpt: HtmlEncode(item.excerpt),
+                  featured_image: item.image_thumbnail,
+                  tags: item.tags
                 }
                 this.shows.push(postData);
               })
@@ -163,89 +103,32 @@ export class ShowsComponent implements OnInit {
   }
   }
 
-  sortByTag(tagID, index, showIndex) {
-    this.currentGenre = this.shows[showIndex].tags[index];
-    console.log(tagID);
-    console.log(index);
-    console.log(showIndex);
-    this.currentGenreID = tagID;
-      this.shows = [];
+  sortByTag(tag) {
+    this.currentGenre = tag;
+    this.shows = [];
     this.isLoading = true;
     let page = 1;
-    this.postsService.getShowsByTag(tagID, page).subscribe(
+    this.postsService.getShowsByTag(this.currentGenre.replace(/ /g, "_").toLowerCase(), page).subscribe(
       data => {
-        this.totalPages = data.headers.get('X-WP-TotalPages');
         this.isLoading = false;
         data.body.forEach(item => {
-          let tagList = [];
-          item.tags.forEach(tag => {
-            tagList.push('');
-          })
-          item.tags.forEach((tag, index) => {
-            this.postsService.getTag(tag).subscribe(
-              tagData => {
-              tagList[index] = HtmlEncode(tagData.name);
-              }
-            );
-          })
-
-          let featured_img = ''
-          if(item._embedded["wp:featuredmedia"] == undefined) {
-            featured_img = "assets/default_show.png";
-          } else {
-            featured_img = item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
-          }
           let postData = {
-            title: HtmlEncode(item.title["rendered"]),
-            excerpt: HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
-            featured_image: featured_img,
-            tags: tagList,
-            tagIDs: item.tags
+            title: HtmlEncode(item.title),
+            excerpt: HtmlEncode(item.excerpt),
+            featured_image: item.image_thumbnail,
+            tags: item.tags
           }
           this.shows.push(postData);
         })
+        })
       }
-    );
-  }
 
   closeGenre() {
     this.shows = [];
     this.isLoading = true;
     this.showPage = 1;
     this.currentGenre = '';
-    this.postsService.getShows(this.showPage).subscribe(
-      data => {
-        this.totalPages = data.headers.get('X-WP-TotalPages');
-        this.isLoading = false;
-        data.body.forEach(item => {
-          let tagList = [];
-          item.tags.forEach(tag => {
-            tagList.push('');
-          })
-          item.tags.forEach((tag, index) => {
-            this.postsService.getTag(tag).subscribe(
-              tagData => {
-              tagList[index] = HtmlEncode(tagData.name);
-              }
-            );
-          })
-          let featured_img = ''
-          if(item._embedded["wp:featuredmedia"] == undefined) {
-            featured_img = "assets/default_show.png";
-          } else {
-            featured_img = item._embedded["wp:featuredmedia"][0].media_details.sizes.thumbnail.source_url
-          }
-          let postData = {
-            title: HtmlEncode(item.title["rendered"]),
-            excerpt: HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
-            featured_image: featured_img,
-            tags: tagList,
-            tagIDs: item.tags
-          }
-          this.shows.push(postData);
-        })
-      }
-    );
+    this.getShows();
   }
 
 }

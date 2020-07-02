@@ -26,16 +26,38 @@
 .listen-back-icon {
   color: #ffdf00;
   position: absolute;
-  font-size: 4.209em;
-  left: 33%;
+  font-size: 70px;
   top: 180px;
-  left: 48%;
+  left: calc(50% - 25px);
   opacity: 0;
   transition: 0.2s;
 }
 
 .listen-back-slide {
-  background: #BEE6CE;
+background: #45484d; /* Old browsers */
+background: -moz-linear-gradient(top,  #45484d 0%, #000000 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #45484d 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+.listen-back-bg {
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  top: -12.5%;
+  left: -12.5%;
+
+
+}
+
+.listen-back-bg img {
+    box-shadow: inset 0px 0px 10px #BEE6CE;
+
+  filter: hue-rotate(180deg);
+  width: 110%;
+  filter:invert(100%);
+
 }
 
 .listen-back-slide .listen-back-image-container img {
@@ -45,8 +67,8 @@ margin-top: 93px;
 width: 240px;
 height: 240px;
 border-radius: 14px;
-box-shadow:  20px 20px 60px #a2c4af,
-             -20px -20px 60px #dbffed;
+box-shadow:  5px 5px 15px #fff,
+             -5px -5px 15px #fff;
 }
 
 .listen-back-slide:hover > .row > .col-12 > .slide-image > .listen-back-icon { opacity: 1 !important; }
@@ -158,13 +180,46 @@ box-shadow:  20px 20px 60px #a2c4af,
   .slide-copy h1 {
     font-size: 1.777em;
   }
+
+  .listen-back-slide .listen-back-image-container img {
+  margin-top: 42px;
+  width: 180px;
+  height: 180px;
+  transform: translateX(-90px);
+  }
+
+  .listen-back-bg {
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    top: -33.333%;
+    left: -12.5%;
+}
 }
 
 @media (max-width: 768px) {
 
     .listen-back-slide .listen-back-image-container img {
-  margin-top: 14px;
+  margin-top: 42px;
   }
+
+  .listen-back-bg {
+    z-index: 0;
+    position: absolute;
+    width: 100%;
+    top: -50%;
+    left: -12.5%;
+    height: 125%;
+}
+
+.listen-back-bg img {
+  height: 300%;
+}
+
+.listen-back-slide h1 {
+  color: #000;
+}
+
 
   .slider {
     width: 100%;

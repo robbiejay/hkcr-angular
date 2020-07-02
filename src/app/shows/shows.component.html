@@ -39,7 +39,7 @@
     <div class='show-copy'>
       <h2  (click)='listenShow(show.excerpt)'>{{show.title}}</h2>
       <ul>
-        <li *ngFor='let tag of show.tags; let i = index;' (click)='sortByTag(show.tagIDs[i], i, x)'>{{tag}}</li>
+        <li *ngFor='let tag of show.tags; let i = index;' (click)='sortByTag(tag)'>{{tag}}</li>
       </ul>
     </div>
     </div>

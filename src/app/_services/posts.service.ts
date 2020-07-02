@@ -15,8 +15,16 @@ export class PostsService {
   private shows = [];
   private showSubscription: Subscription;
 
+  // getShowsbyPage(page): Observable<any> {
+  //   let url = 'http://161.35.20.148/wp_api/data/shows/shows_1.json';
+  //   return this.http.get(
+  //     url,
+  //     {observe: 'response'}
+  //   )
+  // }
+
   getShows(page): Observable<any> {
-    let url = 'http://hkcr.live/wp-json/wp/v2/posts?_embed&categories=14&page=' + page + '&per_page=9'
+    let url = 'https://161.35.20.148/wp_api/data/shows/shows_' + page + '.json';
     return this.http.get(
       url,
       {observe: 'response'},
@@ -24,7 +32,7 @@ export class PostsService {
   }
 
   getShowsByTag(tagID, page): Observable<any> {
-    let url = 'http://hkcr.live/wp-json/wp/v2/posts?_embed&categories=14&page=' + page + '&tags='+ tagID + '&per_page=9'
+    let url = 'https://161.35.20.148/wp_api/data/shows/genres/' + tagID + '_'+ page + '.json'
     return this.http.get(
       url,
       {observe: 'response'},
@@ -32,7 +40,7 @@ export class PostsService {
   }
 
   getTag(tag): Observable<any> {
-    let url = 'http://hkcr.live/wp-json/wp/v2/tags/' + tag;
+    let url = 'https://hkcr.live/wp-json/wp/v2/tags/' + tag;
     return this.http.get(
       url,
       {responseType: 'json'}
@@ -41,21 +49,21 @@ export class PostsService {
 
   getSchedule(): Observable<any> {
     return this.http.get(
-      'http://hkcr.live/wp-json/wp/v2/posts?_embed&categories=15',
+      'https://161.35.20.148/wp_api/data/schedule/schedule.json',
       {responseType: 'json'}
     );
   }
 
   getHighlights(): Observable<any> {
     return this.http.get(
-      'http://hkcr.live/wp-json/wp/v2/posts?_embed&categories=164',
+      'https://161.35.20.148/wp_api/data/highlights/highlight_reel.json',
       {responseType: 'json'}
     );
   }
 
   getLatestShow(): Observable<any> {
     return this.http.get(
-      'http://hkcr.live/wp-json/wp/v2/posts?_embed&categories=14&per_page=1',
+      'https://161.35.20.148/wp_api/data/shows/shows_1.json',
       {responseType: 'json'}
     );
   }
