@@ -25,7 +25,6 @@ export class ShowsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.totalPages = 46;
     this.getShows()
   }
 
@@ -36,6 +35,11 @@ export class ShowsComponent implements OnInit {
 
   getShows() {
     this.isLoading = true;
+    this.postsService.getTotalPages().subscribe(
+      data => {
+        this.totalPages = data.body;
+      }
+    )
     this.postsService.getShows(this.showPage).subscribe(
       data => {
         this.isLoading = false;
@@ -108,6 +112,12 @@ export class ShowsComponent implements OnInit {
     this.shows = [];
     this.isLoading = true;
     let page = 1;
+    this.postsService.getTagTotalPages(this.currentGenre.replace(/ /g, "_").toLowerCase()).subscribe(
+      data => {
+        console.log('genre total pages is' + data.body);
+        this.totalPages = data.body;
+      }
+    )
     this.postsService.getShowsByTag(this.currentGenre.replace(/ /g, "_").toLowerCase(), page).subscribe(
       data => {
         this.isLoading = false;

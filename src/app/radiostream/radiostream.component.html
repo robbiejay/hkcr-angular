@@ -4,13 +4,16 @@
     <h2 style='margin-left: 21px; margin-top: 12px;font-weight: 100;' class='d-none d-sm-block'>The livestream is currently offline! Please check out our recent shows below</h2>
   </div>
   <div class='row' *ngIf='!errorActive'>
-    <div class='col-12 col-lg-6'>
+      <div class='video-stream' style='d-none lg-block'>
+        <h1 (click)='activateLivestream()'><i class="fas fa-tv"></i><span>TV</span></h1>
+        </div>
+
     <i *ngIf='!radioActive' class="fas fa-play livestream-play-button" (click)='playRadio($event)'></i>
     <i *ngIf='radioActive' class="fas fa-pause livestream-play-button" (click)='pauseRadio($event)'></i>
-  <div *ngIf="this.playerService.nowPlaying == ''" style='float: left; display: inline-block; padding-right: 21px; border-right: 1px solid #fff; height: 35px;'>
+  <div *ngIf="this.playerService.nowPlaying == ''" style='float: left; display: inline-block; padding-right: 21px; border-right: 1px solid #fff;'>
     <img src="assets/radio-loading.gif">
   </div>
-  <div *ngIf="this.playerService.nowPlaying !== ''" style='float: left;width:80%; display: inline-block; padding-right: 21px; height: 35px;'>
+  <div *ngIf="this.playerService.nowPlaying !== ''" style='float: left;display: inline-block; padding-right: 21px; height: 35px;'>
   <h1><i style="color: #f00;margin-right: 7px;font-size:0.75em;" class="fas fa-circle"></i><span style="font-size: 0.5em;position:relative;top:-2px;">Live Now</span></h1>
   <h2 *ngIf='!radioActive'>{{this.playerService.nowPlaying}}</h2>
   <div class='now-playing-icon-container'>
@@ -22,16 +25,6 @@
     <h1>UP NEXT</h1>
     <h2>{{this.playerService.upNext}}</h2>
   </div> -->
-  </div>
-  <div class='col-12 col-lg-6 radiostream-buttons-container'>
-  <div class='video-stream' style='d-none lg-block'>
-    <h1 (click)='activateLivestream()'><i class="fas fa-tv"></i>&nbsp;&nbsp;&nbsp;WATCH LIVESTREAM</h1>
-    </div>
-    <!-- <div class='see-schedule' style='d-none lg-block'>
-      <h1><i class="fas fa-calendar-week"></i>&nbsp;&nbsp;&nbsp;SCHEDULE</h1>
-      </div> -->
-
-  </div>
   </div>
 </div>
 <div class='radiostream-container'>

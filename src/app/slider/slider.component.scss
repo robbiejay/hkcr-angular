@@ -1,7 +1,7 @@
 .slider {
   width: 100%;
   height: calc(66.666vh - 48px);
-  background-color: #555;
+  background-color: #000;
   position: relative;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -34,19 +34,19 @@
 }
 
 .listen-back-slide {
-background: #45484d; /* Old browsers */
-background: -moz-linear-gradient(top,  #45484d 0%, #000000 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #45484d 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+background: #ffdf00;
+}
+
+.listen-back-slide h1 {
+  color: #fff;
 }
 
 .listen-back-bg {
   z-index: 0;
   position: absolute;
   width: 100%;
-  top: -12.5%;
-  left: -12.5%;
+  top: -25%;
+  left: -10%;
 
 
 }
@@ -58,6 +58,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', end
   width: 110%;
   filter:invert(100%);
 
+}
+
+.listen-back-slide .listen-back-image-container {
+  display: block;
 }
 
 .listen-back-slide .listen-back-image-container img {
@@ -85,6 +89,8 @@ box-shadow:  5px 5px 15px #fff,
   width: 50px;
   padding: 4px;
   color: #ffdf00;
+  -webkit-text-stroke-width: 2px;
+-webkit-text-stroke-color: #fff;
 }
 
 .slide {
@@ -106,11 +112,17 @@ box-shadow:  5px 5px 15px #fff,
 .slide-image {
   width: 100%;
   max-width:100vw;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
 
 }
 
 .slide-image img {
   width: 100%;
+  display: block;
+  margin: auto;
+  vertical-align: middle;
 }
 
 .slide-copy {
@@ -166,7 +178,6 @@ box-shadow:  5px 5px 15px #fff,
 @media (max-width: 992px) {
   .slider {
     height: 240px;
-    margin-top: 48px;
   }
 
   .listen-back-icon {
@@ -220,6 +231,15 @@ box-shadow:  5px 5px 15px #fff,
   color: #000;
 }
 
+.listen-back-slide .slide-copy {
+  background: none;
+}
+
+.slide-copy h3 {
+      margin-left: 28px;
+      background-color: #000;
+      margin-top: 0px;
+}
 
   .slider {
     width: 100%;

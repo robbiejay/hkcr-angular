@@ -31,8 +31,24 @@ export class PostsService {
     );
   }
 
+  getTotalPages(): Observable<any> {
+    let url = 'https://161.35.20.148/wp_api/data/shows/total_pages.json';
+    return this.http.get(
+      url,
+      {observe: 'response'},
+    );
+  }
+
   getShowsByTag(tagID, page): Observable<any> {
     let url = 'https://161.35.20.148/wp_api/data/shows/genres/' + tagID + '_'+ page + '.json'
+    return this.http.get(
+      url,
+      {observe: 'response'},
+    );
+  }
+
+  getTagTotalPages(tagID): Observable<any> {
+    let url = 'https://161.35.20.148/wp_api/data/shows/genres/_totals/' + tagID + '.json'
     return this.http.get(
       url,
       {observe: 'response'},

@@ -1,7 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-header></app-header>
 <div class='stream-container'>
-<app-radiostream *ngIf='this.playerService.livestreamActive == false'></app-radiostream>
 <app-livestream *ngIf='this.playerService.livestreamActive == true'></app-livestream>
 </div>
 

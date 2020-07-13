@@ -8,9 +8,9 @@
     <div class='slide listen-back-slide'(click)='listenToLatestShow(listenBack[0].excerpt)'>
       <div class='row' style='margin-right: 0; margin-left: 0;'>
         <div class='col-12 col-md-7' style='padding: 0px;'>
-          <div class='listen-back-bg'>
+          <!-- <div class='listen-back-bg'>
             <img *ngIf='listenBack[0] !== undefined' [src]="listenBack[0].featured_image">
-            </div>
+            </div> -->
           <div class='slide-image listen-back-image-container'>
           <img class='listen-back-image' *ngIf='listenBack[0] !== undefined' [src]="listenBack[0].featured_image">
           <i class="listen-back-icon fas fa-play"></i>
@@ -27,7 +27,7 @@
     </div>
 
     <div class='slide'>
-      <a *ngIf="highlights[0] !== undefined" [href]='highlights[0].excerpt'>
+      <a *ngIf="highlights[0] !== undefined" target="_blank" [href]='highlights[0].excerpt'>
       <div class='row' style='margin-right: 0; margin-left: 0;'>
         <div class='col-12 col-md-7' style='padding: 0px;'>
           <div class='slide-image'>
@@ -45,7 +45,7 @@
     </div>
 
     <div class='slide'>
-      <a *ngIf="highlights[1] !== undefined" [href]='highlights[1].excerpt'>
+      <a *ngIf="highlights[1] !== undefined" target="_blank" [href]='highlights[1].excerpt'>
       <div class='row' style='margin-right: 0; margin-left: 0;'>
         <div class='col-12 col-md-7' style='padding: 0px;'>
           <div class='slide-image'>
@@ -63,7 +63,7 @@
     </div>
 
     <div class='slide'>
-      <a *ngIf="highlights[2] !== undefined" [href]='highlights[2].excerpt'>
+      <a *ngIf="highlights[2] !== undefined" target="_blank" [href]='highlights[2].excerpt'>
       <div class='row' style='margin-right: 0; margin-left: 0;'>
         <div class='col-12 col-md-7' style='padding: 0px;'>
           <div class='slide-image'>
