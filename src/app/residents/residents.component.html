@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="container">
+              <h1>Residents</h1>
+    <div class='row'>
+    <div class='col-6 col-sm-4 col-md-3' *ngFor='let resident of residents'>
+      <div class="img-container">
+        <img [src]="resident.image_medium">
+      </div>
+      <h2>{{resident.title}}</h2>
+      <p>{{resident.content}}</p>
+    </div>
+    </div>
+  </div>
+</div>

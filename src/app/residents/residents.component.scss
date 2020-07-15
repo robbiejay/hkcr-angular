@@ -1,0 +1,38 @@
+.container-fluid {
+  background-color: #000;
+}
+
+.container {
+  color: #fff;
+  font-family: 'Josefin Sans';
+}
+
+.img-container {
+  max-height: 160px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.img-container img {
+width:100%;
+}
+
+h1 {
+  font-size: 1.777em;
+  padding-top: 35px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #ffdf00;
+  font-family: "Orbitron", monospace;
+  width: 240px;
+  margin-bottom: 23px;
+}
+
+h2 {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 1.333em;
+}
+
+.row {
+  padding-bottom: 35px;
+}

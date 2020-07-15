@@ -77,6 +77,13 @@ export class PostsService {
     );
   }
 
+  getResidents(): Observable<any> {
+    return this.http.get(
+      'https://161.35.20.148/wp_api/data/residents/residents.json',
+      {responseType: 'json'}
+    );
+  }
+
   getLatestShow(): Observable<any> {
     return this.http.get(
       'https://161.35.20.148/wp_api/data/shows/shows_1.json',

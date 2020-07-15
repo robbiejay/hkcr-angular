@@ -17,7 +17,7 @@
   <h1><i style="color: #f00;margin-right: 7px;font-size:0.75em;" class="fas fa-circle"></i><span style="font-size: 0.5em;position:relative;top:-2px;">Live Now</span></h1>
   <h2 *ngIf='!radioActive'>{{this.playerService.nowPlaying}}</h2>
   <div class='now-playing-icon-container'>
-  <img *ngIf='radioActive' src='assets/now-playing.gif'>
+  <!-- <img *ngIf='radioActive' src='assets/now-playing.gif'> -->
   </div>
   <h2 *ngIf='radioActive'>{{this.playerService.nowPlaying}}</h2>
   </div>

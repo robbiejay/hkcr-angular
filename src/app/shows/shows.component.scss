@@ -46,20 +46,24 @@ overflow: hidden;
 }
 
 .play-icon {
+  -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke-width: 1px;
+  color: transparent;
   position: absolute;
-  font-size: 2em;
+  font-size: 3em;
   text-align: center;
   width: 100%;
   height:100%;
+  margin-left: 7px;
+  margin-top: 0px;
   padding-top: 33%;
   z-index: 2;
-  color: rgba(255,255,255,0.66);
   transition: 0.1s;
 }
 
 .play-icon:hover {
-  color: rgba(255,255,255,1);
-  background-color: rgba(255,255,255,0.2)
+  -webkit-text-stroke-color: #ffdf00;
+
 }
 
 .show-copy h2 {
@@ -178,7 +182,15 @@ color: #ffdf00;
   box-shadow: 0px 21px 0px 0px #e0e0e0;
 }
 
+@media (max-width: 1200px) {
+  .play-icon {
+    margin-top: 0px;
+    padding-top: 27.5%;
+  }
+}
+
 @media (max-width: 960px) {
+
   .container {
     margin-left: 5%;
   }
@@ -227,5 +239,22 @@ font-size: 1em;}
 
 .container {
   margin-left: 5%;
+}
+
+.show-image {
+margin-top: 4px;
+margin-left: 4px;
+}
+
+.show-image img {
+  border-radius: 2px;
+}
+
+.play-icon {
+  font-size: 2em;
+  padding-top: 25%;
+  margin-left: 4px;
+  margin-top: 4px;
+
 }
 }
