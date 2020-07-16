@@ -1,0 +1,40 @@
+.container {
+  padding-top: 25px;
+  padding-bottom: 35px;
+}
+
+.upcoming-card {
+border-bottom: 1px solid #cacaca;
+margin-bottom: 7px;
+margin-top: 7px;
+padding: 7px 14px;
+}
+
+h1 {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.333em;
+  color: transparent;
+  -webkit-text-stroke-color: #000;
+  -webkit-text-stroke-width: 1px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.strikethrough {
+    background-color: transparent;
+    border: 1px solid #ffdf00;
+    position: absolute;
+    width: 20px;
+    margin-left: 7px;
+}
+
+
+h2 {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+h3 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.75em;
+  color: #aaa;
+}

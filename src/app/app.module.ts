@@ -20,6 +20,7 @@ import { RadiostreamComponent } from './radiostream/radiostream.component';
 import { GenresComponent } from './genres/genres.component';
 import { FooterComponent } from './footer/footer.component';
 import { ResidentsComponent } from './residents/residents.component';
+import { UpcomingComponent } from './upcoming/upcoming.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { ResidentsComponent } from './residents/residents.component';
     RadiostreamComponent,
     GenresComponent,
     FooterComponent,
-    ResidentsComponent
+    ResidentsComponent,
+    UpcomingComponent
   ],
   imports: [
     BrowserModule,

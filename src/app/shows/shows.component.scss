@@ -1,37 +1,56 @@
+.fluid-container {
+  padding-bottom: 25px;
+  padding-top: 0px;
+}
+
 h1 {
 
   font-family: 'Orbitron', sans-serif;
   font-weight: 700;
-  margin-top: 14px;
+  margin-top: 11px;
   padding: 14px 7px;
   font-size: 1.333em;
   position: relative;
+  -webkit-text-stroke-color: #000;
+  -webkit-text-stroke-width: 1px;
+  color: transparent;
 }
 
 .container {
-  width: 90%;
-  margin-left: 10%;
-  margin-bottom: 35px;
+width: 95%;
+margin-left: 2.5%;
+}
+
+.show-header {
+  margin-bottom: 7px;
+  left: -11px;
+  position: relative;
 }
 
 .strikethrough {
-    background-color: #ffdf00;
+    background-color: transparent;
+    border: 1px solid #ffdf00;
     position: absolute;
     width: 20px;
+    margin-left: 7px;
 }
 
 .shows-container {
 
-margin-left: 5%;
+
 margin-top: 14px;}
 
 .show-card {
 background-color: #fff;
-margin-bottom: 14px;
+margin-bottom: 25px;
 border-radius: 14px;
 overflow: hidden;
+box-shadow: 5px 5px 12px #f1f8f8 inset, -7px -7px 15px #edffff inset;
 }
 
+.show-card:after {
+  box-shadow: 5px 5px 12px #f0f7f7, -7px -7px 15px #dcefef;
+}
 .show-image {
   position: relative;
   cursor: pointer;
@@ -69,9 +88,16 @@ overflow: hidden;
 .show-copy h2 {
   font-family: "Josefin Sans";
   font-weight: 700;
-  margin-top: 7px;
+  margin-top: 14px;
   font-size: 0.75em;
   width: 90%;
+}
+
+.show-copy h3 {
+  font-family: "Josefin Sans";
+  font-size: 0.586em;
+  margin-top: 2px;
+  color: #888;
 }
 
 .show-copy ul {
@@ -80,7 +106,6 @@ overflow: hidden;
 
 .show-copy li {
   font-family: "Josefin Sans";
-  background-color: #ffdf00;
   color: #000;
   border-radius: 4px;
   padding: 4px;
@@ -90,15 +115,16 @@ overflow: hidden;
   margin-right: 4px;
   display: inline-block;
   float: left;
-  font-size: 0.666em;
+//  border: 1px solid #1EFFBC;
+  font-size: 0.66em;
   margin-bottom: 2px;
   cursor: pointer;
   transition: 0.1s;
+  box-shadow: 2px 2px 4px #f0f7f7 inset, -3px -3px 5px #dcefef inset;
 }
 
 .show-copy li:hover {
-background-color: #333;
-color: #ffdf00;
+  box-shadow: 2px 2px 4px #f1f8f8 inset, -3px -3px 5px #edffff inset;
 }
 
 .listen {
@@ -114,28 +140,31 @@ color: #ffdf00;
   font-family: "Josefin Sans";
   font-weight: 700;
   font-size: 2em;
-  margin-top: 18px;
-  color: #c0c0c0;
+  margin-top: 19px;
+  color: transparent;
   text-align: center;
   cursor: pointer;
   border: none;
   background: none;
   outline: none;
+  -webkit-text-stroke-color: #333;
+  -webkit-text-stroke-width: 1px;
 }
 
 .genre {
   font-family: "Orbitron";
   font-weight: 400;
   font-size: 0.75em;
-  margin-top: 25px;
-  color: #888;
+  margin-top: 22px;
+  color: #000;
   border: none;
   background: none;
   padding-left: 14px;
   outline: none;
-  box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.1);
+//  box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.1);
   padding: 7px 7px;
-  border-radius: 14px;
+  border-bottom: 2px solid #000;
+//  border-radius: 14px;
 }
 
 .show-header .controls:hover {

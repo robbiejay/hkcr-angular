@@ -61,7 +61,6 @@ export class ScheduleComponent implements OnInit {
       }
     )
   })
-
   this.currentDateHK = new Date().toLocaleString("en-US", {
     timeZone: "Asia/Hong_Kong"
   });

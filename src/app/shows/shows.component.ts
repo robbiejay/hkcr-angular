@@ -44,10 +44,21 @@ export class ShowsComponent implements OnInit {
       data => {
         this.isLoading = false;
         data.body.forEach(show => {
+          let featured_img;
+          if(show.image_thumbnail == "DEFAULT") {
+            featured_img = "assets/default_show.png";
+          } else {
+            featured_img = show.image_thumbnail;
+          }
+          let titleArr = HtmlEncode(show.title).split('–');
+          let date = titleArr.pop();
+          let title = titleArr.join();
+
           let showData = {
-            title: HtmlEncode(show.title),
+            title: title,
+            date: date,
             excerpt: HtmlEncode(show.excerpt),
-            featured_image: show.image_thumbnail,
+            featured_image: featured_img,
             tags: show.tags,
           }
           this.shows.push(showData);
