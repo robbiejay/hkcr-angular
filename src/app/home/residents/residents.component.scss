@@ -21,14 +21,17 @@ width:100%;
 }
 
 h1 {
-  font-size: 1.777em;
+  font-size: 1.333em;
   padding-top: 35px;
   padding-bottom: 12px;
   border-bottom: 2px solid #ffdf00;
   font-family: "Orbitron", monospace;
   width: 240px;
+  font-weight: 900;
+  -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke-width: 1px;
   margin-bottom: 23px;
-  color: #fff;
+  color: transparent;
 }
 
 h2 {

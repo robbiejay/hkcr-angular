@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PostsService } from '../_services/posts.service';
-import { HtmlEncode } from '../_helpers/helpers';
+import { PostsService } from '../../_services/posts.service';
+import { HtmlEncode } from '../../_helpers/helpers';
 
 
 @Component({

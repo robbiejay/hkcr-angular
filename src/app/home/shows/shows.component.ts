@@ -1,13 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { PostsService } from '../_services/posts.service';
-import { PlayerService } from '../_services/player.service';
-import { HtmlEncode } from '../_helpers/helpers';
+import { PostsService } from '../../_services/posts.service';
+import { PlayerService } from '../../_services/player.service';
+import { HtmlEncode } from '../../_helpers/helpers';
 
 @Component({
   selector: 'app-shows',
   templateUrl: './shows.component.html',
-  styleUrls: ['./shows.component.scss']
+  styleUrls: ['./shows.component.scss'],
+  animations: [
+    trigger('fade', [
+      state('fadeOut', style({
+        'opacity': '0',
+      })),
+      state('fadeIn', style({
+        'opacity': '1'
+      })),
+      transition('* => *', animate(400))
+    ])
+  ]
 })
 export class ShowsComponent implements OnInit {
   shows = [];
@@ -16,12 +27,17 @@ export class ShowsComponent implements OnInit {
   isLoading = true;
   currentGenre = '';
   currentGenreID = '';
+  state='fadeIn'
   constructor(private postsService: PostsService,
               public playerService: PlayerService) { }
 
 
   get isPlayerVisible(): boolean {
     return this.playerService.isPlayerVisible;
+  }
+
+  fadeEnd(event){
+
   }
 
   ngOnInit() {
@@ -76,10 +92,22 @@ export class ShowsComponent implements OnInit {
               data => {
                 this.isLoading = false;
                 data.body.forEach(item => {
+
+                  let featured_img;
+                  if(item.image_thumbnail == "DEFAULT") {
+                    featured_img = "assets/default_show.png";
+                  } else {
+                    featured_img = item.image_thumbnail;
+                  }
+                  let titleArr = HtmlEncode(item.title).split('–');
+                  let date = titleArr.pop();
+                  let title = titleArr.join();
+
                   let postData = {
-                    title: HtmlEncode(item.title),
+                    title: title,
+                    date: date,
                     excerpt: HtmlEncode(item.excerpt),
-                    featured_image: item.image_thumbnail,
+                    featured_image: featured_img,
                     tags: item.tags,
                   }
                   this.shows.push(postData);
@@ -102,10 +130,22 @@ export class ShowsComponent implements OnInit {
             data => {
               this.isLoading = false;
               data.body.forEach(item => {
+
+                let featured_img;
+                if(item.image_thumbnail == "DEFAULT") {
+                  featured_img = "assets/default_show.png";
+                } else {
+                  featured_img = item.image_thumbnail;
+                }
+                let titleArr = HtmlEncode(item.title).split('–');
+                let date = titleArr.pop();
+                let title = titleArr.join();
+
                 let postData = {
-                  title: HtmlEncode(item.title),
+                  title: title,
+                  date: date,
                   excerpt: HtmlEncode(item.excerpt),
-                  featured_image: item.image_thumbnail,
+                  featured_image: featured_img,
                   tags: item.tags
                 }
                 this.shows.push(postData);
@@ -133,10 +173,22 @@ export class ShowsComponent implements OnInit {
       data => {
         this.isLoading = false;
         data.body.forEach(item => {
+
+          let featured_img;
+          if(item.image_thumbnail == "DEFAULT") {
+            featured_img = "assets/default_show.png";
+          } else {
+            featured_img = item.image_thumbnail;
+          }
+          let titleArr = HtmlEncode(item.title).split('–');
+          let date = titleArr.pop();
+          let title = titleArr.join();
+
           let postData = {
-            title: HtmlEncode(item.title),
+            title: title,
+            date: date,
             excerpt: HtmlEncode(item.excerpt),
-            featured_image: item.image_thumbnail,
+            featured_image: featured_img,
             tags: item.tags
           }
           this.shows.push(postData);

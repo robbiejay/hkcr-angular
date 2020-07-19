@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { PostsService } from '../_services/posts.service';
-import { PlayerService } from '../_services/player.service';
-import { HtmlEncode } from '../_helpers/helpers';
+import { PostsService } from '../../_services/posts.service';
+import { PlayerService } from '../../_services/player.service';
+import { HtmlEncode } from '../../_helpers/helpers';
 
 @Component({
   selector: 'app-slider',
@@ -72,7 +72,7 @@ export class SliderComponent implements OnInit {
     this.autoplayActive = false;
     let nextNum = this.sliderState.split('').pop();
     this.slideNumber = Number(nextNum);
-    if (this.slideNumber < 4) {
+    if (this.slideNumber < 3) {
     this.slideNumber++; }
     else {
       this.slideNumber = 1;
@@ -87,7 +87,7 @@ export class SliderComponent implements OnInit {
     if(this.slideNumber > 1) {
     this.slideNumber--;
   } else {
-    this.slideNumber = 4;
+    this.slideNumber = 3;
   }
   this.sliderState = 'slide' + this.slideNumber;
   }
@@ -96,7 +96,7 @@ export class SliderComponent implements OnInit {
     if (active) {
     let nextNum = this.sliderState.split('').pop();
     this.slideNumber = Number(nextNum);
-    if (this.slideNumber < 4) {
+    if (this.slideNumber < 3) {
     this.slideNumber++; }
     else {
       this.slideNumber = 1;

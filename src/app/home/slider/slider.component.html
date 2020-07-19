@@ -4,28 +4,6 @@
     <p (click)='nextSlide()'><i class="fas fa-arrow-right"></i></p>
   </div>
   <div class='slide-container' [@slide]='sliderState'>
-
-    <div class='slide listen-back-slide'(click)='listenToLatestShow(listenBack[0].excerpt)'>
-      <div class='row' style='margin-right: 0; margin-left: 0;'>
-        <div class='col-12 col-md-7' style='padding: 0px;'>
-          <!-- <div class='listen-back-bg'>
-            <img *ngIf='listenBack[0] !== undefined' [src]="listenBack[0].featured_image">
-            </div> -->
-          <div class='slide-image listen-back-image-container'>
-          <img class='listen-back-image' *ngIf='listenBack[0] !== undefined' [src]="listenBack[0].featured_image">
-          <i class="listen-back-icon fas fa-play"></i>
-          </div>
-        </div>
-        <div class='col-12 col-md-5' style='padding: 0px;'>
-          <div class='slide-copy'>
-          <h3>LISTEN BACK <i class="fas fa-headphones"></i></h3>
-          <h1 *ngIf="listenBack[0] !== undefined">{{listenBack[0].title}}</h1>
-          <h2 *ngIf="listenBack[0] !== undefined"></h2>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class='slide'>
       <a *ngIf="highlights[0] !== undefined" target="_blank" [href]='highlights[0].excerpt'>
       <div class='row' style='margin-right: 0; margin-left: 0;'>
@@ -79,6 +57,24 @@
       </div>
       </a>
     </div>
+
+    <!-- <div class='slide listen-back-slide'(click)='listenToLatestShow(listenBack[0].excerpt)'>
+      <div class='row' style='margin-right: 0; margin-left: 0;'>
+        <div class='col-12 col-md-7' style='padding: 0px;'>
+          <div class='slide-image listen-back-image-container'>
+          <img class='listen-back-image' *ngIf='listenBack[0] !== undefined' [src]="listenBack[0].featured_image">
+          <i class="listen-back-icon fas fa-play"></i>
+          </div>
+        </div>
+        <div class='col-12 col-md-5' style='padding: 0px;'>
+          <div class='slide-copy'>
+          <h3>LISTEN BACK <i class="fas fa-headphones"></i></h3>
+          <h1 *ngIf="listenBack[0] !== undefined">{{listenBack[0].title}}</h1>
+          <h2 *ngIf="listenBack[0] !== undefined"></h2>
+          </div>
+        </div>
+      </div>
+    </div> -->
 
   </div>
   </div>

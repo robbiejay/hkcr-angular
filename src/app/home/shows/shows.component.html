@@ -1,4 +1,5 @@
 <div class='fluid-container'>
+  <div id='headphones'>      <i class="fas fa-headphones"></i></div>
 <div class='container'>
 <div class='row show-header'>
   <div class='col-8 col-sm-4'>
@@ -18,15 +19,15 @@
     </div> -->
 </div>
 </div>
-<div class='container'>
-<div class='row' *ngIf='isLoading'>
+<div class='container show-container'>
+<!-- <div class='row' *ngIf='isLoading'>
   <div class='col-12' style='text-align: center;margin-top: 32px;'><img src='assets/loading.gif'>
   </div>
-</div>
+</div> -->
 <div class='row'>
 
-  <div class='col-xl-4 col-sm-6 col-12' style='padding:0px 7px;' *ngFor='let show of shows; let x = index'>
-  <div class='show-card'>
+  <div (@fade.done)="fadeEnd($event)" class='col-xl-4 col-sm-6 col-12' style='padding:0px 7px;' *ngFor='let show of shows; let x = index'>
+  <div [@fade]='state' class='show-card'>
     <div class='row'>
       <div class='col-3 col-sm-6'>
     <div class='show-image' (click)='listenShow(show.excerpt)'>

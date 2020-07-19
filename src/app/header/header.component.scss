@@ -42,11 +42,11 @@ nav img {
 //
 // }
 
-ul {float: right;
+.social-menu-container ul {float: right;
   margin-right: 24px;
 }
 
-ul li {
+.social-menu-container ul li {
   display: inline-block;
   float: left;
   margin-top: 18px;
@@ -54,6 +54,26 @@ ul li {
   font-size: 1em;
   margin-left: 14px;
   margin-right: 14px;
+}
+
+.mobile-menu-container ul {
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 70px;
+}
+
+.mobile-menu-container ul li {
+
+  text-align: center;
+  margin-top: 18px;
+  font-family: 'Josefin Sans';
+  font-size: 1em;
+
 }
 
 // .livestream-play-button {
@@ -72,6 +92,26 @@ ul li {
   color: #555;
 }
 
+.mobile-menu-button {
+  text-align: center;
+  height: 42px;
+  width: 42px;
+  margin-top: 4px;
+  font-size: 1.333em;
+  line-height: 42px;
+  vertical-align: middle;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 5px 5px 12px #252525 inset, -7px -7px 15px #141414 inset;
+
+}
+
+h2 {
+  color: #fff;
+  float: right;
+  margin-right: 7px;
+}
+
 a {
   color: #fff;
   transition: 0.1s;
@@ -79,4 +119,12 @@ a {
 
 a:hover {
   color: #ffdf00;
+}
+
+.mobile-menu-container {
+  position: fixed;
+  background: rgba(0,0,0,0.8);
+  width: 100%;
+  height: 100%;
+  z-index: 4;
 }

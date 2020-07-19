@@ -1,5 +1,5 @@
 <div class='row' style='background-color: #000;'>
-<div class='col-12 col-lg-8'>
+<div class='col-11 col-lg-8'>
   <div class='row'>
     <div class="col-12 col-sm-3">
       <a class='header-logo' routerLink="../"><img src='assets/logo.png'></a>
@@ -9,21 +9,42 @@
     </div>
     </div>
 </div>
-<div class="col-lg-4 d-none d-lg-block">
+<div class="social-menu-container col-lg-4 d-none d-lg-block">
     <ul>
       <!-- <li>LIVESTREAM</li>
       <li>SCHEDULE</li>
       <li>FEED</li>-->
       <!-- <a routerLink="../livestream"><li style='font-size: 0.77em;margin-top: 21px;background-color: #333;padding: 9px 14px 7px 14px;border-radius: 7px;color: #fff;'><i class="fas fa-tv"></i> TV</li></a> -->
-      <a href='https://www.facebook.com/hkcrlive'><li><i class="fab fa-facebook-f"></i></li></a>
-      <a href='https://www.youtube.com/channel/UCFqCSru3cS79WElDMSh-jcg'><li><i class="fab fa-youtube"></i></li></a>
-      <a href='https://www.mixcloud.com/HKCR/'><li><i class="fab fa-mixcloud"></i></li></a>
-      <a href='https://www.instagram.com/hkcronline'><li><i class="fab fa-instagram"></i></li></a>
-      <a href='https://twitter.com/hkcr_online'><li><i class="fab fa-twitter"></i></li></a>
-      <a href='https://soundcloud.com/hkcrlive'><li><i class="fab fa-soundcloud"></i></li></a>
+      <a target="_blank" href='https://hkcrstore.bigcartel.com/'><li><i class="fa fa-shopping-bag" style='color: #ffdf00;' aria-hidden="true"></i> &nbsp;shop</li></a>
+      <!-- <a target="_blank" href='https://www.facebook.com/hkcrlive'><li><i class="fab fa-facebook-f"></i></li></a> -->
+      <a target="_blank" href='https://www.youtube.com/channel/UCFqCSru3cS79WElDMSh-jcg'><li><i class="fab fa-youtube"></i></li></a>
+      <a target="_blank" href='https://www.mixcloud.com/HKCR/'><li><i class="fab fa-mixcloud"></i></li></a>
+      <!-- <a target="_blank" href='https://www.instagram.com/hkcronline'><li><i class="fab fa-instagram"></i></li></a> -->
+      <!-- <a target="_blank" href='https://twitter.com/hkcr_online'><li><i class="fab fa-twitter"></i></li></a> -->
+      <!-- <a target="_blank" href='https://soundcloud.com/hkcrlive'><li><i class="fab fa-soundcloud"></i></li></a> -->
     </ul>
   </div>
+<div class='col-1 d-block d-lg-none'>
+<h2 class='mobile-menu-button' role='button' (click)="openMobileMenu()"><i class="fa fa-bars" aria-hidden="true"></i></h2>
+</div>
   </div>
+
+<div *ngIf='mobileMenuActive' class='mobile-menu-container'>
+  <ul>
+    <!-- <li>LIVESTREAM</li>
+    <li>SCHEDULE</li>
+    <li>FEED</li>-->
+    <!-- <a routerLink="../livestream"><li style='font-size: 0.77em;margin-top: 21px;background-color: #333;padding: 9px 14px 7px 14px;border-radius: 7px;color: #fff;'><i class="fas fa-tv"></i> TV</li></a> -->
+<a target="_blank" href='https://hkcrstore.bigcartel.com/'><li>SHOP</li></a>
+<hr>
+    <a target="_blank" href='https://www.facebook.com/hkcrlive'><li><i class="fab fa-facebook-f"></i> &nbsp;facebook</li></a>
+    <a target="_blank" href='https://www.youtube.com/channel/UCFqCSru3cS79WElDMSh-jcg'><li><i class="fab fa-youtube"></i> &nbsp;youtube</li></a>
+    <a target="_blank" href='https://www.mixcloud.com/HKCR/'><li><i class="fab fa-mixcloud"></i> &nbsp;mixcloud</li></a>
+    <a target="_blank" href='https://www.instagram.com/hkcronline'><li><i class="fab fa-instagram"></i> &nbsp;instagram</li></a>
+    <a target="_blank" href='https://twitter.com/hkcr_online'><li><i class="fab fa-twitter"></i> &nbsp;twitter</li></a>
+    <a target="_blank" href='https://soundcloud.com/hkcrlive'><li><i class="fab fa-soundcloud"></i> &nbsp;soundcloud</li></a>
+  </ul>
+</div>
   <!-- -->
 
 

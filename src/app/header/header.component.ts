@@ -9,8 +9,12 @@ import { PlayerService } from '../_services/player.service';
 export class HeaderComponent implements OnInit {
 
   constructor(public playerService: PlayerService ) { }
-
+  mobileMenuActive = false;
   ngOnInit() {
+  }
+
+  openMobileMenu() {
+    this.mobileMenuActive = !this.mobileMenuActive;
   }
 
 }

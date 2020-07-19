@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
-import { PlayerService } from '../_services/player.service';
+import { PlayerService } from '../../_services/player.service';
 import videojs from 'video.js';
 // import 'hls.js';
 // import 'videojs-contrib-dash';

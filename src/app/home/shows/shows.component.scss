@@ -3,6 +3,18 @@
   padding-top: 0px;
 }
 
+#headphones {
+
+  font-size: 48em;
+  position: absolute;
+  color: transparent;
+  -webkit-text-stroke-color: #ffdf00;
+  -webkit-text-stroke-width: 1px;
+  transform: rotate(30deg);
+  margin-left: 35px;
+
+}
+
 h1 {
 
   font-family: 'Orbitron', sans-serif;
@@ -35,16 +47,13 @@ margin-left: 2.5%;
     margin-left: 7px;
 }
 
-.shows-container {
-
-
-margin-top: 14px;}
 
 .show-card {
-background-color: #fff;
+background: rgba(255,255,255,0.75);
 margin-bottom: 25px;
 border-radius: 14px;
 overflow: hidden;
+opacity: 0;
 box-shadow: 5px 5px 12px #f1f8f8 inset, -7px -7px 15px #edffff inset;
 }
 
@@ -54,6 +63,9 @@ box-shadow: 5px 5px 12px #f1f8f8 inset, -7px -7px 15px #edffff inset;
 .show-image {
   position: relative;
   cursor: pointer;
+  box-shadow: 5px 5px 12px #e0e7e7 inset, -7px -7px 15px #dceeee inset;
+  height: 100%;
+  min-height: 134px;
 }
 
 
@@ -73,16 +85,16 @@ box-shadow: 5px 5px 12px #f1f8f8 inset, -7px -7px 15px #edffff inset;
   text-align: center;
   width: 100%;
   height:100%;
-  margin-left: 7px;
   margin-top: 0px;
   padding-top: 33%;
+  margin-left: 7px;
   z-index: 2;
   transition: 0.1s;
 }
 
 .play-icon:hover {
   -webkit-text-stroke-color: #ffdf00;
-
+  -webkit-text-stroke-width: 2px;
 }
 
 .show-copy h2 {
@@ -156,14 +168,14 @@ box-shadow: 5px 5px 12px #f1f8f8 inset, -7px -7px 15px #edffff inset;
   font-weight: 400;
   font-size: 0.75em;
   margin-top: 22px;
-  color: #000;
+  color: #3f3f3f;
   border: none;
   background: none;
   padding-left: 14px;
   outline: none;
 //  box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.1);
   padding: 7px 7px;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #e0e0e0;
 //  border-radius: 14px;
 }
 
@@ -211,17 +223,32 @@ box-shadow: 5px 5px 12px #f1f8f8 inset, -7px -7px 15px #edffff inset;
   box-shadow: 0px 21px 0px 0px #e0e0e0;
 }
 
+
+@media (max-width: 1500px) {
+  .show-image {
+    min-height: 114px;
+  }
+}
+
 @media (max-width: 1200px) {
   .play-icon {
     margin-top: 0px;
     padding-top: 27.5%;
   }
+  .show-container {
+  height: initial;
+  }
 }
 
 @media (max-width: 960px) {
 
+
   .container {
     margin-left: 5%;
+  }
+
+  .show-image {
+    min-height: 86px;
   }
 }
 
@@ -235,17 +262,33 @@ box-shadow: 5px 5px 12px #f1f8f8 inset, -7px -7px 15px #edffff inset;
   }
 
   .container {
-    margin-left: 12.5%;
+    margin-left: 5%;
+  }
+  .show-image {
+    min-height: 118px;
   }
 }
 
 @media (max-width: 576px) {
+
+  #headphones {
+
+    font-size: 24em;
+    margin-top: 70px;
+
+  }
+
   .show-card {
   background-color: #fff;
   margin-bottom: 14px;
   min-height: 70px;
   border-radius: 14px;
   overflow: hidden;
+  }
+
+  .show-image {
+    box-shadow: none;
+    min-height: 0px;
   }
 
   .genre {
@@ -267,7 +310,7 @@ h1 {
 font-size: 1em;}
 
 .container {
-  margin-left: 5%;
+  margin-left: 2.5%;
 }
 
 .show-image {
@@ -286,4 +329,8 @@ margin-left: 4px;
   margin-top: 4px;
 
 }
+}
+
+@media (max-width: 420px) {
+
 }
