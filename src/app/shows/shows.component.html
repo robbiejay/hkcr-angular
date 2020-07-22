@@ -1,5 +1,6 @@
 <div class='fluid-container'>
   <div id='headphones'>      <i class="fas fa-headphones"></i></div>
+    <!-- <div class='blob_1'>&nbsp;</div> -->
 <div class='container'>
 <div class='row show-header'>
   <div class='col-8 col-sm-4'>
@@ -25,8 +26,10 @@
   </div>
 </div> -->
 <div class='row'>
-
   <div (@fade.done)="fadeEnd($event)" class='col-xl-4 col-sm-6 col-12' style='padding:0px 7px;' *ngFor='let show of shows; let x = index'>
+  <!-- <ng-template [ngIf]="mode == archive">
+  <div (@fade.done)="fadeEnd($event)" class='col-xl-3 col-md-4 col-sm-6 col-12' style='padding:0px 7px;' *ngFor='let show of shows; let x = index'>
+  </ng-template> -->
   <div [@fade]='state' class='show-card'>
     <div class='row'>
       <div class='col-3 col-sm-6'>

@@ -11,9 +11,10 @@ import { LivestreamComponent } from './header/livestream/livestream.component';
 import { RadiostreamComponent } from './header/radiostream/radiostream.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
-import { ShowsComponent } from './home/shows/shows.component';
+import { ShowsComponent } from './shows/shows.component';
 import { SliderComponent } from './home/slider/slider.component';
-import { ResidentsComponent } from './home/residents/residents.component';
+import { ResidentsComponent } from './residents/residents.component';
+import { ResidentSingleComponent } from './residents/resident-single/resident-single.component';
 import { UpcomingComponent } from './home/upcoming/upcoming.component';
 import { PlayerComponent } from './player/player.component';
 
@@ -22,7 +23,9 @@ import { GenresComponent } from './genres/genres.component';
 import { BlogrollComponent } from './blogroll/blogroll.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { ArchiveComponent } from './archive/archive.component';
-import { BlogPostComponent } from './blog-post/blog-post.component';
+import { BlogSingleComponent } from './blog/blog-single/blog-single.component';
+import { BlogComponent } from './blog/blog.component';
+
 
 
 @NgModule({
@@ -43,7 +46,9 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
     FooterComponent,
     ResidentsComponent,
     UpcomingComponent,
-    BlogPostComponent
+    BlogSingleComponent,
+    BlogComponent,
+    ResidentSingleComponent
   ],
   imports: [
     BrowserModule,

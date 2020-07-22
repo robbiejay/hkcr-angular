@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { PostsService } from '../../_services/posts.service';
-import { PlayerService } from '../../_services/player.service';
-import { HtmlEncode } from '../../_helpers/helpers';
+import { PostsService } from '../_services/posts.service';
+import { PlayerService } from '../_services/player.service';
+import { HtmlEncode } from '../_helpers/helpers';
 
 @Component({
   selector: 'app-shows',
@@ -27,9 +28,14 @@ export class ShowsComponent implements OnInit {
   isLoading = true;
   currentGenre = '';
   currentGenreID = '';
-  state='fadeIn'
+  state='fadeIn';
+
+  mode: string;
+
+
   constructor(private postsService: PostsService,
-              public playerService: PlayerService) { }
+              public playerService: PlayerService,
+              private route: ActivatedRoute ) { }
 
 
   get isPlayerVisible(): boolean {
@@ -41,6 +47,12 @@ export class ShowsComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.route.snapshot.url.length == 0) {
+      this.mode = 'home'
+    } else {
+      this.mode = 'archive'
+    }
+
     this.getShows()
   }
 

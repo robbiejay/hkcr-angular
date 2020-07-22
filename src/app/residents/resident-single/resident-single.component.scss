@@ -1,0 +1,45 @@
+.img-container {
+  width: 100%;
+  height: auto;
+}
+
+.back-btn {
+
+  font-family: "Orbitron";
+  font-size: 4.209em;
+  color: transparent;
+  -webkit-text-stroke-color: #000;
+  display: block;
+  -webkit-text-stroke-width: 1px;
+  position: absolute;
+  top: -75px;
+  cursor: pointer;
+
+}
+
+.back-btn:hover {
+  -webkit-text-stroke-color: #ffdf00;
+}
+
+.img-container img {
+  width: 100%;
+}
+
+h1 {
+  font-family: "Josefin Sans";
+  font-size: 1.777em;
+  margin-top: 35px;
+  margin-bottom: 14px;
+  padding: 35px;
+}
+
+p {
+  font-family: "Josefin Sans";
+  line-height: 1.5em;
+  padding: 0px 35px;
+}
+
+.container {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}

@@ -1,0 +1,14 @@
+<div class='container'>
+        <h1 class='heading'>Latest Posts</h1>
+  <div class="row" style='min-height: 100vh;'>
+    <div class='col-12 col-md-6 col-lg-4' *ngFor='let post of posts'>
+      <div class="post-card" (click)="goTo(post.filename)">
+        <div class='img-container'>
+        <img [src]="post.image_large">
+        </div>
+        <h1 class='post-title'>{{post.title}}</h1>
+        <p class='post-excerpt'>{{post.excerpt}}</p>
+      </div>
+    </div>
+  </div>
+</div>

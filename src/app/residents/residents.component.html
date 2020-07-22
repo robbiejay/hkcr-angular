@@ -1,0 +1,13 @@
+<div class="container-fluid">
+              <h1>RESIDENTS</h1>
+    <div class='row' style='margin: 0px;'>
+    <div class='col-6 col-sm-4 col-md-3' *ngFor='let resident of residents' (click)="goTo(resident.title)">
+      <div class="resident-card">
+        <div class="img-container">
+          <img [src]="resident.image_medium">
+        </div>
+        <h2>{{resident.title}}</h2>
+      </div>
+    </div>
+    </div>
+</div>

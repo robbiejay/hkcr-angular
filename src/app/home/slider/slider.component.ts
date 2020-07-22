@@ -37,7 +37,7 @@ export class SliderComponent implements OnInit {
 
   ngOnInit() {
     this.autoplayActive = true;
-    setInterval(()=> { this.autoplay(this.autoplayActive) }, 12 * 1000);
+    setInterval(()=> { this.autoplay(this.autoplayActive) }, 7 * 1000);
 
     this.postsService.getLatestShow().subscribe(
       data => {

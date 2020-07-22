@@ -10,6 +10,16 @@
 
 }
 
+.resident-card {
+  padding: 7px;
+  margin: 0px;
+  border: 1px solid #222;
+  margin-bottom: 7px;
+  height: 300px;
+  background-color: #0a0a0a;
+  cursor: pointer;
+}
+
 .img-container {
   max-height: 240px;
   overflow-y: hidden;
@@ -44,4 +54,13 @@ h2 {
 
 .row {
   padding-bottom: 35px;
+}
+
+@media (max-width: 1200px) {
+  .img-container {
+    max-height: 160px;
+  }
+  .resident-card {
+    height: 220px;
+  }
 }

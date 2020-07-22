@@ -1,0 +1,21 @@
+<div class="fluid-container">
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let resident of residents" style='position: relative;'>
+        <div class="row">
+          <div class="col-6">
+              <a class='back-btn' routerLink="/residents"><</a>
+            <div class='img-container'>
+                    <img [src]="resident.image_large">
+            </div>
+          </div>
+          <div class="col-6">
+            <h1 class='single-post-title'>{{resident.title}}</h1>
+            <p class='single-post-excerpt' [innerHtml]="resident.content"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

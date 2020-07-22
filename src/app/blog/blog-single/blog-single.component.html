@@ -1,0 +1,15 @@
+<div class="fluid-container blog-bg" style='min-height: 100vh;'>
+  <div class='container blog-container'>
+  <div *ngFor='let post of posts'>
+    <div class="img-container">
+      <a class='back' [routerLink]="['/blog']"><</a>
+          <img [src]="post.image_large">
+    </div>
+    <h1 class='single-post-title'>{{post.title}}</h1>
+    <h2 class='single-post-excerpt'>{{post.excerpt}}</h2>
+    <h3 class='single-post-author'>Written by HKCR Staff</h3>
+    <h4 class='single-post-date'>{{post.date}}</h4>
+    <div class='single-post-content' [innerHtml]="post.content"></div>
+  </div>
+  </div>
+</div>

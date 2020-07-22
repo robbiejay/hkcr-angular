@@ -84,11 +84,32 @@ export class PostsService {
     );
   }
 
+  getSingleResident(filename): Observable<any> {
+    return this.http.get(
+      'https://161.35.20.148/wp_api/data/residents/single/' + filename + '.json',
+      {responseType: 'json'}
+    );
+  }
+
   getUpcomingShows(): Observable<any> {
     return this.http.get(
       'https://161.35.20.148/wp_api/data/upcoming-shows/upcoming_shows.json',
       {responseType: 'json'}
     )
+  }
+
+  getPosts(): Observable<any> {
+    return this.http.get(
+      'https://161.35.20.148/wp_api/data/blog/blog.json',
+      {responseType: 'json'}
+    );
+  }
+
+  getSinglePost(filename): Observable<any> {
+    return this.http.get(
+      'https://161.35.20.148/wp_api/data/blog/single/' + filename + '.json',
+      {responseType: 'json'}
+    );
   }
 
   getLatestShow(): Observable<any> {

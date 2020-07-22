@@ -1,0 +1,149 @@
+.blog-bg { background-color: #000;}
+.blog-container { background-color: #f4f4f4;padding: 0px;border-left: 1px solid #ffdf00;}
+.img-container { width: 100%; height: auto; position: relative;}
+.img-container img { width: 100%; }
+.single-post-title {
+  font-family: "Josefin Sans";
+  font-size: 3.157em;
+  top: 33vh;
+  background-color: #000;
+  color: #fff;
+  padding: 14px;
+  display: inline-block;
+  width: 90%;
+  margin-left: 5%;
+  position: relative;
+  top: -240px;
+}
+
+.single-post-excerpt {
+  font-family: "Josefin Sans";
+  font-size: 1.777em;
+  background-color: #000;
+  color: #fff;
+  padding: 14px;
+  display: inline-block;
+  width: 90%;
+  margin-left: 5%;
+  position: relative;
+  top: -205px;
+  line-height: 1.15em;
+}
+
+.single-post-date {
+  font-family: "Josefin Sans";
+  display: inline-block;
+  padding: 14px;
+  width: 90%;
+  margin-left: 5%;
+  position: relative;
+  top: -161px;
+  color: #aaa;
+}
+
+.single-post-author {
+  font-family: "Josefin Sans";
+  display: inline-block;
+  padding: 14px;
+  width: 90%;
+  margin-left: 5%;
+  position: relative;
+  top: -140px;
+  color: #aaa;
+}
+
+.single-post-content {
+  font-family: "Josefin Sans";
+  padding: 14px;
+  line-height: 1.5em;
+  font-size: 1.333em;
+  width: 90%;
+  margin-left: 5%;
+  position: relative;
+  top: -140px;
+}
+
+.single-post-content p { margin-bottom: 14px; margin-top: 14px;}
+
+
+.single-post-content .wp-block-image img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.back {
+  position: absolute;
+  background-color: #none;
+  color: #000;
+  font-size: 4.209em;
+  font-family: "Orbitron";
+  margin-top: 21px;
+  margin-left: 35px;
+  line-height: 28px;
+  vertical-align: middle;
+  text-align: center;
+  -webkit-text-stroke-color: #ffdf00;
+  -webkit-text-stroke-width: 2px;
+  color: transparent;
+}
+
+.back:hover {
+  text-decoration: none;
+  color: transparent;
+  -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke-width: 2px;
+}
+
+.back span {
+  font-size: 0.422em;
+}
+
+
+@media (max-width: 992px) {
+.single-post-title {
+  top: -125px;
+}
+
+.single-post-excerpt {
+top: -90px;
+}
+
+.single-post-author {
+top: -75px;
+}
+
+.single-post-date {
+top: -98px;
+}
+
+.single-post-content {
+top: -98px;
+}
+}
+
+@media (max-width: 540px) {
+.single-post-title {
+  top: -70px;
+  font-size: 1.777em;
+}
+
+.single-post-excerpt {
+  top: -49px;
+font-size: 1em;
+}
+
+.single-post-author {
+  top: -49px;
+font-size: 1em;
+}
+
+.single-post-date {
+  top: -70px;
+font-size: 0.75em;
+}
+
+.single-post-content {
+font-size: 1em;
+}
+}

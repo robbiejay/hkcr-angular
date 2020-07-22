@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { PostsService } from '../../_services/posts.service';
-import { HtmlEncode } from '../../_helpers/helpers';
+import { Router } from '@angular/router';
+import { PostsService } from '../_services/posts.service';
+import { HtmlEncode } from '../_helpers/helpers';
 
 
 @Component({
@@ -10,7 +11,8 @@ import { HtmlEncode } from '../../_helpers/helpers';
 })
 export class ResidentsComponent implements OnInit {
 
-  constructor(private postsService: PostsService) { }
+  constructor(private postsService: PostsService,
+              private router: Router) { }
   residents = [];
 
   ngOnInit() {
@@ -31,6 +33,10 @@ export class ResidentsComponent implements OnInit {
         })
       }
     )
+  }
+
+  goTo(location) {
+    this.router.navigate(['residents/' + location.replace(/[^a-zA-Z0-9]+/g, "-").toLowerCase()]);
   }
 
 }

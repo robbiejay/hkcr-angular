@@ -1,0 +1,62 @@
+.heading {
+  font-size: 1.777em;
+  font-family: "Orbitron";
+  -webkit-text-stroke-color: #000;
+  -webkit-text-stroke-width: 1px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  color: transparent;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #ffdf00;
+}
+
+.img-container {
+  width: 100%;
+  height: auto;
+}
+
+.img-container img {
+  width: 100%;
+  max-height: 195px;
+}
+
+.post-title {
+  font-family: "Josefin Sans";
+  font-size: 1.333em;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  padding: 7px 14px;
+}
+
+.post-excerpt {
+  padding: 0px 14px;
+  font-family: "Josefin Sans";
+  margin-bottom: 19px;
+}
+
+.post-card {
+  cursor: pointer;
+  background: rgba(255,255,255,0.75);
+  margin-bottom: 25px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 5px 5px 12px #f1f8f8 inset, -7px -7px 15px #edffff inset;
+}
+
+@media (max-width: 1200px) {
+  .img-container img {
+    max-height: 160px;
+  }
+}
+
+@media (max-width: 992px) {
+  .img-container img {
+    max-height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .img-container img {
+    max-height: initial;
+  }
+}
