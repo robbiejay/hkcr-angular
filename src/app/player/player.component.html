@@ -1,4 +1,4 @@
 <div class='player' [@slide]='state'>
-  <button class='close-player' (click)='closePlayer()'>X</button>
+  <button *ngIf='this.playerService.hasOpenedShow' class='close-player' [@btn-slide]='btnState' (click)='togglePlayer()'>{{playerState}}</button>
   <iframe id='mixcloud-widget' (load)='this.playerService.mixcloudLoaded()' width="100%" height="60" [src]="this.playerService?.show | safe" frameborder="0" ></iframe>
 </div>

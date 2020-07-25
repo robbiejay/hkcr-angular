@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit, HostListener  } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { PostsService } from '../_services/posts.service';
 import { PlayerService } from '../_services/player.service';
@@ -17,7 +17,7 @@ import { HtmlEncode } from '../_helpers/helpers';
       state('fadeIn', style({
         'opacity': '1'
       })),
-      transition('* => *', animate(400))
+      transition('* => *', animate(200))
     ])
   ]
 })
@@ -35,7 +35,8 @@ export class ShowsComponent implements OnInit {
 
   constructor(private postsService: PostsService,
               public playerService: PlayerService,
-              private route: ActivatedRoute ) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
 
   get isPlayerVisible(): boolean {
@@ -80,11 +81,12 @@ export class ShowsComponent implements OnInit {
           }
           let titleArr = HtmlEncode(show.title).split('–');
           let date = titleArr.pop();
-          let title = titleArr.join();
+          let title = titleArr.join().trim();
 
           let showData = {
             title: title,
             date: date,
+            url: show.url,
             excerpt: HtmlEncode(show.excerpt),
             featured_image: featured_img,
             tags: show.tags,
@@ -118,6 +120,7 @@ export class ShowsComponent implements OnInit {
                   let postData = {
                     title: title,
                     date: date,
+                    url: item.url,
                     excerpt: HtmlEncode(item.excerpt),
                     featured_image: featured_img,
                     tags: item.tags,
@@ -156,6 +159,7 @@ export class ShowsComponent implements OnInit {
                 let postData = {
                   title: title,
                   date: date,
+                  url: item.url,
                   excerpt: HtmlEncode(item.excerpt),
                   featured_image: featured_img,
                   tags: item.tags
@@ -175,6 +179,7 @@ export class ShowsComponent implements OnInit {
     this.shows = [];
     this.isLoading = true;
     let page = 1;
+    this.showPage = 1;
     this.postsService.getTagTotalPages(this.currentGenre.replace(/ /g, "_").toLowerCase()).subscribe(
       data => {
         console.log('genre total pages is' + data.body);
@@ -199,6 +204,7 @@ export class ShowsComponent implements OnInit {
           let postData = {
             title: title,
             date: date,
+            url: item.url,
             excerpt: HtmlEncode(item.excerpt),
             featured_image: featured_img,
             tags: item.tags
@@ -216,4 +222,73 @@ export class ShowsComponent implements OnInit {
     this.getShows();
   }
 
+  goTo(location) {
+    this.router.navigate(['shows/' + location])
+  }
+
+  @HostListener("window:scroll", [])
+  onScroll(): void {
+    if((window.innerHeight + window.scrollY + 20) >= document.body.offsetHeight && this.mode == 'archive') {
+      this.loadMoreShows();
+    }
+  }
+
+  loadMoreShows() {
+    console.log(this.showPage + ' : SCROLLED TO BOTTOM OF PAGE')
+      this.showPage++;
+    if(this.currentGenre !== '') {
+      this.postsService.getShowsByTag(this.currentGenre.replace(/ /g, "_").toLowerCase(), this.showPage).subscribe(
+            data => {
+              this.isLoading = false;
+              data.body.forEach(item => {
+                let featured_img;
+                if(item.image_thumbnail == "DEFAULT") {
+                  featured_img = "assets/default_show.png";
+                } else {
+                  featured_img = item.image_thumbnail;
+                }
+                let titleArr = HtmlEncode(item.title).split('–');
+                let date = titleArr.pop();
+                let title = titleArr.join();
+
+                let postData = {
+                  title: title,
+                  date: date,
+                  url: item.url,
+                  excerpt: HtmlEncode(item.excerpt),
+                  featured_image: featured_img,
+                  tags: item.tags
+                }
+                this.shows.push(postData);
+              })
+            }
+          )
+      } else {
+        this.postsService.getShows(this.showPage).subscribe(
+          data => {
+            this.isLoading = false;
+            data.body.forEach(show => {
+              let featured_img;
+              if(show.image_thumbnail == "DEFAULT") {
+                featured_img = "assets/default_show.png";
+              } else {
+                featured_img = show.image_thumbnail;
+              }
+              let titleArr = HtmlEncode(show.title).split('–');
+              let date = titleArr.pop();
+              let title = titleArr.join().trim();
+
+              let showData = {
+                title: title,
+                date: date,
+                url: show.url,
+                excerpt: HtmlEncode(show.excerpt),
+                featured_image: featured_img,
+                tags: show.tags,
+              }
+              this.shows.push(showData);
+            })
+            })
+      }
+  }
 }

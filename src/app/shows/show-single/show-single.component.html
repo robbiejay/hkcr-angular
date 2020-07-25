@@ -1,0 +1,39 @@
+<div class="fluid-container">
+  <div class="container">
+    <div class='row' *ngIf='isLoading' style='min-height: 75vh;'>
+      <div class='col-12' style='text-align: center;margin-top: 32px;'><img src='assets/loading.gif'>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngFor="let show of shows" style='position: relative;'>
+        <div class="row">
+          <div class="col-12 col-md-6">
+              <span role='button' class='back-btn' (click)='goBack()'><</span>
+            <div class='img-container show-img-container'>
+                    <img [src]="show.featured_image">
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <h1 class='single-post-title'>{{show.title}} MIX</h1>
+            <p class='single-post-excerpt' [innerHtml]="show.content"></p>
+            <span role='button'  (click)='listenShow(show.excerpt)' class='listen-now-btn'><i class="fas fa-play"></i> &nbsp;Listen Now</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <h1>Similar Shows</h1>
+    </div>
+    <div class="row">
+      <div class="col-6 col-sm-4 col-md-3" *ngFor="let show of relatedShows">
+        <div class="related-show-container"  (click)='goTo(show.url)'>
+          <div class="img-container">
+          <img [src]='show.featured_image'>
+          </div>
+          <h2 class='similar-artists-title'>{{show.title}}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

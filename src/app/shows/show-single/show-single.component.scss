@@ -30,13 +30,14 @@ h1 {
   font-size: 1.777em;
   margin-top: 35px;
   margin-bottom: 14px;
-  padding: 35px;
+  padding: 0px 35px;
 }
 
 p {
   font-family: "Josefin Sans";
   line-height: 1.5em;
   padding: 0px 35px;
+  font-size: 0.75em;
 }
 
 .container {
@@ -44,13 +45,46 @@ p {
   padding-bottom: 70px;
 }
 
-.resident-show-container {
+.listen-now-btn {
+  background: #ffdf00;
+  padding: 7px;
+  padding-top: 9px;
+  margin-top: 14px;
+  display:inline-block;
+  margin-left: 35px;
+  border-radius: 7px;
+  font-family: "Josefin Sans";
+  transition: 0.2s;
   cursor: pointer;
 }
 
-.resident-show-title {
+.listen-now-btn:hover {
+  background: #222;
+  color: #ffdf00;
+}
+
+.related-show-container {
+  cursor: pointer;
+}
+
+.related-show-container:hover {
+
+}
+
+.similar-artists-title {
   font-family: "Josefin Sans";
   margin-top: 7px;
   font-size: 1.333em;
   padding: 4px;
+}
+
+@media (max-width: 768px) {
+  .back-btn {
+    left: 10vw;
+  }
+
+  .show-img-container {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
 }

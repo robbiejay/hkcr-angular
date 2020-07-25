@@ -7,6 +7,7 @@ import { BlogSingleComponent } from './blog/blog-single/blog-single.component';
 import { ResidentsComponent } from './residents/residents.component';
 import { ResidentSingleComponent } from './residents/resident-single/resident-single.component';
 import { ShowsComponent} from './shows/shows.component';
+import { ShowSingleComponent } from './shows/show-single/show-single.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'blog/:title', component: BlogSingleComponent},
   {path: 'residents', component: ResidentsComponent},
   {path: 'residents/:title', component: ResidentSingleComponent},
-  {path: 'shows', component: ShowsComponent }
+  {path: 'shows', component: ShowsComponent },
+  {path: 'shows/:title', component: ShowSingleComponent }
   // {path: 'blog/:id/:title', component: BlogPostComponent},
   // {path: 'livestream', component: LivestreamComponent }
 ];

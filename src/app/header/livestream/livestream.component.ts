@@ -61,7 +61,7 @@ export class LivestreamComponent implements OnInit, OnDestroy {
                   this.video.src([
                     {
                       type: "application/x-mpegURL",
-                      src: "https://161.35.20.148/hls/test.m3u8"
+                      src: "https://hkcr.live/hls/test.m3u8"
                       }
                   ]);
                   this.video.play();

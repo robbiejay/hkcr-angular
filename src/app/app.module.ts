@@ -25,6 +25,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { BlogSingleComponent } from './blog/blog-single/blog-single.component';
 import { BlogComponent } from './blog/blog.component';
+import { ShowSingleComponent } from './shows/show-single/show-single.component';
 
 
 
@@ -48,10 +49,11 @@ import { BlogComponent } from './blog/blog.component';
     UpcomingComponent,
     BlogSingleComponent,
     BlogComponent,
-    ResidentSingleComponent
+    ResidentSingleComponent,
+    ShowSingleComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule

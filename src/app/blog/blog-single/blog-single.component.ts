@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Params } from '@angular/router';
 import { PostsService } from '../../_services/posts.service';
 import { HtmlEncode } from '../../_helpers/helpers';
@@ -15,7 +16,9 @@ export class BlogSingleComponent implements OnInit {
   posts = [];
 
   constructor(private postsService: PostsService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private _meta: Meta,
+    private _title: Title) { }
 
   ngOnInit() {
     // access route params
@@ -56,6 +59,15 @@ export class BlogSingleComponent implements OnInit {
             image_large: featured_img
           }
           this.posts.push(postData);
+          // SEO updates
+          this._title.setTitle(postData.title);
+          this._meta.updateTag({ name: 'description', content: postData.excerpt});
+          this._meta.updateTag({ name: 'og:image', content: postData.image_large});
+          this._meta.updateTag({ name: 'og:title', content: postData.title});
+          this._meta.updateTag({ name: 'og:description', content: postData.excerpt});
+
+        // ADD KEYWORDS for blogs
+        //  this._meta.updateTag({ name: 'keywords', content: postData.title + ', blog, ' + JSON.stringify(postData.tags)});
     //    console.log(this.posts);
       }
     )

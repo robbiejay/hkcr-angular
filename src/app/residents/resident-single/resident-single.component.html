@@ -1,21 +1,40 @@
 <div class="fluid-container">
   <div class="container">
+    <div class='row' *ngIf='isLoading' style='min-height: 75vh;'>
+      <div class='col-12' style='text-align: center;margin-top: 32px;'><img src='assets/loading.gif'>
+      </div>
+    </div>
     <div class="row">
       <div *ngFor="let resident of residents" style='position: relative;'>
         <div class="row">
-          <div class="col-6">
-              <a class='back-btn' routerLink="/residents"><</a>
+          <div class="col-12 col-md-6">
+              <span role='button' class='back-btn' (click)="goBack()"><</span>
             <div class='img-container'>
                     <img [src]="resident.image_large">
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-12 col-md-6">
             <h1 class='single-post-title'>{{resident.title}}</h1>
             <p class='single-post-excerpt' [innerHtml]="resident.content"></p>
           </div>
         </div>
+        <div class="row">
+            <h1>Shows by {{resident.title}}</h1>
+        </div>
+        <div class="row">
+          <div class="col-6 col-sm-4 col-md-3" *ngFor="let show of residentShows">
+            <div class="resident-show-container"  (click)='goTo(show.url)'>
+              <div class="img-container">
+              <img [src]='show.featured_image'>
+              </div>
+              <h2 class='resident-show-title'>{{show.title}}</h2>
+            </div>
+          </div>
+          <div class="col-12" *ngIf="residentShows.length == 0">
+            <p style='color: #aaa;'>Sorry! We don't have any shows for {{resident.title}} yet...</p>
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   </div>
-
-</div>

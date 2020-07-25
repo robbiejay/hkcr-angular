@@ -16,6 +16,7 @@ export class PlayerService {
   public nowPlaying = '';
   public upNext = '';
   public livestreamActive = false;
+  public hasOpenedShow = false;
   //public state = 'slidOut';
 
   constructor(private http: HttpClient) {
@@ -29,6 +30,7 @@ export class PlayerService {
   //    this.state = 'slidIn';
       this.playerVisibilityChange.next(true);
       this.show = show;
+      this.hasOpenedShow = true;
     //   let widget = window.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget"));
     //
     //     // console.log(window.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget")));
@@ -76,8 +78,12 @@ export class PlayerService {
       this.playerVisibilityChange.next(false);
     }
 
+    togglePlayer() {
+      this.playerVisibilityChange.next(!this.isPlayerVisible);
+    }
+
     checkStream(): Observable<any> {
-      let url = 'https://161.35.20.148/hls/test.m3u8';
+      let url = 'https://hkcr.live/hls/test.m3u8';
       return this.http.get(
         url,
         {responseType: 'text',
