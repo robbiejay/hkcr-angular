@@ -12,6 +12,7 @@ import { ShowSingleComponent } from './shows/show-single/show-single.component';
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: '', component: HomeComponent},
+  {path: 'livestream', component: HomeComponent},
   {path: 'blog', component: BlogComponent},
   {path: 'blog/:title', component: BlogSingleComponent},
   {path: 'residents', component: ResidentsComponent},

@@ -1,4 +1,6 @@
 import { Component, ElementRef, ViewChild, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { PlayerService } from '../../_services/player.service';
 import videojs from 'video.js';
 // import 'hls.js';
@@ -19,7 +21,7 @@ export class RadiostreamComponent implements OnInit, OnDestroy {
   radio: any;
   errorActive: boolean;
 
-  constructor(public playerService: PlayerService) { }
+  constructor(public playerService: PlayerService, private _location: Location, private route: ActivatedRoute ) { }
   @ViewChild('radio') radioElement: ElementRef;
 
 
@@ -80,5 +82,6 @@ pauseRadio($event) {
 
 activateLivestream() {
   this.playerService.livestreamActive = true;
+    this._location.go('livestream');
 }
 }

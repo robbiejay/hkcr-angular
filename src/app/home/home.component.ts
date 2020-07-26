@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { PlayerService } from '../_services/player.service';
 import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
@@ -8,9 +10,16 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _meta: Meta, private _title: Title) { }
+  constructor(private _meta: Meta,
+              private _title: Title,
+              private playerService: PlayerService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+
+    if(this.route.snapshot.url.length !== 0) {
+      this.playerService.livestreamActive = true;
+    }
 
     this._title.setTitle("HKCR | Hong Kong Community Radio");
     this._meta.updateTag({ name: 'description', content: "HKCR 🌐 | Hong Kong Community Radio, independent livestream platform for latest mixes, podcasts, DJs & music from Hong Kong. 香港聯合電台 (簡稱HKCR) ，一個提供最新電台Mix ， Podcast 廣播以及地下音樂的獨立網上平台。"});
