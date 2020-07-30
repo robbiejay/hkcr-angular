@@ -3,7 +3,8 @@ import { Location } from '@angular/common';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
 import { PostsService } from '../../_services/posts.service';
-import { HtmlEncode } from '../../_helpers/helpers';
+import { HelpersService } from '../../_services/helpers.service';
+//import { HtmlEncode } from '../../_helpers/helpers';
 
 @Component({
   selector: 'app-resident-single',
@@ -18,6 +19,7 @@ export class ResidentSingleComponent implements OnInit {
   isLoading : boolean;
 
   constructor(private postsService: PostsService,
+              private helpersService: HelpersService,
     private route: ActivatedRoute,
     private router : Router,
     private _location: Location,
@@ -55,8 +57,8 @@ export class ResidentSingleComponent implements OnInit {
 
 
         let residentData = {
-          title: HtmlEncode(data.title.rendered),
-          content: HtmlEncode(data.content.rendered),
+          title: this.helpersService.HtmlEncode(data.title.rendered),
+          content: this.helpersService.HtmlEncode(data.content.rendered),
           image_large: featured_img
         }
 
@@ -86,7 +88,7 @@ export class ResidentSingleComponent implements OnInit {
           } else {
             featured_img = item.image_full;
           }
-          let titleArr = HtmlEncode(item.title).split('–');
+          let titleArr = this.helpersService.HtmlEncode(item.title).split('–');
           let date = titleArr.pop();
           let title = titleArr.join();
 
@@ -94,7 +96,7 @@ export class ResidentSingleComponent implements OnInit {
             title: title,
             date: date,
             url: item.url,
-            excerpt: HtmlEncode(item.excerpt),
+            excerpt: this.helpersService.HtmlEncode(item.excerpt),
             featured_image: featured_img,
             tags: item.tags
           }

@@ -2,7 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Params } from '@angular/router';
 import { PostsService } from '../../_services/posts.service';
-import { HtmlEncode } from '../../_helpers/helpers';
+import { HelpersService } from '../../_services/helpers.service';
+// import { HtmlEncode } from '../../_helpers/helpers';
 
 @Component({
   selector: 'app-blog-single',
@@ -16,6 +17,7 @@ export class BlogSingleComponent implements OnInit {
   posts = [];
 
   constructor(private postsService: PostsService,
+              private helpersService: HelpersService,
     private route: ActivatedRoute,
     private _meta: Meta,
     private _title: Title) { }
@@ -48,13 +50,13 @@ export class BlogSingleComponent implements OnInit {
             featured_img = data._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url;
           }
 
-          let dateArr = HtmlEncode(data.date).split('T');
+          let dateArr = this.helpersService.HtmlEncode(data.date).split('T');
           let date = dateArr[0].split('-').reverse().join('/');
 
           let postData = {
-            title: HtmlEncode(data.title.rendered),
-            content: HtmlEncode(data.content.rendered),
-            excerpt: HtmlEncode(data.excerpt.rendered.replace(/<[^>]*>/g, '')),
+            title: this.helpersService.HtmlEncode(data.title.rendered),
+            content: this.helpersService.HtmlEncode(data.content.rendered),
+            excerpt: this.helpersService.HtmlEncode(data.excerpt.rendered.replace(/<[^>]*>/g, '')),
             date: date,
             image_large: featured_img
           }

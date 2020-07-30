@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostsService } from '../_services/posts.service';
-import { HtmlEncode } from '../_helpers/helpers';
+import { HelpersService } from '../_services/helpers.service';
+//import { HtmlEncode } from '../_helpers/helpers';
 
 @Component({
   selector: 'app-blog',
@@ -12,6 +13,7 @@ export class BlogComponent implements OnInit {
 
   posts = [];
   constructor(private postsService: PostsService,
+              private helpersService: HelpersService,
   private router: Router) { }
 
   ngOnInit() {
@@ -33,16 +35,16 @@ export class BlogComponent implements OnInit {
           }
 
 
-          let excerpt = HtmlEncode(post.excerpt.rendered.replace(/<[^>]*>/g, ''));
+          let excerpt = this.helpersService.HtmlEncode(post.excerpt.rendered.replace(/<[^>]*>/g, ''));
             if (excerpt.length > 140) {
               excerpt = excerpt.substring(0, 140) + '...';
             }
 
 
           let postData = {
-            title: HtmlEncode(post.title.rendered),
-            filename: HtmlEncode(post.title.rendered).replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase(),
-            content: HtmlEncode(post.content.rendered),
+            title: this.helpersService.HtmlEncode(post.title.rendered),
+            filename: this.helpersService.HtmlEncode(post.title.rendered).replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase(),
+            content: this.helpersService.HtmlEncode(post.content.rendered),
             excerpt: excerpt,
             image_large: featured_img
           }

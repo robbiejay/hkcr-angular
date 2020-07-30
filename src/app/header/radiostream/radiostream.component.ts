@@ -1,6 +1,6 @@
-import { Component, ElementRef, ViewChild, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, OnDestroy, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import { Location, isPlatformBrowser } from '@angular/common';
 import { PlayerService } from '../../_services/player.service';
 import videojs from 'video.js';
 // import 'hls.js';
@@ -21,7 +21,10 @@ export class RadiostreamComponent implements OnInit, OnDestroy {
   radio: any;
   errorActive: boolean;
 
-  constructor(public playerService: PlayerService, private _location: Location, private route: ActivatedRoute ) { }
+  constructor(public playerService: PlayerService,
+    private _location: Location,
+    private route: ActivatedRoute,
+    @Inject(PLATFORM_ID) private platformId ) { }
   @ViewChild('radio') radioElement: ElementRef;
 
 
@@ -30,6 +33,7 @@ export class RadiostreamComponent implements OnInit, OnDestroy {
   }
 
   ngAfterViewInit() {
+            if(isPlatformBrowser(this.platformId)) {
     const options = {
                   "preload": "auto",
                   "width": 0,
@@ -62,10 +66,13 @@ export class RadiostreamComponent implements OnInit, OnDestroy {
                   // console.log(this.radio.Player);
                   // console.log(this.radioElement);
                   //video.play();
+                }
   }
 
   ngOnDestroy() {
+              if(isPlatformBrowser(this.platformId)) {
     this.radio.dispose();
+  }
   }
 
 playRadio($event) {

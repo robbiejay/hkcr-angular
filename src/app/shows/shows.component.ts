@@ -1,9 +1,11 @@
-import { Component, OnInit, HostListener  } from '@angular/core';
+import { Component, OnInit, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from "@angular/common";
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { PostsService } from '../_services/posts.service';
 import { PlayerService } from '../_services/player.service';
-import { HtmlEncode } from '../_helpers/helpers';
+import { HelpersService } from '../_services/helpers.service';
+//import { HtmlEncode } from '../_helpers/helpers';
 
 @Component({
   selector: 'app-shows',
@@ -35,8 +37,10 @@ export class ShowsComponent implements OnInit {
 
   constructor(private postsService: PostsService,
               public playerService: PlayerService,
+              private helpersService: HelpersService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+            @Inject(PLATFORM_ID) private platformId) { }
 
 
   get isPlayerVisible(): boolean {
@@ -48,13 +52,19 @@ export class ShowsComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.route.snapshot.url.length == 0) {
-      this.mode = 'home'
-    } else {
-      this.mode = 'archive'
-    }
 
-    this.getShows()
+  }
+
+  ngAfterViewInit() {
+    if(isPlatformBrowser(this.platformId)) {
+if(this.route.snapshot.url.length == 0) {
+this.mode = 'home'
+} else {
+this.mode = 'archive'
+}
+
+this.getShows()
+}
   }
 
   listenShow(show){
@@ -63,6 +73,7 @@ export class ShowsComponent implements OnInit {
 
 
   getShows() {
+              if(isPlatformBrowser(this.platformId)) {
     this.isLoading = true;
     this.postsService.getTotalPages().subscribe(
       data => {
@@ -79,7 +90,7 @@ export class ShowsComponent implements OnInit {
           } else {
             featured_img = show.image_thumbnail;
           }
-          let titleArr = HtmlEncode(show.title).split('–');
+          let titleArr = this.helpersService.HtmlEncode(show.title).split('–');
           let date = titleArr.pop();
           let title = titleArr.join().trim();
 
@@ -87,7 +98,7 @@ export class ShowsComponent implements OnInit {
             title: title,
             date: date,
             url: show.url,
-            excerpt: HtmlEncode(show.excerpt),
+            excerpt: this.helpersService.HtmlEncode(show.excerpt),
             featured_image: featured_img,
             tags: show.tags,
           }
@@ -95,8 +106,10 @@ export class ShowsComponent implements OnInit {
         })
         })
     }
+  }
 
   prevShowPage() {
+              if(isPlatformBrowser(this.platformId)) {
     if(this.showPage > 1){
       this.showPage--;
       this.shows = [];
@@ -113,7 +126,7 @@ export class ShowsComponent implements OnInit {
                   } else {
                     featured_img = item.image_thumbnail;
                   }
-                  let titleArr = HtmlEncode(item.title).split('–');
+                  let titleArr = this.helpersService.HtmlEncode(item.title).split('–');
                   let date = titleArr.pop();
                   let title = titleArr.join();
 
@@ -121,7 +134,7 @@ export class ShowsComponent implements OnInit {
                     title: title,
                     date: date,
                     url: item.url,
-                    excerpt: HtmlEncode(item.excerpt),
+                    excerpt: this.helpersService.HtmlEncode(item.excerpt),
                     featured_image: featured_img,
                     tags: item.tags,
                   }
@@ -134,8 +147,10 @@ export class ShowsComponent implements OnInit {
       }
     }
   }
+  }
 
   nextShowPage(){
+              if(isPlatformBrowser(this.platformId)) {
   if(this.showPage < this.totalPages){
     this.showPage++;
     this.shows = [];
@@ -152,7 +167,7 @@ export class ShowsComponent implements OnInit {
                 } else {
                   featured_img = item.image_thumbnail;
                 }
-                let titleArr = HtmlEncode(item.title).split('–');
+                let titleArr = this.helpersService.HtmlEncode(item.title).split('–');
                 let date = titleArr.pop();
                 let title = titleArr.join();
 
@@ -160,7 +175,7 @@ export class ShowsComponent implements OnInit {
                   title: title,
                   date: date,
                   url: item.url,
-                  excerpt: HtmlEncode(item.excerpt),
+                  excerpt: this.helpersService.HtmlEncode(item.excerpt),
                   featured_image: featured_img,
                   tags: item.tags
                 }
@@ -172,9 +187,11 @@ export class ShowsComponent implements OnInit {
       this.getShows();
     }
   }
+}
   }
 
   sortByTag(tag) {
+              if(isPlatformBrowser(this.platformId)) {
     this.currentGenre = tag;
     this.shows = [];
     this.isLoading = true;
@@ -182,7 +199,7 @@ export class ShowsComponent implements OnInit {
     this.showPage = 1;
     this.postsService.getTagTotalPages(this.currentGenre.replace(/ /g, "_").toLowerCase()).subscribe(
       data => {
-        console.log('genre total pages is' + data.body);
+      //  console.log('genre total pages is' + data.body);
         this.totalPages = data.body;
       }
     )
@@ -197,7 +214,7 @@ export class ShowsComponent implements OnInit {
           } else {
             featured_img = item.image_thumbnail;
           }
-          let titleArr = HtmlEncode(item.title).split('–');
+          let titleArr = this.helpersService.HtmlEncode(item.title).split('–');
           let date = titleArr.pop();
           let title = titleArr.join();
 
@@ -205,7 +222,7 @@ export class ShowsComponent implements OnInit {
             title: title,
             date: date,
             url: item.url,
-            excerpt: HtmlEncode(item.excerpt),
+            excerpt: this.helpersService.HtmlEncode(item.excerpt),
             featured_image: featured_img,
             tags: item.tags
           }
@@ -213,13 +230,16 @@ export class ShowsComponent implements OnInit {
         })
         })
       }
+      }
 
   closeGenre() {
+              if(isPlatformBrowser(this.platformId)) {
     this.shows = [];
     this.isLoading = true;
     this.showPage = 1;
     this.currentGenre = '';
     this.getShows();
+  }
   }
 
   goTo(location) {
@@ -228,13 +248,16 @@ export class ShowsComponent implements OnInit {
 
   @HostListener("window:scroll", [])
   onScroll(): void {
+        if(isPlatformBrowser(this.platformId)) {
     if((window.innerHeight + window.scrollY + 20) >= document.body.offsetHeight && this.mode == 'archive') {
       this.loadMoreShows();
     }
   }
+}
 
   loadMoreShows() {
-    console.log(this.showPage + ' : SCROLLED TO BOTTOM OF PAGE')
+              if(isPlatformBrowser(this.platformId)) {
+  //  console.log(this.showPage + ' : SCROLLED TO BOTTOM OF PAGE')
       this.showPage++;
     if(this.currentGenre !== '') {
       this.postsService.getShowsByTag(this.currentGenre.replace(/ /g, "_").toLowerCase(), this.showPage).subscribe(
@@ -247,7 +270,7 @@ export class ShowsComponent implements OnInit {
                 } else {
                   featured_img = item.image_thumbnail;
                 }
-                let titleArr = HtmlEncode(item.title).split('–');
+                let titleArr = this.helpersService.HtmlEncode(item.title).split('–');
                 let date = titleArr.pop();
                 let title = titleArr.join();
 
@@ -255,7 +278,7 @@ export class ShowsComponent implements OnInit {
                   title: title,
                   date: date,
                   url: item.url,
-                  excerpt: HtmlEncode(item.excerpt),
+                  excerpt: this.helpersService.HtmlEncode(item.excerpt),
                   featured_image: featured_img,
                   tags: item.tags
                 }
@@ -274,7 +297,7 @@ export class ShowsComponent implements OnInit {
               } else {
                 featured_img = show.image_thumbnail;
               }
-              let titleArr = HtmlEncode(show.title).split('–');
+              let titleArr = this.helpersService.HtmlEncode(show.title).split('–');
               let date = titleArr.pop();
               let title = titleArr.join().trim();
 
@@ -282,7 +305,7 @@ export class ShowsComponent implements OnInit {
                 title: title,
                 date: date,
                 url: show.url,
-                excerpt: HtmlEncode(show.excerpt),
+                excerpt: this.helpersService.HtmlEncode(show.excerpt),
                 featured_image: featured_img,
                 tags: show.tags,
               }
@@ -291,4 +314,5 @@ export class ShowsComponent implements OnInit {
             })
       }
   }
+}
 }

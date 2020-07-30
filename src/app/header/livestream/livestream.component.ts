@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, OnDestroy, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from "@angular/common";
 import { PlayerService } from '../../_services/player.service';
 import videojs from 'video.js';
 // import 'hls.js';
@@ -18,11 +19,12 @@ import 'videojs-resolution-switcher';
 export class LivestreamComponent implements OnInit, OnDestroy {
 
 
-  livestreamPlayerHeight = window.innerHeight;
-  livestreamPlayerWidth = window.innerWidth;
+  livestreamPlayerWidth : number;
+  livestreamPlayerHeight : number;
   video: any;
 
-  constructor(private playerService: PlayerService) { }
+  constructor(private playerService: PlayerService,
+  @Inject(PLATFORM_ID) private platformId) { }
   @ViewChild('video') videoElement: ElementRef;
   name = 'Angular 6';
 
@@ -34,6 +36,10 @@ export class LivestreamComponent implements OnInit, OnDestroy {
   }
 
   ngAfterViewInit() {
+        if(isPlatformBrowser(this.platformId)) {
+    this.livestreamPlayerHeight = window.innerHeight;
+    this.livestreamPlayerWidth = window.innerWidth;
+
     this.playerService.checkStream().subscribe(
       data => {
         console.log(data);
@@ -68,6 +74,7 @@ export class LivestreamComponent implements OnInit, OnDestroy {
                   console.log(this.video.userActive());
                   console.log(this.video.readyState());
       }
+    }
 
       ngOnDestroy() {
         this.video.dispose();
