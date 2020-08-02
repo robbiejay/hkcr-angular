@@ -1,7 +1,17 @@
 <div class="container">
   <h1>UPCOMING SHOWS<span class='strikethrough'>&nbsp;</span></h1>
-  <div class='upcoming-card' *ngFor='let show of upcomingShows'>
-  <h2>{{show.title}}</h2>
-  <h3>{{show.excerpt}}<span style='font-size: 0.75em;'>HK</span></h3>
+  <div class='upcoming-card' *ngFor='let show of upcomingShows' (click)="goTo(show.filename)">
+  <div class="row">
+    <div class="col-2">
+      <div class="upcoming-img-container">
+      <img [src]="show.featured_image"/>
+      </div>
+
+    </div>
+    <div class="col-10">
+      <h2 class='upcoming-title'>{{show.title}}</h2>
+      <h3 class='upcoming-date'>{{show.excerpt}}<span style='font-size: 0.75em;'>HK</span></h3>
+    </div>
+  </div>
   </div>
 </div>

@@ -26,6 +26,8 @@ import { ArchiveComponent } from './archive/archive.component';
 import { BlogSingleComponent } from './blog/blog-single/blog-single.component';
 import { BlogComponent } from './blog/blog.component';
 import { ShowSingleComponent } from './shows/show-single/show-single.component';
+import { ScheduleSingleComponent } from './schedule/schedule-single/schedule-single.component';
+import { IframePipe } from './_pipes/iframe.pipe';
 
 
 
@@ -50,7 +52,9 @@ import { ShowSingleComponent } from './shows/show-single/show-single.component';
     BlogSingleComponent,
     BlogComponent,
     ResidentSingleComponent,
-    ShowSingleComponent
+    ShowSingleComponent,
+    ScheduleSingleComponent,
+    IframePipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -58,7 +62,9 @@ import { ShowSingleComponent } from './shows/show-single/show-single.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    IframePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

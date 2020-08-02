@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Router } from '@angular/router';
 import { isPlatformBrowser } from "@angular/common";
 import { PostsService } from '../../_services/posts.service';
 import { HelpersService } from '../../_services/helpers.service';
@@ -14,6 +15,7 @@ export class UpcomingComponent implements OnInit {
   upcomingShows = [];
   constructor(private postsService: PostsService,
               private helpersService: HelpersService,
+              private router: Router,
               @Inject(PLATFORM_ID) private platformId) { }
 
   currentDateHK: string;
@@ -43,15 +45,25 @@ this.getUpcomingShows();
       data => {
   //      console.log(data);
         data.forEach(upcoming => {
+
+          let featured_img;
+          if(upcoming._embedded["wp:featuredmedia"] == undefined) {
+            featured_img = "assets/default_show.png";
+          } else {
+            featured_img = upcoming._embedded['wp:featuredmedia'][0].media_details.sizes.thumbnail.source_url;
+          }
+
           let excerpt = this.helpersService.HtmlEncode(upcoming.excerpt.rendered.replace(/<[^>]*>/g, ''));
           let excerptArr = excerpt.split('–');
           let date = excerptArr[0].trim().replace( /\//g, '-').split('-').reverse().join('-');
           let time = excerptArr[1].trim();
           let upcomingData = {
             title: this.helpersService.HtmlEncode(upcoming.title.rendered),
+            filename: this.helpersService.HtmlEncode(upcoming.title.rendered).replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase(),
             excerpt: this.helpersService.HtmlEncode(upcoming.excerpt.rendered.replace(/<[^>]*>/g, '')),
             date : date,
-            time: time
+            time: time,
+            featured_image: featured_img
           }
           console.log(upcomingData.date.split('-').join('') + ' < ' + this.currentDateHK.split('-').join(''))
           //if (upcomingData.date.split('-').join('') > this.currentDateHK.split('-').join('')) {
@@ -69,4 +81,9 @@ this.getUpcomingShows();
       })
   }
 }
+
+goTo(location) {
+  this.router.navigate(['schedule/' + location])
+}
+
 }

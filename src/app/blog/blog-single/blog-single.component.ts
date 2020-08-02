@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Title, Meta } from '@angular/platform-browser';
+import { Component, OnInit, ViewEncapsulation, SecurityContext } from '@angular/core';
+import { Title, Meta, DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Params } from '@angular/router';
 import { PostsService } from '../../_services/posts.service';
 import { HelpersService } from '../../_services/helpers.service';
+import { IframePipe } from '../../_pipes/iframe.pipe';
 // import { HtmlEncode } from '../../_helpers/helpers';
 
 @Component({
@@ -20,7 +21,9 @@ export class BlogSingleComponent implements OnInit {
               private helpersService: HelpersService,
     private route: ActivatedRoute,
     private _meta: Meta,
-    private _title: Title) { }
+    private _title: Title,
+    private sanitizer : DomSanitizer,
+    private iframePipe : IframePipe) { }
 
   ngOnInit() {
     // access route params
@@ -53,9 +56,112 @@ export class BlogSingleComponent implements OnInit {
           let dateArr = this.helpersService.HtmlEncode(data.date).split('T');
           let date = dateArr[0].split('-').reverse().join('/');
 
+          let content = this.helpersService.HtmlEncode(data.content.rendered);
+
+          let soundcloudArr = content.split('[soundcloud]');
+          let soundcloudNewArr = [];
+          console.log(soundcloudArr);
+          soundcloudArr.forEach((chunk, index) => {
+            if(index !== 0) {
+            let chunkArr = chunk.split('[/soundcloud]');
+            let url = chunkArr[0];
+            let iframe_width = "100%";
+            console.log(url);
+            let iframe = `<iframe width=` + iframe_width + ` height="166" src=` + url + ` scrolling="no" frameborder="no" allow="autoplay"></iframe>`
+            chunkArr[0] = iframe;
+            chunkArr.join('');
+            chunk = this.helpersService.HtmlEncode(chunkArr.join(''));
+          }
+          soundcloudNewArr.push(chunk);
+          console.log(soundcloudNewArr);
+          })
+          console.log(this.helpersService.HtmlEncode(this.sanitizer.bypassSecurityTrustHtml(soundcloudNewArr.join())));
+
+          content = soundcloudNewArr.join('');
+
+          let mixcloudArr = content.split('[mixcloud]');
+          let mixcloudNewArr = [];
+          console.log(mixcloudArr);
+          mixcloudArr.forEach((chunk, index) => {
+            if(index !== 0) {
+            let chunkArr = chunk.split('[/mixcloud]');
+            let url = chunkArr[0];
+            let iframe_width = "100%";
+            let iframe_height = "120"
+            console.log(url);
+            let iframe = `<iframe width=` + iframe_width + ` height=`+ iframe_height +` src=` + url + ` scrolling="no" frameborder="no" allow="autoplay"></iframe>`
+            chunkArr[0] = iframe;
+            chunkArr.join('');
+            console.log(JSON.stringify(chunkArr.join('')))
+            chunk = this.helpersService.HtmlEncode(chunkArr.join(''));
+          }
+          mixcloudNewArr.push(chunk);
+          })
+          console.log(mixcloudNewArr);
+          content = mixcloudNewArr.join('');
+
+          let bandcampArr = content.split('[bandcamp]');
+          let bandcampNewArr = [];
+          bandcampArr.forEach((chunk, index) => {
+            if(index !== 0) {
+            let chunkArr = chunk.split('[/bandcamp]');
+            let url = chunkArr[0];
+            let iframe_width = "100%";
+            let iframe_height = "120";
+            let iframe = `<iframe width=` + iframe_width + ` height=` + iframe_height + ` src=` + url + ` scrolling="no" frameborder="0" allow="encrypted-media" allowtransparency="true"></iframe>`
+            chunkArr[0] = iframe;
+            chunkArr.join('');
+            chunk = this.helpersService.HtmlEncode(chunkArr.join(''));
+          }
+          bandcampNewArr.push(chunk);
+          })
+          console.log(bandcampNewArr);
+          content = bandcampNewArr.join('');
+
+          let spotifyArr = content.split('[spotify]');
+          let spotifyNewArr = [];
+          spotifyArr.forEach((chunk, index) => {
+            if(index !== 0) {
+            let chunkArr = chunk.split('[/spotify]');
+            let url = chunkArr[0];
+            let iframe_width = "100%";
+            let iframe_height = "380";
+            let iframe = `<iframe width=` + iframe_width + ` height=`+ iframe_height +` src=` + url + ` scrolling="no" frameborder="0" allow="encrypted-media" allowtransparency="true"></iframe>`
+            chunkArr[0] = iframe;
+            chunkArr.join('');
+            chunk = this.helpersService.HtmlEncode((chunkArr.join('')));
+          }
+          spotifyNewArr.push(chunk);
+          })
+          console.log(spotifyNewArr);
+          content = spotifyNewArr.join('');
+
+          let youtubeArr = content.split('[youtube]');
+          let youtubeNewArr = [];
+          youtubeArr.forEach((chunk, index) => {
+            if(index !== 0) {
+            let chunkArr = chunk.split('[/youtube]');
+            let url = chunkArr[0];
+            let iframe_width = "100%";
+            let iframe_height = "560";
+            let iframe = `<iframe width=` + iframe_width + ` height=`+ iframe_height +` src=` + url + ` scrolling="no" frameborder="0" allow="encrypted-media; accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+            chunkArr[0] = iframe;
+            chunkArr.join('');
+            chunk = this.helpersService.HtmlEncode((chunkArr.join('')));
+          }
+          youtubeNewArr.push(chunk);
+          })
+          console.log(youtubeNewArr);
+          content = youtubeNewArr.join('');
+
+
+          content = this.iframePipe.transform(content);
+
+
+
           let postData = {
             title: this.helpersService.HtmlEncode(data.title.rendered),
-            content: this.helpersService.HtmlEncode(data.content.rendered),
+            content: content,
             excerpt: this.helpersService.HtmlEncode(data.excerpt.rendered.replace(/<[^>]*>/g, '')),
             date: date,
             image_large: featured_img

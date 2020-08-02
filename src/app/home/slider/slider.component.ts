@@ -47,7 +47,7 @@ ngAfterViewInit() {
 this.autoplayActive = true;
 setInterval(()=> { this.autoplay(this.autoplayActive) }, 7 * 1000);
 
-this.postsService.getLatestShow().subscribe(
+this.postsService.getLatestShows().subscribe(
 data => {
 
     let latestShowData = {

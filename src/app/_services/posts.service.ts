@@ -105,6 +105,13 @@ export class PostsService {
     )
   }
 
+  getSingleUpcoming(filename): Observable<any> {
+    return this.http.get(
+      'http://hkcr.live/wp_api/data/upcoming-shows/single/' + filename + '.json',
+      {responseType: 'json'}
+    )
+  }
+
   getPosts(): Observable<any> {
     return this.http.get(
       'http://hkcr.live/wp_api/data/blog/blog.json',
@@ -119,7 +126,7 @@ export class PostsService {
     );
   }
 
-  getLatestShow(): Observable<any> {
+  getLatestShows(): Observable<any> {
     return this.http.get(
       'http://hkcr.live/wp_api/data/shows/shows_1.json',
       {responseType: 'json'}

@@ -33,6 +33,20 @@
   padding: 0px 35px;
 }
 
+.single-show-date {
+  font-family: "Josefin Sans";
+  font-size: 1.333em;
+  color: #353535;
+  margin-top: 4px;
+  margin-bottom: 0px;
+  padding: 0px 35px;
+  padding-bottom: 4px;
+  display: inline-block;
+margin-left: auto;
+margin-right: auto;
+width: 80%;
+}
+
 .single-show-excerpt {
   font-family: "Josefin Sans";
   line-height: 1.5em;
@@ -45,33 +59,23 @@
   padding-bottom: 70px;
 }
 
-.listen-now-btn {
-  background: #ffdf00;
-  padding: 7px;
-  padding-top: 9px;
-  margin-top: 14px;
-  display:inline-block;
-  margin-left: 35px;
-  border-radius: 7px;
-  font-family: "Josefin Sans";
-  transition: 0.2s;
-  cursor: pointer;
-}
-
-.listen-now-btn:hover {
-  background: #222;
-  color: #ffdf00;
-}
-
-.related-show-container {
-  cursor: pointer;
-}
-
-.related-show-container:hover {
-
-}
 
 .similar-artists-title {
+  font-family: "Josefin Sans";
+  margin-top: 7px;
+  font-size: 1.333em;
+  padding: 4px;
+}
+
+.latest-show-container {
+  cursor: pointer;
+}
+
+.latest-show-container:hover {
+
+}
+
+.latest-artists-title {
   font-family: "Josefin Sans";
   margin-top: 7px;
   font-size: 1.333em;
