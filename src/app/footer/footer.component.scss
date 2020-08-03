@@ -1,6 +1,27 @@
 footer {
 width: 100%;
 background: #ffdf00;
+position: absolute;
+bottom: 0;
+height: 6rem;
+overflow: visible;
+
+// // hide scrollbar
+// -ms-overflow-style: none;  /* IE and Edge */
+// scrollbar-width: none;  /* Firefox */
+// }
+
+// /* Hide scrollbar for Chrome, Safari and Opera */
+// footer::-webkit-scrollbar {
+//   display: none;
+}
+
+.footerblank {
+  bottom: 0;
+  // position: absolute;
+  height: 3.75rem;
+  width: 100%;
+  background: #ffdf00;
 }
 
 img {

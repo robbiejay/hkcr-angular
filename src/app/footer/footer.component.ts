@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlayerService } from '../_services/player.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   currentYear = new Date().getDate();
-  constructor() { }
+  constructor( private playerService: PlayerService ) { }
 
   ngOnInit() {
   }

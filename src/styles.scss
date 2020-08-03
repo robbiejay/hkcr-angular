@@ -29,9 +29,14 @@ html {
 }
 body {
 	line-height: 1;
-	overflow-x:hidden;
+	overflow:visible;
 	background-color: #f4f4f4;
+	min-height: 100vh;
+	position: relative;
+	padding-bottom: 6rem;
 }
+
+
 ol, ul {
 	list-style: none;
 }
