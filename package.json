@@ -32,6 +32,7 @@
     "@nestjs/platform-express": "^6.0.0",
     "@nguniversal/express-engine": "^7.0.0",
     "@nguniversal/module-map-ngfactory-loader": "^7.0.0",
+    "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.5.4",
     "domino": "^2.1.6",
     "moment": "^2.25.3",
