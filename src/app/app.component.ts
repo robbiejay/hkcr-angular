@@ -1,8 +1,9 @@
-import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID, isDevMode } from '@angular/core';
 import { isPlatformBrowser } from "@angular/common";
 import { PlayerService } from './_services/player.service';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 
+declare let gtag: Function;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,7 +25,14 @@ export class AppComponent implements OnInit {
           if (!(evt instanceof NavigationEnd)) {
               return;
           }
+          if(event instanceof NavigationEnd && !isDevMode) {
 
+              gtag('config', 'UA-171054401-1',
+            {
+              'page_path': event.urlAfterRedirects
+            }
+          );
+          }
           var scrollToTop = window.setInterval(function () {
               var pos = window.pageYOffset;
               if (pos > 0) {
