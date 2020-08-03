@@ -52,10 +52,6 @@ export class ShowsComponent implements OnInit {
   }
 
   ngOnInit() {
-
-  }
-
-  ngAfterViewInit() {
     if(isPlatformBrowser(this.platformId)) {
 if(this.route.snapshot.url.length == 0) {
 this.mode = 'home'
@@ -65,6 +61,10 @@ this.mode = 'archive'
 
 this.getShows()
 }
+  }
+
+  ngAfterViewInit() {
+
   }
 
   listenShow(show){

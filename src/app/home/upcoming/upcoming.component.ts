@@ -78,6 +78,7 @@ this.getUpcomingShows();
             if (a.time < b.time ){ return -1}
           }
         })
+        console.log(this.upcomingShows);
       })
   }
 }

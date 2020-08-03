@@ -49,15 +49,17 @@ this.getResidents();
             if(isPlatformBrowser(this.platformId)) {
     this.postsService.getResidents().subscribe(
       data => {
-    //    console.log(data);
+       console.log(data);
         data.forEach(resident => {
           let residentData = {
             title: this.helpersService.HtmlEncode(resident.title.rendered),
             content: this.helpersService.HtmlEncode(resident.content.rendered.replace(/<[^>]*>/g, '')),
-            image_medium: resident._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url,
+            image_medium: resident._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url,
           }
           this.residents.push(residentData);
         })
+        console.log(this.residents);
+        console.log(this.residents.length);
       }
     )
   }

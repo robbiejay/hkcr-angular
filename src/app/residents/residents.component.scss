@@ -47,7 +47,7 @@ h1 {
 h2 {
   padding-top: 14px;
   padding-bottom: 14px;
-  font-size: 1.333em;
+  font-size: 1em;
   color: #fff;
   font-family: 'Josefin Sans';
 }
@@ -62,5 +62,13 @@ h2 {
   }
   .resident-card {
     height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+
+    font-size: 1em;
+
   }
 }

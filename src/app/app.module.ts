@@ -28,6 +28,10 @@ import { BlogComponent } from './blog/blog.component';
 import { ShowSingleComponent } from './shows/show-single/show-single.component';
 import { ScheduleSingleComponent } from './schedule/schedule-single/schedule-single.component';
 import { IframePipe } from './_pipes/iframe.pipe';
+import { PrivacyComponent } from './subpages/privacy/privacy.component';
+import { AboutComponent } from './subpages/about/about.component';
+import { ContactComponent } from './subpages/contact/contact.component';
+import { Page404Component } from './subpages/page404/page404.component';
 
 
 
@@ -54,7 +58,11 @@ import { IframePipe } from './_pipes/iframe.pipe';
     ResidentSingleComponent,
     ShowSingleComponent,
     ScheduleSingleComponent,
-    IframePipe
+    IframePipe,
+    PrivacyComponent,
+    AboutComponent,
+    ContactComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
