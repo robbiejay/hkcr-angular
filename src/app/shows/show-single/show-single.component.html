@@ -12,6 +12,16 @@
             <div class='img-container show-img-container'>
                     <img [src]="show.featured_image">
             </div>
+            <div *ngIf='youtubeVideo !== ""' class="video-container">
+              <iframe
+              width="100%"
+              height="560"
+              [src]="this.youtubeVideo"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+            </div>
           </div>
 
           <div class="col-12 col-md-6">

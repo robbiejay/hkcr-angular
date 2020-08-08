@@ -20,6 +20,7 @@ export class ShowSingleComponent implements OnInit {
   counter = 0;
   tags = []
   isLoading : boolean;
+  youtubeVideo = '';
 
   constructor(private postsService: PostsService,
               private playerService: PlayerService,

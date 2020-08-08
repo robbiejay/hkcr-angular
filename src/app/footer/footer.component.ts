@@ -9,7 +9,7 @@ import { PlayerService } from '../_services/player.service';
 export class FooterComponent implements OnInit {
 
   currentYear = new Date().getDate();
-  constructor( private playerService: PlayerService ) { }
+  constructor( public playerService: PlayerService ) { }
 
   ngOnInit() {
   }

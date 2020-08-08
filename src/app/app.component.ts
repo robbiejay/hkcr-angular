@@ -12,9 +12,22 @@ declare let gtag: Function;
 export class AppComponent implements OnInit {
   title = 'hkcr';
   livestreamActive = false;
+
   constructor(public playerService: PlayerService,
               private router: Router,
-              @Inject(PLATFORM_ID) private platformId) {  }
+              @Inject(PLATFORM_ID) private platformId) {
+
+                this.router.events.subscribe(event => {
+                  if (event instanceof NavigationEnd && !isDevMode) {
+                    gtag('config', 'UA-171054401-1',
+                  {
+                    'page_path': event.urlAfterRedirects
+                  }
+                );
+                  }
+                })
+
+               }
 
   ngOnInit() {
 }
@@ -25,14 +38,8 @@ export class AppComponent implements OnInit {
           if (!(evt instanceof NavigationEnd)) {
               return;
           }
-          if(event instanceof NavigationEnd && !isDevMode) {
+          if(evt instanceof NavigationEnd) {
 
-              gtag('config', 'UA-171054401-1',
-            {
-              'page_path': event.urlAfterRedirects
-            }
-          );
-          }
           var scrollToTop = window.setInterval(function () {
               var pos = window.pageYOffset;
               if (pos > 0) {
@@ -41,7 +48,8 @@ export class AppComponent implements OnInit {
                   window.clearInterval(scrollToTop);
               }
           }, 16); // how fast to scroll (this equals roughly 60 fps)
-      });
+      }
+    });
     }
   }
   }
