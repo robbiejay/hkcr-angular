@@ -2,11 +2,36 @@ nav {
 // background-image: linear-gradient(to right top, #ffdf00, #fce41e, #f9e82f, #f7ed3d, #f4f149);
 // height: 68px;
 height: 3rem;
+width: 100vw;
+background-color: black;
 }
 
 // nav img {
 
 // }
+
+.navstream {
+  width: auto;
+  position: absolute;
+  top: 0;
+  left: 30%;
+}
+
+@media (min-width: 500px) and (max-width: 1000px) {
+    .navstream{
+  position: absolute;
+  left: 40%;
+    }
+}
+
+@media (min-width: 2000px) {
+  .navstream{
+position: absolute;
+left: 15%;
+  }
+}
+
+
 
 .header-logo img {
   padding: 14px;

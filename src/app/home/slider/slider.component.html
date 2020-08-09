@@ -1,80 +1,70 @@
 <div class='slider'>
+
   <div class='slider-controls'>
     <p (click)='prevSlide()'><i class="fas fa-arrow-left"></i></p>
     <p (click)='nextSlide()'><i class="fas fa-arrow-right"></i></p>
   </div>
+
   <div class='slide-container' [@slide]='sliderState'>
     <div class='slide'>
       <a *ngIf="highlights[0] !== undefined" target="_blank" [href]='highlights[0].excerpt'>
-      <div class='row' style='margin-right: 0; margin-left: 0;'>
-        <div class='col-12 col-md-7' style='padding: 0px;'>
+ 
+
           <div class='slide-image'>
           <img *ngIf="highlights[0] !== undefined" [src]="highlights[0].featured_image">
-          </div>
-        </div>
-        <div class='col-12 col-md-5' style='padding: 0px;'>
+
           <div class='slide-copy'>
-          <h1 *ngIf="highlights[0] !== undefined">{{highlights[0].title}}</h1>
-          <h2 *ngIf="highlights[0] !== undefined">{{highlights[0].content}}</h2>
+            <h1 *ngIf="highlights[0] !== undefined">{{highlights[0].title}}</h1>
+            <h2 *ngIf="highlights[0] !== undefined">{{highlights[0].content}}</h2>
+            </div>
+
           </div>
-        </div>
-      </div>
+
+
+  
       </a>
     </div>
 
     <div class='slide'>
       <a *ngIf="highlights[1] !== undefined" target="_blank" [href]='highlights[1].excerpt'>
-      <div class='row' style='margin-right: 0; margin-left: 0;'>
-        <div class='col-12 col-md-7' style='padding: 0px;'>
+
+
           <div class='slide-image'>
           <img *ngIf="highlights[1] !== undefined" [src]="highlights[1].featured_image">
-          </div>
-        </div>
-        <div class='col-12 col-md-5' style='padding: 0px;'>
+
+
           <div class='slide-copy'>
             <h1 *ngIf="highlights[1] !== undefined">{{highlights[1].title}}</h1>
             <h2 *ngIf="highlights[1] !== undefined">{{highlights[1].content}}</h2>
           </div>
-        </div>
-      </div>
+
+          </div>
+
+
+ 
       </a>
     </div>
 
     <div class='slide'>
       <a *ngIf="highlights[2] !== undefined" target="_blank" [href]='highlights[2].excerpt'>
-      <div class='row' style='margin-right: 0; margin-left: 0;'>
-        <div class='col-12 col-md-7' style='padding: 0px;'>
+  
+
           <div class='slide-image'>
           <img *ngIf="highlights[2] !== undefined" [src]="highlights[2].featured_image">
-          </div>
-        </div>
-        <div class='col-12 col-md-5' style='padding: 0px;'>
+
+
           <div class='slide-copy'>
             <h1 *ngIf="highlights[2] !== undefined">{{highlights[2].title}}</h1>
             <h2 *ngIf="highlights[2] !== undefined">{{highlights[2].content}}</h2>
           </div>
-        </div>
-      </div>
+          
+          </div>
+
+
       </a>
     </div>
 
-    <!-- <div class='slide listen-back-slide'(click)='listenToLatestShow(listenBack[0].excerpt)'>
-      <div class='row' style='margin-right: 0; margin-left: 0;'>
-        <div class='col-12 col-md-7' style='padding: 0px;'>
-          <div class='slide-image listen-back-image-container'>
-          <img class='listen-back-image' *ngIf='listenBack[0] !== undefined' [src]="listenBack[0].featured_image">
-          <i class="listen-back-icon fas fa-play"></i>
-          </div>
-        </div>
-        <div class='col-12 col-md-5' style='padding: 0px;'>
-          <div class='slide-copy'>
-          <h3>LISTEN BACK <i class="fas fa-headphones"></i></h3>
-          <h1 *ngIf="listenBack[0] !== undefined">{{listenBack[0].title}}</h1>
-          <h2 *ngIf="listenBack[0] !== undefined"></h2>
-          </div>
-        </div>
-      </div>
-    </div> -->
+
 
   </div>
   </div>

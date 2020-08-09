@@ -12,6 +12,12 @@
   color: #fff;
 }
 
+@media (max-width: 550px) {
+  .on-air h2 {
+    display: none;
+  }
+}
+
 .on-air h2 {
   margin-top: 4px;
   color: #fff;

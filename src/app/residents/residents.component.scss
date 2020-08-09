@@ -15,20 +15,30 @@
   margin: 0px;
   border: 1px solid #222;
   margin-bottom: 7px;
-  height: 300px;
+  min-height: 18.75rem;
   background-color: #0a0a0a;
   cursor: pointer;
 }
 
+@media only screen and ( orientation : portrait ) { 
+  .resident-card{
+  min-height: 16rem;
+  max-height: 16rem;
+  width: 100%;
+  }
+}
+
 .img-container {
-  max-height: 240px;
+  max-height: 25rem;
   overflow-y: hidden;
   overflow-x: hidden;
 }
 
+
 .img-container img {
 width:100%;
 }
+
 
 h1 {
   font-size: 1.333em;

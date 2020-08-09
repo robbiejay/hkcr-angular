@@ -17,6 +17,7 @@ import { ResidentsComponent } from './residents/residents.component';
 import { ResidentSingleComponent } from './residents/resident-single/resident-single.component';
 import { UpcomingComponent } from './home/upcoming/upcoming.component';
 import { PlayerComponent } from './player/player.component';
+import { AdspaceComponent } from './adspace/adspace.component';
 
 // Unused as of 1.2
 import { GenresComponent } from './genres/genres.component';
@@ -62,7 +63,8 @@ import { Page404Component } from './subpages/page404/page404.component';
     PrivacyComponent,
     AboutComponent,
     ContactComponent,
-    Page404Component
+    Page404Component,
+    AdspaceComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

@@ -6,6 +6,10 @@ bottom: 0;
 height: 6rem;
 overflow: visible;
 
+.col-12{
+ background-color: #ffdf00;
+}
+
 // // hide scrollbar
 // -ms-overflow-style: none;  /* IE and Edge */
 // scrollbar-width: none;  /* Firefox */
@@ -90,11 +94,17 @@ p {
   font-family: "Josefin Sans";
   line-height: 1.333em;
   font-size: 0.777em;
-  text-align: center;
+  text-align: right;
   margin-right: 2%;
   margin-top: 21px;
   padding: 14px;
   color: #000;
+}
+
+@media only screen and (orientation : portrait) {
+  p {
+    text-align: center;
+  }
 }
 
 @media (max-width: 500px) {
