@@ -49,7 +49,8 @@
   background: #ffdf00;
   padding: 7px;
   padding-top: 9px;
-  margin-top: 14px;
+  margin-top: 7px;
+  margin-bottom: 14px;
   display:inline-block;
   margin-left: 35px;
   border-radius: 7px;
@@ -62,6 +63,26 @@
   background: #222;
   color: #ffdf00;
 }
+
+.watch-now-btn {
+  background: #555;
+  padding: 7px;
+  color: #fffad3;
+  padding-top: 9px;
+  margin-top: 14px;
+  display:inline-block;
+  margin-left: 35px;
+  border-radius: 7px;
+  font-family: "Josefin Sans";
+  transition: 0.2s;
+  cursor: pointer;
+}
+.watch-now-btn:hover {
+  background: #222;
+  color: #ffdf00;
+}
+
+
 
 .related-show-container {
   cursor: pointer;

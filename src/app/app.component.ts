@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
               @Inject(PLATFORM_ID) private platformId) {
 
                 this.router.events.subscribe(event => {
-                  if (event instanceof NavigationEnd && !isDevMode) {
+                  if (event instanceof NavigationEnd) {
                     gtag('config', 'UA-171054401-1',
                   {
                     'page_path': event.urlAfterRedirects

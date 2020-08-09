@@ -9,14 +9,14 @@
         <div class="row">
           <div class="col-12 col-md-6">
               <span role='button' class='back-btn' (click)='goBack()'><</span>
-            <div class='img-container show-img-container'>
+            <div *ngIf='!videoActive' class='img-container show-img-container'>
                     <img [src]="show.featured_image">
             </div>
-            <div *ngIf='youtubeVideo !== ""' class="video-container">
-              <iframe
+            <div *ngIf='videoActive' class="video-container">
+              <iframe style='margin-top: 35px;'
               width="100%"
-              height="560"
-              [src]="this.youtubeVideo"
+              height="320"
+              [src]="youtubeVideo | safe"
               frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen>
@@ -26,8 +26,9 @@
 
           <div class="col-12 col-md-6">
             <h1 class='single-show-title'>{{show.title}} MIX</h1>
-            <p class='single-show-excerpt' [innerHtml]="show.content"></p>
             <span role='button'  (click)='listenShow(show.excerpt)' class='listen-now-btn'><i class="fas fa-play"></i> &nbsp;Listen Now</span>
+            <span role='button' *ngIf='youtubeVideo !== ""' (click)='watchShow()' class='listen-now-btn'><i class="fas fa-tv"></i> &nbsp;Watch Now</span>
+            <p class='single-show-excerpt' [innerHtml]="show.content"></p>
           </div>
         </div>
       </div>

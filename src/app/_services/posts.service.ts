@@ -98,6 +98,13 @@ export class PostsService {
     );
   }
 
+  getResidentUpcomingShows(filename): Observable<any> {
+    return this.http.get(
+      'http://hkcr.live/wp_api/data/shows/genres/' + filename + '.json',
+      {responseType: 'json'}
+    );
+  }
+
   getUpcomingShows(): Observable<any> {
     return this.http.get(
       'https://hkcr.live/wp_api/data/upcoming-shows/upcoming_shows.json',

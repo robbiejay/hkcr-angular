@@ -21,6 +21,7 @@ export class ShowSingleComponent implements OnInit {
   tags = []
   isLoading : boolean;
   youtubeVideo = '';
+  videoActive : boolean;
 
   constructor(private postsService: PostsService,
               private playerService: PlayerService,
@@ -38,6 +39,7 @@ export class ShowSingleComponent implements OnInit {
 
   ngOnInit() {
     this.isLoading = true;
+    this.videoActive = false;
     this.showpost = {
       id: this.route.snapshot.params['id'],
       title: this.route.snapshot.params['title']
@@ -67,9 +69,22 @@ export class ShowSingleComponent implements OnInit {
         let date = titleArr.pop();
         let title = titleArr.join();
 
+        let content = this.helpersService.HtmlEncode(data.content);
+        let contentArr = content.split('[youtube]');
+        let contentNewArr = [];
+        contentArr.forEach((chunk, index) => {
+          if (index !== 0) {
+            let chunkArr = chunk.split('[/youtube]');
+            this.youtubeVideo = chunkArr[0];
+            chunk = chunkArr[1];
+          }
+            contentNewArr.push(chunk);
+        })
+        content = contentNewArr.join('');
+
         let showData = {
           title: title,
-          content: this.helpersService.HtmlEncode(data.content),
+          content: content,
           date: date,
           excerpt: this.helpersService.HtmlEncode(data.excerpt),
           featured_image: featured_img,
@@ -81,17 +96,21 @@ export class ShowSingleComponent implements OnInit {
 
       // SEO updates
       this._title.setTitle(showData.title);
-      this._meta.updateTag({ name: 'description', content: showData.content});
-      this._meta.updateTag({ name: 'keywords', content: showData.title + ', mix, ' + JSON.stringify(showData.tags)});
-      this._meta.updateTag({ name: 'og:image', content: showData.featured_image});
-      this._meta.updateTag({ name: 'og:title', content: showData.title});
-      this._meta.updateTag({ name: 'og:description', content: showData.content});
+      this._meta.updateTag({ name: 'description', content: showData.content},"name='description'");
+      this._meta.updateTag({ name: 'keywords', content: showData.title + ', mix, ' + JSON.stringify(showData.tags)},"name='keywords'");
+      this._meta.updateTag({ name: 'og:image', content: showData.featured_image},"name='og:image'");
+      this._meta.updateTag({ name: 'og:title', content: showData.title},"name='og:title'");
+      this._meta.updateTag({ name: 'og:description', content: showData.content},"name='og:description'");
       this.getRelatedShows(data.tags[0]);
     })
   }
 
   listenShow(show){
     this.playerService.playShow(show);
+  }
+
+  watchShow() {
+    this.videoActive = true;
   }
 
   getRelatedShows(tag) {
