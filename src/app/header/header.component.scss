@@ -6,10 +6,6 @@ width: 100vw;
 background-color: black;
 }
 
-// nav img {
-
-// }
-
 .navstream {
   width: auto;
   position: absolute;
@@ -17,12 +13,18 @@ background-color: black;
   left: 30%;
 }
 
-@media (min-width: 500px) and (max-width: 1000px) {
-    .navstream{
-  position: absolute;
-  left: 40%;
+@media (max-width: 500px) and (orientation : portrait) {
+    .header-logo img{
+      width: 9rem!important;
     }
 }
+
+// @media (max-width: 500px) {
+//   .navstream{
+// position: absolute;
+// left: 40%;
+//   }
+// }
 
 @media (min-width: 2000px) {
   .navstream{
@@ -32,14 +34,38 @@ left: 15%;
 }
 
 
+@media (max-width: 500px) and (orientation : portrait) {
+  .navstream{
+position: absolute;
+left: 25%;
+  }
+  .header-logo img{
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+  }
+  .mobile-menu-button {
+    position: fixed;
+    top: 0;
+    right: 40%;
+    z-index: 99;
+  }
+}
+
+@media (max-width: 360px) and (orientation : portrait) {
+  .mobile-menu-button {
+    position: fixed;
+    top: 0;
+    right: 40%;
+    z-index: 99;
+  }
+}
+
 
 .header-logo img {
-  padding: 14px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  height: 32px;
-  margin-top: 9px;
-  margin-bottom: 7px;
+  vertical-align: middle;
+  padding: 0rem 1rem 0rem 1rem;
+  height: auto;
+  width: 12rem;
+  margin: 7px 0px 7px 0px;
   display: inline-block;
   float: left;
   filter: invert(100%);
