@@ -4,6 +4,7 @@ nav {
 height: 3rem;
 width: 100vw;
 background-color: black;
+position: relative;
 }
 
 .navstream {
@@ -11,6 +12,13 @@ background-color: black;
   position: absolute;
   top: 0;
   left: 30%;
+}
+
+.mobile-menu-button {
+  position: absolute;
+  top: 0;
+  right: 10%;
+  z-index: 99;
 }
 
 @media (max-width: 500px) and (orientation : portrait) {
@@ -42,22 +50,12 @@ left: 25%;
   .header-logo img{
     clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
   }
-  .mobile-menu-button {
-    position: fixed;
-    top: 0;
-    right: 40%;
-    z-index: 99;
-  }
+
 }
 
-@media (max-width: 360px) and (orientation : portrait) {
-  .mobile-menu-button {
-    position: fixed;
-    top: 0;
-    right: 40%;
-    z-index: 99;
-  }
-}
+// @media (max-width: 360px) and (orientation : portrait) {
+
+// }
 
 
 .header-logo img {

@@ -12,7 +12,19 @@
   -webkit-text-stroke-width: 1px;
   transform: rotate(30deg);
   margin-left: 35px;
+}
 
+
+@media only screen and (orientation : portrait) {
+  #headphones {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #headphones {
+    display: none;
+  }
 }
 
 .blob_1 {
