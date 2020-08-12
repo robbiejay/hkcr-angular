@@ -1,17 +1,57 @@
 .banner {
-    display: table-cell;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     width: 100vw;
-    height: 12rem;
-    vertical-align: middle;
+    height: 14rem;
     text-align: center;
-
-    // background-color: #ffdf00;
-    background-color: #FFE739;
+    background-color: grey;
     position: relative;
+    background-image: url("/assets/logo.png");
+    background-repeat: repeat;
+}
+
+// .bannerlogo{
+//     clip-path: polygon(0 0, 55% 0, 55% 100%, 0% 100%);
+//     position: absolute;
+//     left: 10%;
+//     width: 20vw;
+//   }
+
+.banner a {
+    color: #00FF5D;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner h1 {
+    font-size: 4.5rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight:700;
+}
+
+@media only screen and ( orientation: portrait ) {
+    .banner h1 {
+        font-size: 4vw;
+    }
+    .banner a img {
+        width: 40vw;
+    }
+}
+
+.banner a:hover {
+    text-decoration: none;
+    color: white;
 }
 
 
 img {
     max-width: 100%;
     height: auto;
+    max-height: 14rem;
+    // position: absolute;
+    // right: 10%;
 }
