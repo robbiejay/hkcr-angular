@@ -1,12 +1,15 @@
 .slider {
   width: 100vw;
-  height: calc(100vh - 3rem);
   background-color: #000;
   position: relative;
   overflow-y: hidden;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
+}
+
+.slide-image img {
+  max-width: 1200px;
 }
 
 .slide-container {
@@ -21,32 +24,52 @@
   }
 }
 
-@media only screen and ( max-width : 900px ) and ( orientation : portrait ) {
+@media only screen and ( min-width : 1200px ) and ( orientation : landscape ) {
   .slider {
-    height: 33vh;
+    height: 90vh;
+  }
+}
+
+@media only screen and ( max-width : 1200px ) and ( orientation : landscape ) {
+  .slider {
+    height: calc(88vh - 75px);
   }
 }
 
 
-@media only screen and ( max-width : 550px ) and ( orientation : portrait ) {
-  .slider {
-    height: 20vh;
-  }
-}
 
-@media screen and (min-aspect-ratio:1/1) and (max-aspect-ratio:4/3) {
+@media only screen and ( max-width : 900px ) {
   .slider {
     height: 70vh;
   }
 }
 
-
-@media screen and (min-aspect-ratio:1/1) and (max-aspect-ratio:1/1) {
+@media only screen and ( max-width : 762px ){
   .slider {
-    height: 40vh;
+    height: calc(60vh - 75px);
   }
 }
 
+@media only screen and ( max-width : 550px ) {
+  .slider {
+    height: calc(50vh - 75px);
+  }
+}
+
+
+//
+// @media screen and (min-aspect-ratio:1/1) and (max-aspect-ratio:4/3) {
+//   .slider {
+//     height: 70vh;
+//   }
+// }
+//
+//
+// @media screen and (min-aspect-ratio:1/1) and (max-aspect-ratio:1/1) {
+//   .slider {
+//     height: 40vh;
+//   }
+// }
 
 
 
@@ -73,7 +96,7 @@
 .slide-image {
   width: 100vw;
   text-align: center;
-  
+
 }
 
 .slide-image img {
@@ -82,7 +105,7 @@
 }
 
 .slide-copy {
-  background-color: #000;
+  background-color: rgba(0,0,0,0.666);
   font-family: "Josefin Sans";
   color: #fff;
   // height: calc(66.666vh - 48px);
@@ -91,7 +114,8 @@
   transition: 0.2s;
   z-index: 99;
   position: absolute;
-  bottom: 10%;
+  bottom: 12.5%;
+  margin-left: 35px;
 }
 
 .slide-copy h1 {
@@ -99,6 +123,7 @@
   padding: 1vh;
   // margin-left: 2rem;
   // padding-right: 48px;
+  padding-top: 35px;
   font-family: 'Josefin Sans', sans-serif;
   font-weight:700;
     transition: 0.2s;
@@ -213,6 +238,7 @@ box-shadow:  5px 5px 15px #fff,
 -webkit-text-stroke-color: #fff;
 cursor: crosshair;
 }
+
 
 
 

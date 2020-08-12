@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID, isDevMode } from '@angular/core';
+import { environment } from '../environments/environment';
 import { isPlatformBrowser } from "@angular/common";
 import { PlayerService } from './_services/player.service';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
@@ -18,7 +19,7 @@ export class AppComponent implements OnInit {
               @Inject(PLATFORM_ID) private platformId) {
 
                 this.router.events.subscribe(event => {
-                  if (event instanceof NavigationEnd) {
+                  if (event instanceof NavigationEnd && environment.production) {
                     gtag('config', 'UA-171054401-1',
                   {
                     'page_path': event.urlAfterRedirects

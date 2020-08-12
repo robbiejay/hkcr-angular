@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  openMobileMenu() {
+  toggleMobileMenu() {
     this.mobileMenuActive = !this.mobileMenuActive;
   }
 

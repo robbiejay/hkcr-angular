@@ -25,7 +25,12 @@
           </div>
 
           <div class="col-12 col-md-6">
-            <h1 class='single-show-title'>{{show.title}} MIX</h1>
+            <h1 class='single-show-title'>{{show.title}}</h1>
+            <h2 class='single-show-airdate'>AIRDATE : {{show.date}}</h2>
+            <ul class='genre-tags'>
+              <li>Tags:</li>
+              <li *ngFor='let tag of show.tags; let i = index;' (click)='sortByTag(tag)'>{{tag}}</li>
+            </ul>
             <span role='button'  (click)='listenShow(show.excerpt)' class='listen-now-btn'><i class="fas fa-play"></i> &nbsp;Listen Now</span>
             <span role='button' *ngIf='youtubeVideo !== ""' (click)='watchShow()' class='listen-now-btn'><i class="fas fa-tv"></i> &nbsp;Watch Now</span>
             <p class='single-show-excerpt' [innerHtml]="show.content"></p>
@@ -33,8 +38,10 @@
         </div>
       </div>
     </div>
+    <br>
+    <hr>
     <div class="row">
-      <h1 class='single-show-title'>Similar Shows</h1>
+      <h1 class='single-show-title' style='padding: 0px;margin-left: 14px; margin-bottom: 14px;'>Similar Shows</h1>
     </div>
     <div class="row">
       <div class="col-6 col-sm-4 col-md-3" *ngFor="let show of relatedShows">

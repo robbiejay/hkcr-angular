@@ -24,7 +24,7 @@
   color: #fff;
   font-size: 0.75em;
   font-weight: 400;
-  
+
 font-family: "Orbitron", monospace;
 
 }
@@ -99,7 +99,7 @@ display: inline-block;
   display: inline-block;
   float: left;
   margin-top: 2px;
-  margin-left: 14px;
+  margin-left: 28px;
   padding: 0px 7px;
     border-left: 1px solid #ffdf00;
   border-right: 1px solid #ffdf00;
@@ -190,6 +190,10 @@ border: 1px solid #fff;
 background: #ffdf00;
 box-shadow:  20px 20px 60px #d9be00,
              -20px -20px 60px #ffff00;
+}
+
+.video-stream h1 {
+  padding: 2px 7px;
 }
 
 // .video-stream { width: 100%;}

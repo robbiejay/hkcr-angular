@@ -29,9 +29,18 @@
   font-family: "Josefin Sans";
   font-size: 1.777em;
   margin-top: 35px;
-  margin-bottom: 14px;
+  margin-bottom: 7px;
   padding: 0px 35px;
 }
+
+.single-show-airdate {
+  font-family: "Josefin Sans";
+  font-size: 0.75em;
+  margin-left: 35px;
+  margin-bottom: 7px;
+  color: #a0a0a0;
+}
+
 
 .single-show-excerpt {
   font-family: "Josefin Sans";
@@ -82,6 +91,32 @@
   color: #ffdf00;
 }
 
+.genre-tags {
+  margin-left: 35px;
+  margin-bottom: 14px;
+}
+
+.genre-tags li:nth-child(1) {
+  background-color: #000;
+  color: #fff;
+
+}
+
+.genre-tags li:nth-child(2) {
+
+
+}
+
+.genre-tags li {
+  text-decoration: none;
+  display: inline;
+  margin-right: 4px;
+  font-size: 0.75em;
+  font-family: "Josefin Sans";
+  border: 1px solid #000;
+  border-radius: 2px;
+  padding: 4px;
+}
 
 
 .related-show-container {

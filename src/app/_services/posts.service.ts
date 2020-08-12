@@ -139,4 +139,11 @@ export class PostsService {
       {responseType: 'json'}
     );
   }
+
+  getLatestUpdatedTimestamp(): Observable<any> {
+    return this.http.get(
+      'https://hkcr.live/wp_api/data/timestamp.json',
+      {responseType: 'json'}
+    );
+  }
 }
