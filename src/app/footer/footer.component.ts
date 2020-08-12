@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostsService} from '../_services/posts.service';
 import { PlayerService } from '../_services/player.service';
 
 @Component({
@@ -9,9 +10,20 @@ import { PlayerService } from '../_services/player.service';
 export class FooterComponent implements OnInit {
 
   currentYear = new Date().getDate();
-  constructor( public playerService: PlayerService ) { }
+  timestamp = '';
+  constructor( public playerService: PlayerService,
+              public postsService: PostsService) { }
 
   ngOnInit() {
+    this.getTimestamp();
   }
 
+
+  getTimestamp() {
+    this.postsService.getLatestUpdatedTimestamp().subscribe(
+      data => {
+        this.timestamp = data;
+      }
+    )
+  }
 }

@@ -30,7 +30,8 @@ h1 {
   font-size: 1.777em;
   margin-top: 35px;
   margin-bottom: 14px;
-  padding: 35px;
+  margin-left: 14px;
+  margin-bottom: 18px;
 }
 
 p {
@@ -52,5 +53,13 @@ p {
   font-family: "Josefin Sans";
   margin-top: 7px;
   font-size: 1.333em;
+  padding: 4px;
+}
+
+.resident-show-airdate {
+  font-family: "Josefin Sans";
+  margin-top: 7px;
+  font-size: 1em;
+  color: #a0a0a0;
   padding: 4px;
 }

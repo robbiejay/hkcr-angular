@@ -21,9 +21,10 @@ position: relative;
   z-index: 99;
 }
 
-@media (max-width: 500px) and (orientation : portrait) {
+@media (max-width: 762px) and (orientation : portrait) {
     .header-logo img{
       width: 9rem!important;
+      margin: 13px 0px 0px -5px !important;
     }
 }
 
@@ -50,6 +51,7 @@ left: 25%;
   .header-logo img{
     clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
   }
+
 
 }
 
