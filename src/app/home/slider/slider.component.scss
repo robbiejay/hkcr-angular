@@ -23,11 +23,17 @@
 @media only screen and ( orientation : portrait ) {
   .slider {
     min-height: 30vh;
-    max-height: 50vh;
+    max-height: 60vh;
   }
 }
 
-@media only screen and ( max-width : 320px ) and ( orientation : portrait ) {
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+  .slider {
+    height: 40vh;
+  }
+  }
+
+@media only screen and ( max-width : 360px ) and ( orientation : portrait ) {
   .slider {
     height: 50vh;
   }
@@ -107,19 +113,19 @@
 }
 
 
-//
-// @media screen and (min-aspect-ratio:1/1) and (max-aspect-ratio:4/3) {
-//   .slider {
-//     height: 70vh;
-//   }
-// }
-//
-//
-// @media screen and (min-aspect-ratio:1/1) and (max-aspect-ratio:1/1) {
-//   .slider {
-//     height: 40vh;
-//   }
-// }
+
+@media screen and (min-aspect-ratio:1/1) and (max-aspect-ratio:4/3) {
+  .slider {
+    height: 70vh;
+  }
+}
+
+
+@media screen and (min-aspect-ratio:1/1) and (max-aspect-ratio:1/1) {
+  .slider {
+    height: 40vh;
+  }
+}
 
 
 
