@@ -8,6 +8,7 @@
   flex-direction: column;
       // max-height: 800px;
       height: calc(100vh - 3rem);
+  
 }
 
 // .slide-image img {
@@ -17,6 +18,18 @@
 .slide-container {
   width: 400vw;
   position: absolute;
+}
+
+@media only screen and ( orientation : landscape ) {
+  .slide-image {
+    height: calc(100vh - 3rem);
+    max-height: calc(100vh - 3rem);
+  }
+
+  .slide-image img {
+  max-height: 100vh;
+  }
+
 }
 
 
@@ -152,7 +165,7 @@
 .slide-image {
   width: 100vw;
   text-align: center;
-
+  object-fit: contain;
 }
 
 .slide-image img {
