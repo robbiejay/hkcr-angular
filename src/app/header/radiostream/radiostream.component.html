@@ -4,19 +4,18 @@
     <h2 style='margin-left: 21px; margin-top: 14px;font-weight: 100;' class='d-none d-sm-block'>Please check out our recent shows below</h2>
   </div>
   <div class='row' *ngIf='!errorActive'>
-      <div class='video-stream' style='d-none lg-block'>
-        <h1 (click)='activateLivestream()'><i class="fas fa-tv"></i><span>TV</span></h1>
-        </div>
-
     <i *ngIf='!radioActive' class="fas fa-play livestream-play-button" (click)='playRadio($event)'></i>
     <i *ngIf='radioActive' class="fas fa-pause livestream-play-button" (click)='pauseRadio($event)'></i>
+    <div class='video-stream' style='d-none lg-block'>
+      <h1 (click)='activateLivestream()'><i class="fas fa-tv"></i> WATCH LIVESTREAM NOW</h1>
+    </div>
   <!-- <div *ngIf="this.playerService.nowPlaying == ''" style='float: left; display: inline-block; padding-right: 21px; border-right: 1px solid #fff;'>
     <img src="assets/radio-loading.gif">
   </div> -->
 
 
   <div style='float: left;display: inline-block; padding-right: 21px; height: 35px;'>
-  <h1 style='margin-top: 10px;'><i style="color: #f00;margin-right: 7px;font-size:0.56em;" class="fas fa-circle"></i><span style="font-size: 0.56em;position:relative;top:-1px;">Live Now</span></h1>
+  <h1 style='margin-top: 10px;'><i style="position: absolute; top: 4px; z-index: 10; left: 4px;color: #f00;margin-right: 7px;font-size:0.56em;" class="fas fa-circle"></i></h1>
   <div class='now-playing-icon-container'>
   </div>
   </div>

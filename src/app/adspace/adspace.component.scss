@@ -4,13 +4,14 @@
     align-items: center;
     justify-content: center;
     width: 100vw;
-    height: 14rem;
+    height: 240px;
     text-align: center;
-    background-color: grey;
+    background-color: #fff;
     position: relative;
-    background-image: url("/assets/logo.png");
-    background-repeat: repeat;
-}
+
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffdf00' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  }
 
 // .bannerlogo{
 //     clip-path: polygon(0 0, 55% 0, 55% 100%, 0% 100%);
@@ -28,9 +29,12 @@
 }
 
 .banner h1 {
-    font-size: 4.5rem;
+    font-size: 4.209em;
     font-family: 'Josefin Sans', sans-serif;
     font-weight:700;
+    color: transparent;
+    -webkit-text-stroke-color: #00FF5D;
+    -webkit-text-stroke-width: 2px;
 }
 
 @media only screen and ( orientation: portrait ) {

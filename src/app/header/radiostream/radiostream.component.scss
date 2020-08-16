@@ -7,6 +7,12 @@
   width: 100%;
   height: 3rem;
   position: relative;
+
+  border-radius: 7px;
+  width: 90%;
+  margin-left: 5%;
+  height: 38px;
+  margin-top: 5px;
 }
 
 .on-air h1 {
@@ -41,20 +47,35 @@ animation: live 1s infinite;
 
 .livestream-play-button {
   position: relative;
-  color: #fff;
+  color: transparent;
   z-index: 9;
+  background-color: transparent;
+  border: 2px solid #ffdf00;
+  border-radius: 100%;
+  width: 33px;
+  -webkit-text-stroke-width: 2px;
+-webkit-text-stroke-color: #ffdf00;
+  height: 32px;
+  text-align: center;
+  padding-left: 0px;
+  line-height: 30px;
+  vertical-align: middle;
   cursor: pointer;
+  display:inline-block;
   float:left;
-  margin-bottom:7px;
-  margin-top: 7px;
-  font-size: 1.333em;
-  margin-left: 21px;
-  margin-right: 14px;
+  margin-bottom:0px;
+  margin-top: 0px;
+  top: -4px;
+  font-size: 1em;
+  margin-left: 11px;
+  margin-right: 7px;
 
 }
 
 .livestream-play-button:hover {
-  color: #fefefe;
+  -webkit-text-stroke-width: 2px;
+-webkit-text-stroke-color: #fff;
+border: 2px solid #fff;
 }
 
 .radiostream-container {
@@ -96,19 +117,25 @@ display: inline-block;
 }
 
 .video-stream {
-  display: inline-block;
-  float: left;
-  margin-top: 2px;
-  margin-left: 28px;
-  padding: 0px 7px;
-    border-left: 1px solid #ffdf00;
-  border-right: 1px solid #ffdf00;
+  display: inline;
+  float: right;
+
+  top: -5px;
+  margin-left: 7px;
+  margin-top: 1px;
+    border: 2px solid #00ff5d;
   position: relative;
+  height: 32px;
+  border-radius: 7px;
+  line-height: 28px;
+  vertical-align: middle;
 }
 
 .video-stream h1 {
     transition: 0.2s;
     cursor: pointer;
+    display: inline;
+    float: right;
 }
 
 .video-stream h1:hover {
@@ -119,12 +146,11 @@ display: inline-block;
   color: #fff;
   padding: 2px 14px;
   border-radius: 4px;
-    font-size: 1.5em;
-    margin-top: 3px;
+    font-size: 0.56em;
 }
 
 .video-stream span {
-  background-color: #ffdf00;
+  background-color: #00ff5d;
   font-size: 0.333em;
   text-align: center;
   color: #000;
