@@ -144,12 +144,12 @@ this.getUpcomingShows();
           console.log(timeArr[0]);
           console.log(this.timeDifference);
           console.log(newHour);
-          // if(newHour >= 24) {
-          //   timeArr[0] = JSON.stringify(newHour - 24);
-          // }
-          // if(newHour < 0) {
-          //   timeArr[0] = JSON.stringify(newHour + 24);
-          // }
+          if(newHour >= 24) {
+            timeArr[0] = JSON.stringify(newHour - 24);
+          }
+          if(newHour < 0) {
+            timeArr[0] = JSON.stringify(newHour + 24);
+          }
           let local_time = timeArr.join(':');
           console.log(local_time);
 
