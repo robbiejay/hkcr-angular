@@ -18,6 +18,28 @@ box-shadow: 0px 0px 2px 2px inset #cacaca;
 
 }
 
+.upcoming-now-playing {
+    font-size: 0.75em;
+  color: #fff;
+  font-family: 'Josefin Sans';
+  padding: 4px 0px 3px 0px;
+  display: inline-block;
+  background-color: #00FF5D;
+  text-align: center;
+  font-size: 0.75em;
+}
+
+.upcoming-up-next {
+  font-size: 0.75em;
+  color: #000;
+  padding: 4px 0px 3px 0px;
+  display: inline-block;
+  font-family: 'Josefin Sans';
+  padding: 4px;
+  background-color: #FFDF00;
+  text-align: center;
+}
+
 .upcoming-img-container {
   width: 100%;
   height: auto;

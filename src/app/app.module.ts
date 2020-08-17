@@ -17,7 +17,7 @@ import { ResidentsComponent } from './residents/residents.component';
 import { ResidentSingleComponent } from './residents/resident-single/resident-single.component';
 import { UpcomingComponent } from './home/upcoming/upcoming.component';
 import { PlayerComponent } from './player/player.component';
-import { AdspaceComponent } from './adspace/adspace.component';
+import { AdspaceComponent } from './home/adspace/adspace.component';
 
 // Unused as of 1.2
 import { GenresComponent } from './genres/genres.component';
