@@ -1,15 +1,21 @@
-<h1>EDITORIAL</h1>
-<div class='container'>
-<div class='blog-post'>
-  <div class='row'>
-    <div class='col-3'>
-      <img src="assets/editorial_1.jpeg">
-    </div>
-    <div class='col-9'>
-      <h2>This is the headline</h2>
-      <h3>This is the sub-headline</h3>
-    </div>
+<div class='blog-container container-fluid'>
+
+  <div class='title'>
+    <h1>EDITORIAL</h1>
   </div>
+  
+
+  <div class="post-container">
+   <div class='blog-post col-md-4' *ngFor='let post of posts'>
+    <div class="post-card" (click)="goTo(post.filename)">
+      <div class='img-container'>
+      <img [src]="post.image_large">
+      </div>
+      <h1 class='post-title'>{{post.title}}</h1>
+      <!-- <p class='post-excerpt'>{{post.excerpt}}</p> -->
+    </div>
+    </div>
   </div>
 
 </div>
+

@@ -1,4 +1,5 @@
-<nav class='row sticky-top'>
+<div class="sticky-top">
+<nav class='row'>
 <div class='col-10 col-lg-7'>
   <div class='row'>
     <div class="col-12 col-sm-3">
@@ -33,6 +34,7 @@
 </div>
 </nav>
 
+
 <div *ngIf='mobileMenuActive' class='mobile-menu-container'>
   <ul>
     <!-- <li>LIVESTREAM</li>
@@ -51,6 +53,12 @@
     <a target="_blank" href='https://twitter.com/hkcr_online'><li><i class="fab fa-twitter"></i> &nbsp;twitter</li></a>
     <a target="_blank" href='https://soundcloud.com/hkcrlive'><li><i class="fab fa-soundcloud"></i> &nbsp;soundcloud</li></a>
   </ul>
+</div>
+
+<div class='stream-container'>
+  <app-livestream *ngIf='this.playerService.livestreamActive == true'></app-livestream>
+  </div>
+
 </div>
   <!-- -->
 

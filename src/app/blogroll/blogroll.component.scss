@@ -1,34 +1,93 @@
-h1 {
-  background-color: #ffdf00;
-  width: 380px;
+.blog-container {
+  background-color: black;
+  padding: 4rem;
+  height: 45rem;  
+}
+
+.post-card h1 {
   font-family: "Josefin Sans";
   font-weight: 700;
-  margin-top: 14px;
-  margin-left: 14px;
-  margin-bottom: 14px;
   padding: 14px;
-  font-size: 1.333em;
+  font-size: 1.333rem;
+}
+
+.title {
+font-size: 1.333rem;
+padding-bottom: 12px;
+border-bottom: 2px solid #ffdf00;
+font-family: "Orbitron", monospace;
+width: 240px;
+font-weight: 900;
+-webkit-text-stroke-color: #fff;
+-webkit-text-stroke-width: 1px;
+margin-bottom: 23px;
+color: transparent;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .blog-post {
-background-color: #d0d0d0;
+padding: 4rem 0rem 0rem 0rem;
+margin: 0;
+}
+
+
+
+.post-card {
+align-items: center;
+border: 2px solid black;
+// height: 100%;
+max-width: 40rem;
+background-color: #ffdf00;
+
+
+padding: 7px;
+margin: 0 0 7 0;
+height: 30rem;
+
+cursor: pointer;
+
+}
+
+
+@media only screen and ( orientation : portrait ) { 
+  .post-card{
+height: 20rem;
+  width: 100%;
+  }
+  .blog-post h1 {
+    font-size: 1rem;
+  }
 }
 
 .blog-post h2 {
   font-family: "Josefin Sans";
   font-weight: 700;
-  margin-top: 14px;
-  margin-left: 14px;
-  font-size: 1.777em;
+  padding: 1rem;
+  font-size: 1.777rem;
+  background-color: #ffdf00;
 }
 
 .blog-post h3 {
   font-family: "Josefin Sans";
-  margin-top: 14px;
-  margin-left: 14px;
-  font-size: 1em;
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: #ffdf00;
+}
+
+.blog-post p {
+  font-family: "Josefin Sans";
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: lavender;
+  position: absolute;
+  bottom: 0;
 }
 
 .blog-post img {
-  width: 240px;
+  max-width: 40rem;
+  width: 100%;
 }
