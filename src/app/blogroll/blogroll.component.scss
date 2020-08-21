@@ -1,6 +1,13 @@
+.chinesetext {
+  font-family: 'GBK'!important;
+  color: white;
+  -webkit-text-stroke-width: 0px;
+}
+
+
 .blog-container {
   background-color: black;
-  padding: 4rem;
+  padding: 2%;
   height: 45rem;  
 }
 
@@ -54,6 +61,10 @@ cursor: pointer;
 
 
 @media only screen and ( orientation : portrait ) { 
+
+  .blog-container {
+    padding: 10% 2%;
+  }
   .post-card{
 height: 20rem;
   width: 100%;
