@@ -4,7 +4,7 @@
 <div class='container'>
 <div class='row show-header'>
   <div class='col-8 col-sm-4'>
-<h1><span class="chinesetext">最新節目</span> LATEST SHOWS<span class='strikethrough'>&nbsp;</span></h1>
+<h1><span class="chinesetext">最新節目</span> LATEST<span class='strikethrough'>&nbsp;</span></h1>
   </div>
         <div class='col-2 col-sm-1'>
           <button class='controls' *ngIf='mode == "home"' (click)='prevShowPage()'><</button>
@@ -30,15 +30,15 @@
   <!-- <ng-template [ngIf]="mode == archive">
   <div (@fade.done)="fadeEnd($event)" class='col-xl-3 col-md-4 col-sm-6 col-12' style='padding:0px 7px;' *ngFor='let show of shows; let x = index'>
   </ng-template> -->
-  <div [@fade]='state' (click)="goTo(show.url)" class='show-card'>
+  <div [@fade]='state' class='show-card'>
     <div class='row'>
-      <div class='col-3 col-sm-6'>
-    <div class='show-image' (click)='listenShow(show.excerpt)'>
+      <div class='col-3 col-sm-6' (click)='listenShow(show.excerpt)'>
+    <div class='show-image'>
       <i class="fas fa-play play-icon"></i>
       <img [src]="show.featured_image">
     </div>
     </div>
-    <div class='col-9 col-sm-6'>
+    <div class='col-9 col-sm-6' (click)="goTo(show.url)">
     <div class='show-copy'>
       <h2>{{show.title}}</h2>
       <h3>AIRDATE: {{show.date}}</h3>

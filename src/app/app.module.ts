@@ -18,12 +18,8 @@ import { ResidentSingleComponent } from './residents/resident-single/resident-si
 import { UpcomingComponent } from './home/upcoming/upcoming.component';
 import { PlayerComponent } from './player/player.component';
 import { AdspaceComponent } from './home/adspace/adspace.component';
+import { BlogrollComponent } from './home/blogroll/blogroll.component';
 
-// Unused as of 1.2
-import { GenresComponent } from './genres/genres.component';
-import { BlogrollComponent } from './blogroll/blogroll.component';
-import { ScheduleComponent } from './schedule/schedule.component';
-import { ArchiveComponent } from './archive/archive.component';
 import { BlogSingleComponent } from './blog/blog-single/blog-single.component';
 import { BlogComponent } from './blog/blog.component';
 import { ShowSingleComponent } from './shows/show-single/show-single.component';
@@ -35,6 +31,13 @@ import { ContactComponent } from './subpages/contact/contact.component';
 import { Page404Component } from './subpages/page404/page404.component';
 import { UpNextComponent } from './home/up-next/up-next.component';
 import { DonateStreamComponent } from './header/donate-stream/donate-stream.component';
+
+// Unused as of 1.2
+import { GenresComponent } from './genres/genres.component';
+
+import { ScheduleComponent } from './schedule/schedule.component';
+import { ArchiveComponent } from './archive/archive.component';
+
 
 
 

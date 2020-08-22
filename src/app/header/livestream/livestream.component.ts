@@ -9,6 +9,7 @@ import videojs from 'video.js';
 import "@videojs/http-streaming";
 import 'videojs-contrib-quality-levels';
 import 'videojs-resolution-switcher';
+import { Title, Meta } from '@angular/platform-browser';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class LivestreamComponent implements OnInit, OnDestroy {
   livestreamPlayerHeight : number;
   video: any;
 
-  constructor(private playerService: PlayerService,
+  constructor(private _title: Title, private playerService: PlayerService,
   @Inject(PLATFORM_ID) private platformId) { }
   @ViewChild('video') videoElement: ElementRef;
   name = 'Angular 6';
@@ -74,6 +75,9 @@ export class LivestreamComponent implements OnInit, OnDestroy {
                   console.log(this.video.userActive());
                   console.log(this.video.readyState());
       }
+
+      this._title.setTitle("Livestream | HKCR")
+
     }
 
       ngOnDestroy() {

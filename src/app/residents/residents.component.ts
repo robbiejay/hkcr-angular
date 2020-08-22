@@ -29,7 +29,7 @@ export class ResidentsComponent implements OnInit {
 
   ngAfterViewInit() {
     if(isPlatformBrowser(this.platformId)) {
-if(this.route.snapshot.url.length == 0) {
+if(this.route.snapshot.url.length == 0 || this.route.snapshot.url[0].path == 'livestream') {
 this.mode = 'home'
 } else {
 this.mode = 'archive'

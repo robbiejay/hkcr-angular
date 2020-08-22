@@ -18,8 +18,8 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PostsService } from '../_services/posts.service';
-import { HelpersService } from '../_services/helpers.service';
+import { PostsService } from '../../_services/posts.service';
+import { HelpersService } from '../../_services/helpers.service';
 //import { HtmlEncode } from '../_helpers/helpers';
 
 @Component({

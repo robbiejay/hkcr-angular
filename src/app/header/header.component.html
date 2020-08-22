@@ -1,6 +1,6 @@
-<div class="sticky-top">
+<div class="sticky-top" style='border-bottom: #00'>
 <nav class='row'>
-<div class='col-10 col-lg-7'>
+<div class='col-10 col-lg-6'>
   <div class='row'>
     <div class="col-12 col-sm-3">
       <a class='header-logo' routerLink="../"><img src='assets/logo.png'></a>
@@ -11,7 +11,7 @@
     </div>
     </div>
 </div>
-<div class="social-menu-container col-lg-5 d-none d-lg-block">
+<div class="social-menu-container col-lg-6 d-none d-lg-block">
     <ul>
       <!-- <li>LIVESTREAM</li>
       <li>SCHEDULE</li>
@@ -22,8 +22,8 @@
       <a routerLink="/blog"><li><span class="chinesetext">專題</span> editorial</li></a>
       <a target="_blank" href='https://hkcrstore.bigcartel.com/'><li><span class="chinesetext">商店</span> shop</li></a>
       <!-- <a target="_blank" href='https://www.facebook.com/hkcrlive'><li><i class="fab fa-facebook-f"></i></li></a> -->
-      <a target="_blank" href='https://www.youtube.com/channel/UCFqCSru3cS79WElDMSh-jcg'><li><i class="fab fa-youtube"></i></li></a>
-      <a target="_blank" href='https://www.mixcloud.com/HKCR/'><li><i class="fab fa-mixcloud"></i></li></a>
+      <!-- <a target="_blank" href='https://www.youtube.com/channel/UCFqCSru3cS79WElDMSh-jcg'><li><i class="fab fa-youtube"></i></li></a>
+      <a class='d-none d-lg-block' target="_blank" href='https://www.mixcloud.com/HKCR/'><li><i class="fab fa-mixcloud"></i></li></a> -->
       <!-- <a target="_blank" href='https://www.instagram.com/hkcronline'><li><i class="fab fa-instagram"></i></li></a> -->
       <!-- <a target="_blank" href='https://twitter.com/hkcr_online'><li><i class="fab fa-twitter"></i></li></a> -->
       <!-- <a target="_blank" href='https://soundcloud.com/hkcrlive'><li><i class="fab fa-soundcloud"></i></li></a> -->
@@ -54,12 +54,10 @@
     <a target="_blank" href='https://soundcloud.com/hkcrlive'><li><i class="fab fa-soundcloud"></i> &nbsp;soundcloud</li></a>
   </ul>
 </div>
-
+</div>
 <div class='stream-container'>
   <app-livestream *ngIf='this.playerService.livestreamActive == true'></app-livestream>
   </div>
-
-</div>
   <!-- -->
 
 

@@ -1,5 +1,5 @@
 <div class="container">
-  <h1><span class="chinesetext">節目表</span> UPCOMING SHOWS<span class='strikethrough'>&nbsp;</span></h1>
+  <h1><span class="chinesetext">節目表</span> UPCOMING<span class='strikethrough'>&nbsp;</span></h1>
   <div class='upcoming-card' *ngFor='let show of upcomingShows; let i = index;' (click)="goTo(show.filename)">
   <div class="row">
     <div class="col-2" style='padding: 0px;'>
@@ -10,7 +10,7 @@
     </div>
     <div class="col-10">
       <h2 class='upcoming-title'>{{show.title}}</h2>
-      <h3 class='upcoming-date'>{{show.excerpt}}<span style='font-size: 0.75em;'>HK</span> &nbsp;<span style='font-size: 0.75em;'>({{show.local_time}})</span></h3>
+      <h3 class='upcoming-date'>{{show.excerpt}}<span style='font-size: 0.75em;'>HK</span> &nbsp;<span style='font-size: 0.75em;color: #000;'>({{show.local_time}})</span></h3>
       <p *ngIf='i == 0' class='upcoming-content'>{{show.content}}</p>
       <h4 class='upcoming-now-playing' *ngIf='show.now_playing'>NOW PLAYING</h4>
       <h4 class='upcoming-up-next' *ngIf='show.up_next'>UP NEXT</h4>

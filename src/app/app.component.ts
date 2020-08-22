@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID, isDevMode } from
 import { environment } from '../environments/environment';
 import { isPlatformBrowser } from "@angular/common";
 import { PlayerService } from './_services/player.service';
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd, NavigationStart } from '@angular/router';
 
 declare let gtag: Function;
 @Component({
@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
 
   constructor(public playerService: PlayerService,
               private router: Router,
+              private route: ActivatedRoute,
               @Inject(PLATFORM_ID) private platformId) {
 
                 this.router.events.subscribe(event => {
@@ -31,7 +32,9 @@ export class AppComponent implements OnInit {
                }
 
   ngOnInit() {
-}
+
+  }
+
 
   ngAfterViewInit() {
     if(isPlatformBrowser(this.platformId)) {
@@ -39,18 +42,18 @@ export class AppComponent implements OnInit {
           if (!(evt instanceof NavigationEnd)) {
               return;
           }
-          if(evt instanceof NavigationEnd) {
-
+          console.log(evt);
+          if(evt instanceof NavigationEnd && evt.url !== '/livestream' && evt.url !== '/') {
           var scrollToTop = window.setInterval(function () {
               var pos = window.pageYOffset;
               if (pos > 0) {
-                  window.scrollTo(0, pos - 20); // how far to scroll on each step
+                  window.scrollTo(0, pos - 100); // how far to scroll on each step
               } else {
                   window.clearInterval(scrollToTop);
               }
-          }, 16); // how fast to scroll (this equals roughly 60 fps)
+          }, 60); // how fast to scroll (this equals roughly 60 fps)
       }
     });
     }
   }
-  }
+}
