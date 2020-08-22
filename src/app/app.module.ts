@@ -33,6 +33,8 @@ import { PrivacyComponent } from './subpages/privacy/privacy.component';
 import { AboutComponent } from './subpages/about/about.component';
 import { ContactComponent } from './subpages/contact/contact.component';
 import { Page404Component } from './subpages/page404/page404.component';
+import { UpNextComponent } from './home/up-next/up-next.component';
+import { DonateStreamComponent } from './header/donate-stream/donate-stream.component';
 
 
 
@@ -64,7 +66,9 @@ import { Page404Component } from './subpages/page404/page404.component';
     AboutComponent,
     ContactComponent,
     Page404Component,
-    AdspaceComponent
+    AdspaceComponent,
+    UpNextComponent,
+    DonateStreamComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

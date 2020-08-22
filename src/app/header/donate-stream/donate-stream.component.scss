@@ -1,0 +1,39 @@
+.donate-container {
+  background-color: #ffdf00;
+  height: 96px;
+  font-family: "Josefin Sans";
+}
+
+.donate-container h1 {
+  color: #000;
+  font-size: 1.777em;
+  margin-top: 21px;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.donate-container p {
+  color: #000;
+  font-size: 1em;
+  margin-top: 7px;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.donate-btn {
+  cursor: pointer;
+  transition: 0.2s;
+  border: 2px solid #000;
+  border-radius: 7px;
+  padding: 7px 35px;
+  color: #000;
+  text-align: center;
+  font-size: 1.333em;
+  display: inline-block;
+  margin-top: 29px;
+}
+
+.donate-btn:hover {
+  background-color: #000;
+  color: #ffdf00;
+}

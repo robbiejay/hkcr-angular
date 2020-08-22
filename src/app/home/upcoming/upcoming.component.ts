@@ -38,8 +38,8 @@ timeZone: "Asia/Hong_Kong"
 
 this.currentDate = new Date()
 this.timeDifference = this.currentDate.getTimezoneOffset()/60 + 8;
-console.log(this.timeDifference);
-console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
+// console.log(this.timeDifference);
+// console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
 // Splitting date string into date + time
 //  console.log(this.currentDateHK)
 
@@ -53,14 +53,15 @@ currentDateNewArr.forEach(item => {
   }
 })
 this.currentDateHK = currentDateNewArr.join('-');
-console.log(this.currentDateHK);
+// console.log(this.currentDateHK);
 
 
 this.currentTimeHK = currentDateArr[1];
+    console.log(this.currentTimeHK);
 if(this.currentTimeHK.includes('PM')) {
   let twentyfourArr = this.currentTimeHK.split('PM');
   let twentyfourHourArr = twentyfourArr[0].split(':');
-  twentyfourHourArr[0] = twentyfourHourArr[0] + 12;
+  twentyfourHourArr[0] = JSON.stringify(parseInt(twentyfourHourArr[0]) + 12);
   this.currentTimeHK = twentyfourHourArr.join(':');
 }
 
@@ -72,7 +73,9 @@ if(this.currentTimeHK.includes('AM')) {
   }
   this.currentTimeHK = twentyfourHourArr.join(':');
 }
-    console.log(this.currentTimeHK);
+console.log(this.currentTimeHK);
+
+
 
 this.getUpcomingShows();
 }
@@ -96,7 +99,7 @@ this.getUpcomingShows();
           }
 
           let excerpt = this.helpersService.HtmlEncode(upcoming.excerpt.rendered.replace(/<[^>]*>/g, ''));
-          console.log(excerpt);
+          // console.log(excerpt);
 
           let excerptArr = excerpt.split('–');
           let date = excerptArr[0].trim().replace( /\//g, '-').split('-').reverse().join('-');
@@ -114,7 +117,7 @@ this.getUpcomingShows();
 
           let is12Hour = false;
           currentDateHKArr.forEach((element, i) => {
-            console.log(element.length)
+            // console.log(element.length)
             if (element.length == 1) {
               currentDateHKArr[i] = '0' + element;
               is12Hour = true;
@@ -134,16 +137,16 @@ this.getUpcomingShows();
           //   }
           // });
 
-          console.log(time);
+          // console.log(time);
 
           let timeArr = time.split(':');
-          console.log(this.timeDifference);
-          console.log(timeArr);
+          // console.log(this.timeDifference);
+          // console.log(timeArr);
           let newHour = parseInt(timeArr[0]) - this.timeDifference;
           timeArr[0] = JSON.stringify(newHour);
-          console.log(timeArr[0]);
-          console.log(this.timeDifference);
-          console.log(newHour);
+          // console.log(timeArr[0]);
+          // console.log(this.timeDifference);
+          // console.log(newHour);
           if(newHour >= 24) {
             timeArr[0] = JSON.stringify(newHour - 24);
           }
@@ -151,7 +154,7 @@ this.getUpcomingShows();
             timeArr[0] = JSON.stringify(newHour + 24);
           }
           let local_time = timeArr.join(':');
-          console.log(local_time);
+          // console.log(local_time);
 
           let has_show_aired = false;
           let now_playing = false;
@@ -162,27 +165,34 @@ this.getUpcomingShows();
           // -- Checking if time has passed if day is the same --
           console.log(upcomingDataArr.join('') + ' ' + currentDateHKArr.join(''))
 
+          if (upcomingDataArr.join('') < currentDateHKArr.join('')) {
+            has_show_aired = true;
+          }
+
           if (upcomingDataArr.join('') == currentDateHKArr.join('')) {
             let upcomingTimeArr = time.split(':');
             let currentTimeHKArr = this.currentTimeHK.split(':');
 
+            console.log(this.currentTimeHK + ' ' + time)
+            console.log(upcomingTimeArr[0].trim() + ' < ' + currentTimeHKArr[0].trim())
             if (upcomingTimeArr[0].trim() < currentTimeHKArr[0].trim()) {
               has_show_aired = true;
             }
 
-            if (upNext) {
-              up_next = true;
-              upNext = false;
-            }
+            // if (upNext) {
+            //   up_next = true;
+            //   upNext = false;
+            // }
 
             if (upcomingTimeArr[0].trim() == currentTimeHKArr[0].trim()) {
               now_playing = true;
-              upNext = true;
+              // upNext = true;
             }
           }
 
           let upcomingData = {
             title: this.helpersService.HtmlEncode(upcoming.title.rendered),
+            content: this.helpersService.HtmlEncode(upcoming.content.rendered.replace(/<[^>]*>/g, '')),
             filename: this.helpersService.HtmlEncode(upcoming.title.rendered).replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase(),
             excerpt: this.helpersService.HtmlEncode(upcoming.excerpt.rendered.replace(/<[^>]*>/g, '')),
             date : date,
@@ -211,15 +221,20 @@ this.getUpcomingShows();
         })
 
         let hasUpNext = false;
-        this.upcomingShows.forEach(item => {
+        this.upcomingShows.forEach((item, i) => {
           if(item.up_next) {
             hasUpNext = true;
           }
         })
         if (!hasUpNext) {
+          if(this.upcomingShows[0].now_playing) {
+          this.upcomingShows[1].up_next = true;
+        } else {
           this.upcomingShows[0].up_next = true;
         }
-        console.log(this.upcomingShows);
+
+        }
+        // console.log(this.upcomingShows);
       })
   }
 }
