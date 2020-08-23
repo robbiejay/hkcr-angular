@@ -18,10 +18,10 @@
             <p class='single-post-excerpt' [innerHtml]="resident.content"></p>
           </div>
         </div>
-        <div class="row">
-            <h1>Shows by {{resident.title}}</h1>
+        <div class="row" style='padding:0px 14px;'>
+            <h1 style='font-size: 1.333em;border-bottom:1px solid #ffdf00;margin-bottom:7px;'>Shows by {{resident.title}}</h1>
         </div>
-        <div class="row">
+        <div class="row" style='padding:14px;'>
           <div class="col-6 col-sm-4 col-md-3" *ngFor="let show of residentShows">
             <div class="resident-show-container"  (click)='goTo(show.url)'>
               <div class="img-container">

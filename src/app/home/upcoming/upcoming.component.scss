@@ -83,6 +83,7 @@ h1 {
   -webkit-text-stroke-width: 1px;
   margin-bottom: 25px;
   position: relative;
+  margin-left: 14px;
 }
 
 .strikethrough {
@@ -103,6 +104,13 @@ h1 {
   font-family: "Josefin Sans", sans-serif;
   font-size: 0.75em;
   color: #aaa;
+}
+
+.empty-message {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.75em;
+  color: #aaa;
+  margin-left: 19px;
 }
 
 @media only screen and ( max-width : 550px ) {

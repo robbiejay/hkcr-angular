@@ -2,7 +2,7 @@
   <div class='container blog-container'>
   <div *ngFor='let post of posts'>
     <div class="img-container">
-      <a class='back' [routerLink]="['/blog']"><</a>
+      <a class='back' (click)='goBack()' style='color: transparent;'><</a>
           <img [src]="post.image_large">
     </div>
     <h1 class='single-post-title'>{{post.title}}</h1>
@@ -63,7 +63,7 @@ Thegn - Silver Blade, Shattered Mirror. Deceiver. by Thegn
     frameborder="no"
     allow="autoplay"
     >
-    </iframe> --> -->
+    </iframe> -->
     <!-- <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
       <a href="https://soundcloud.com/hkcrlive" title="HKCR" target="_blank" style="color: #cccccc; text-decoration: none;">
         HKCR

@@ -2,8 +2,7 @@
   padding-top: 0px;
   padding-bottom: 35px;
   background-color: #000;
-  padding-left: 2%;
-  padding-right: 2%;
+
 }
 
 .container {
@@ -18,7 +17,7 @@
 
 
 .resident-card {
-  padding: 7px;
+  padding: 2px;
   margin: 0px;
   border: 1px solid #222;
   margin-bottom: 7px;
@@ -27,7 +26,7 @@
   cursor: pointer;
 }
 
-@media only screen and ( orientation : portrait ) { 
+@media only screen and ( orientation : portrait ) {
   .resident-card{
   min-height: 16rem;
   max-height: 16rem;
@@ -51,6 +50,7 @@ h1 {
   font-size: 1.333em;
   padding-top: 35px;
   padding-bottom: 12px;
+  margin-left: 30px;
   border-bottom: 2px solid #ffdf00;
   font-family: "Orbitron", monospace;
   width: 240px;

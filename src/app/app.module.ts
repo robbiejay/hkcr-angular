@@ -37,6 +37,7 @@ import { GenresComponent } from './genres/genres.component';
 
 import { ScheduleComponent } from './schedule/schedule.component';
 import { ArchiveComponent } from './archive/archive.component';
+import { ChatangoComponent } from './header/chatango/chatango.component';
 
 
 
@@ -71,7 +72,8 @@ import { ArchiveComponent } from './archive/archive.component';
     Page404Component,
     AdspaceComponent,
     UpNextComponent,
-    DonateStreamComponent
+    DonateStreamComponent,
+    ChatangoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

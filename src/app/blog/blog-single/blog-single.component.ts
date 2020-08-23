@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, SecurityContext } from '@angular/core';
+import { Location } from '@angular/common';
 import { Title, Meta, DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Params } from '@angular/router';
 import { PostsService } from '../../_services/posts.service';
@@ -22,6 +23,7 @@ export class BlogSingleComponent implements OnInit {
     private route: ActivatedRoute,
     private _meta: Meta,
     private _title: Title,
+    private _location: Location,
     private sanitizer : DomSanitizer,
     private iframePipe : IframePipe) { }
 
@@ -179,6 +181,10 @@ export class BlogSingleComponent implements OnInit {
     //    console.log(this.posts);
       }
     )
+  }
+
+  goBack() {
+    this._location.back();
   }
 
 
