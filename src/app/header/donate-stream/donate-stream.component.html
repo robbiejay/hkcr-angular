@@ -1,9 +1,97 @@
-<div class="row donate-container">
-  <div class="col-9">
-<h1>Support the artist directly</h1>
-<p>The events industry is under threat, so we need to react. We've introduced a donation button so you can support the artist now playing directly!</p>
+<div class="vertical-slider-container">
+  <div class="row donate-container" [@slide]='donateState'>
+    <div class="col-9">
+  <h1>Support the artist directly</h1>
+  <p>The events industry is under threat, so we need to react. We've introduced a donation button so you can support the artist now playing directly!</p>
+    </div>
+    <div class="col-3">
+      <span (click)='advanceToSlide2()' class='donate-btn' role='button'>Donate</span>
+    </div>
   </div>
-  <div class="col-3">
-    <span class='donate-btn' role='button'>Donate</span>
+  <div class="row donate-form-container">
+    <form style='width: 100%;'>
+      <div class="row">
+        <div class="col-3">
+  <h1>How much do you want to donate?</h1>
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <div class="col-3">
+          <button class='amount-preset' type="button" name="button">$5</button>
+            </div>
+            <div class="col-3">
+          <button class='amount-preset' type="button" name="button">$10</button>
+            </div>
+            <div class="col-3">
+          <button class='amount-preset' type="button" name="button">$20</button>
+            </div>
+            <div class="col-3">
+              <label>Other</label>
+              <input class='amount-number' type='text'/>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <button (click)='advanceToSlide3()' class='proceed-btn' type="button" name="button">Proceed</button>
+          <span role='button' (click)='advanceToSlide1()' class='go-back-btn'><i class="fas fa-angle-double-left"></i> BACK</span>
+        </div>
+
+
+
+      </div>
+
+
+
+
+    </form>
+  </div>
+
+  <div class="row split-form-container">
+    <form style='width: 100%;'>
+      <div class="row">
+        <div class="col-3">
+          <h1>How do you want to split your donation?</h1>
+        </div>
+        <div class="col-6">
+          <div class="row">
+            <div class="slidecontainer">
+              <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <button (click)='advanceToSlide4()' class='pay-now-btn' type="button" name="button">Proceed</button>
+          <span (click)='advanceToSlide2()' role='button' class='go-back-btn'><i class="fas fa-angle-double-left"></i> BACK</span>
+        </div>
+      </div>
+
+
+
+
+    </form>
+  </div>
+
+  <div class="row payment-choice-container">
+    <form style='width: 100%;'>
+      <div class="row">
+        <div class="col-1">
+          <i (click)="advanceToSlide3()" id='pointy-boi' style='font-size: 4.109em;margin-top: 14px;color:#000;margin-left:35px;' class="fas fa-long-arrow-alt-left"></i>
+        </div>
+        <div class="col-3">
+          <h1>How do you want to pay?</h1>
+        </div>
+        <div class="col-3">
+          <button class='pay-opt-btn' type="button" name="button">Credit / Debit Card</button>
+        </div>
+        <div class="col-3">
+          <button class='pay-opt-btn' type="button" name="button">Paypal</button>
+        </div>
+
+
+
+
+      </div>
+
+    </form>
   </div>
 </div>

@@ -225,6 +225,9 @@ this.getUpcomingShows();
           if(item.up_next) {
             hasUpNext = true;
           }
+          let indexOfPeriod = item.content.indexOf('.');
+          console.log(indexOfPeriod);
+          item.content = item.content.substring(0, indexOfPeriod);
         })
         if (!hasUpNext) {
           if(this.upcomingShows[0].now_playing) {

@@ -10,8 +10,8 @@
     </div>
     <div class="col-10">
       <h2 class='upcoming-title'>{{show.title}}</h2>
-      <h3 class='upcoming-date'>{{show.excerpt}}<span style='font-size: 0.75em;'>HK</span> &nbsp;<span style='font-size: 0.75em;color: #000;'>({{show.local_time}})</span></h3>
-      <p *ngIf='i == 0' class='upcoming-content'>{{show.content}}</p>
+      <h3 class='upcoming-date'>{{show.excerpt}}<span style='font-size: 0.75em;'>HK</span> &nbsp;<span style='font-size: 0.75em;color: #000;'><span style='background-color:#000;color:#fff;padding:4px;'>{{show.local_time}}</span><span style='padding: 4px;font-size: 0.75em;'>LOCAL TIME</span></span></h3>
+      <p  class='upcoming-content'>{{show.content}}</p>
       <h4 class='upcoming-now-playing' *ngIf='show.now_playing'>NOW PLAYING</h4>
       <h4 class='upcoming-up-next' *ngIf='show.up_next'>UP NEXT</h4>
     </div>

@@ -1,7 +1,24 @@
+.vertical-slider-container {
+height: 96px;
+overflow-y: hidden;
+overflow-x:hidden;
+}
+
+.go-back-btn {
+  font-family: "Josefin Sans";
+  font-size: 0.75em;
+  display: block;
+  margin-top: 4px;
+  font-weight: 900;
+  cursor: pointer;
+  color: #000;
+}
+
 .donate-container {
   background-color: #ffdf00;
   height: 96px;
   font-family: "Josefin Sans";
+  position: relative;
 }
 
 .donate-container h1 {
@@ -10,6 +27,7 @@
   margin-top: 21px;
   width: 90%;
   margin-left: 5%;
+
 }
 
 .donate-container p {
@@ -31,9 +49,243 @@
   font-size: 1.333em;
   display: inline-block;
   margin-top: 29px;
+  margin-left: 16px;
 }
 
 .donate-btn:hover {
   background-color: #000;
   color: #ffdf00;
+}
+
+.donate-form-container {
+  background-color: #ffdf00;
+  height: 96px;
+    position: relative;
+}
+
+form .amount-preset {
+  text-align: center;
+  color: #000;
+  font-weight: 900;
+  border: 3px solid #000;
+  background: none;
+  padding: 7px 14px;
+  margin-top: 28px;
+  font-family: "Josefin Sans";
+  font-size: 1.333em;
+  border-radius: 7px;
+  outline: none;
+  width: 50%;
+  margin-left: 25%;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+form .amount-preset:hover {
+  color: #ffdf00;
+  background: #000;
+}
+
+label {
+  font-family: "Josefin Sans";
+  color: #000;
+  text-align: right;
+  float: left;
+  margin-top: 35px;
+  font-family: 0.75em;
+  margin-right:7px;
+
+}
+
+form .amount-number {
+  float: left;
+  text-align: center;
+  color: #000;
+  font-weight: 900;
+  border:none;
+  border-bottom: 3px solid #000;
+  background: #FFE019;
+  padding: 7px 14px;
+  margin-top: 28px;
+  font-family: "Josefin Sans";
+  font-size: 1.333em;
+  outline: transparent;
+  box-shadow: none;
+  width: 70px;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.proceed-btn {
+  cursor: pointer;
+  transition: 0.2s;
+  border: 2px solid #000;
+  border-radius: 7px;
+  padding: 7px 35px;
+  margin-left: 0px;
+  color: #000;
+  text-align: center;
+  font-size: 1.333em;
+  display: inline-block;
+  margin-top: 29px;
+  background-color:transparent;
+  font-family: "Josefin Sans";
+}
+
+.proceed-btn:hover {
+  background-color: #000;
+  color: #ffdf00;
+}
+
+.pay-now-btn {
+  cursor: pointer;
+  transition: 0.2s;
+  border: 2px solid #000;
+  border-radius: 7px;
+  padding: 7px 35px;
+  margin-left: 0px;
+  color: #000;
+  text-align: center;
+  font-size: 1.333em;
+  display: inline-block;
+  margin-top: 29px;
+  background-color:transparent;
+  font-family: "Josefin Sans";
+}
+
+.pay-now-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+.donate-form-container h1 {
+  color: #000;
+  font-size: 1.777em;
+  margin-top: 21px;
+  width: 80%;
+  margin-left: 20%;
+  font-family: "Josefin Sans";
+}
+
+
+.pay-opt-btn {
+  cursor: pointer;
+  transition: 0.2s;
+  border: 2px solid #000;
+  border-radius: 7px;
+  padding: 7px 35px;
+  margin-left: 0px;
+  color: #000;
+  text-align: center;
+  font-size: 1.333em;
+  display: inline-block;
+  margin-top: 29px;
+  background-color:transparent;
+  font-family: "Josefin Sans";
+}
+
+.pay-opt-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.split-form-container {
+  background-color: #ffdf00;
+  height: 96px;
+    position: relative;
+}
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  margin-left: 5%;
+  width: 90%; /* Full-width */
+  height: 2px; /* Specified height */
+  background: rgba(0,0,0,1); /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.9; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  margin-top: 45px;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  border: 3px solid #000;
+  border-radius: 100%;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background-color:  #FFE019;
+  cursor: pointer; /* Cursor on hover */
+  transition: 0.2s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+background-color: #000;
+}
+
+.slider::-moz-range-thumb {
+  border:  3px solid #000;
+  border-radius: 100%;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #fff; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  background-color: #FFE019;
+    transition: 0.2s;
+}
+
+.slider::-moz-range-thumb:hover {
+  background-color: #000;
+}
+
+.split-form-container h1 {
+  color: #000;
+  font-size: 1.777em;
+  margin-top: 21px;
+  width: 80%;
+  margin-left: 20%;
+  font-family: "Josefin Sans";
+}
+
+
+
+.split-form-container h1 {
+  color: #000;
+  font-size: 1.777em;
+  margin-top: 21px;
+  width: 80%;
+  margin-left: 20%;
+  font-family: "Josefin Sans";
+}
+
+.payment-choice-container h1 {
+  color: #000;
+  font-size: 1.77em;
+  margin-top: 21px;
+  width: 80%;
+  margin-left: 20%;
+  font-family: "Josefin Sans";
+}
+
+.payment-choice-container {
+  background-color:#ffdf00;
+  height: 96px;
+    position: relative;
+}
+
+#pointy-boi {
+cursor:pointer;
 }
