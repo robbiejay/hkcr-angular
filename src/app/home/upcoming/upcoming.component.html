@@ -10,11 +10,13 @@
     </div>
     <div class="col-10">
       <h2 class='upcoming-title'>{{show.title}}</h2>
-      <h3 class='upcoming-date'>{{show.excerpt}}<span style='font-size: 0.75em;'>HK</span> &nbsp;<span style='font-size: 0.75em;color: #000;'><span style='background-color:#000;color:#fff;padding:4px;'>{{show.local_time}}</span><span style='padding: 4px;font-size: 0.75em;'>LOCAL TIME</span></span></h3>
+      <h3 class='upcoming-date'><span class='day'>{{daysOfWeek[show.day]}}</span> {{show.excerpt}}<span style='font-size: 0.75em;'>HK</span> &nbsp;<span style='font-size: 0.75em;color: #000;'><span style='background-color:#000;color:#fff;padding:4px;'>{{show.local_time}}</span><span style='padding: 4px;font-size: 0.75em;'>LOCAL TIME</span></span></h3>
       <p  class='upcoming-content'>{{show.content}}</p>
       <h4 class='upcoming-now-playing' *ngIf='show.now_playing'>NOW PLAYING</h4>
       <h4 class='upcoming-up-next' *ngIf='show.up_next'>UP NEXT</h4>
     </div>
   </div>
 </div>
-<p class='empty-message' *ngIf='upcomingShows.length == 0'>We haven't updated our schedule yet. Check back soon!</p>
+<p class='empty-message' *ngIf='upcomingShows.length == 0 && !isLoading'>We haven't updated our schedule yet. Check back soon!</p>
+<a *ngIf='mode == "home"' class='schedule-btn' routerLink='schedule'><i class="fa fa-id-card" aria-hidden="true"></i>
+> Full Schedule</a>

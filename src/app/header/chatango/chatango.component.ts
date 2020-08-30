@@ -1,5 +1,6 @@
-import { Renderer2, Inject, Component, OnInit } from '@angular/core';
+import { Renderer2, Inject, PLATFORM_ID, Component, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-chatango',
@@ -10,7 +11,8 @@ export class ChatangoComponent implements OnInit {
 
   constructor(
     private renderer2: Renderer2,
-    @Inject(DOCUMENT) private _document: Document
+    @Inject(DOCUMENT) private _document: Document,
+    @Inject(PLATFORM_ID) private platformId
   ) { }
 
   ngOnInit() {
@@ -18,6 +20,7 @@ export class ChatangoComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+    if(isPlatformBrowser(this.platformId)) {
     const s = this.renderer2.createElement('script')
     s.type = 'text/javascript';
     s.src = 'https://st.chatango.com/js/gz/emb.js';
@@ -42,5 +45,5 @@ export class ChatangoComponent implements OnInit {
     console.log(this._document.body);
     this.renderer2.appendChild(this._document.body.childNodes[1].childNodes[0].childNodes[1].childNodes[1].childNodes[0].childNodes[1], s);
   }
-
+}
 }

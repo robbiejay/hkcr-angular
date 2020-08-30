@@ -1,7 +1,7 @@
-@font-face {
-	font-family: GBK;
-	src: url("src/font/方正兰亭中黑_GBK.woff");
-}
+// @font-face {
+// 	font-family: GBK;
+// 	src: url("src/font/方正兰亭中黑_GBK.woff");
+// }
 
 
 *, *::before, *::after {
@@ -68,4 +68,8 @@ table {
 
 .container-fluid {
   padding: 0px;
+}
+
+.chinesetext {
+font-family: 'Noto Sans HK', sans-serif;
 }

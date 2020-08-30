@@ -93,7 +93,6 @@
 
 .genre-tags {
   margin-left: 35px;
-  margin-bottom: 14px;
 }
 
 .genre-tags li:nth-child(1) {
@@ -109,13 +108,14 @@
 
 .genre-tags li {
   text-decoration: none;
-  display: inline;
+  display: inline-block;
   margin-right: 4px;
   font-size: 0.75em;
   font-family: "Josefin Sans";
   border: 1px solid #000;
   border-radius: 2px;
   padding: 4px;
+  margin-bottom: 3px;
 }
 
 

@@ -4,6 +4,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { PostsService } from '../../_services/posts.service';
 import { PlayerService } from '../../_services/player.service';
 import { HelpersService } from '../../_services/helpers.service';
+import { LazyService } from '../../_services/lazy.service';
 // import { HtmlEncode } from '../../_helpers/helpers';
 
 @Component({
@@ -32,20 +33,28 @@ export class SliderComponent implements OnInit {
   sliderState = 'slide1';
   slideNumber: number;
   autoplayActive: boolean;
+  slide1HasLoaded: boolean;
+  slide2HasLoaded: boolean;
+  slide3HasLoaded: boolean;
   listenBack = [];
   highlights = [];
   constructor(private postsService: PostsService,
               private playerService: PlayerService,
               private helpersService: HelpersService,
+              private lazyService: LazyService,
               @Inject(PLATFORM_ID) private platformId) { }
 
   ngOnInit() {
+    this.slide1HasLoaded = false;
+    this.slide2HasLoaded = false;
+    this.slide3HasLoaded = false;
 }
 
 ngAfterViewInit() {
   if(isPlatformBrowser(this.platformId)) {
-this.autoplayActive = true;
 setInterval(()=> { this.autoplay(this.autoplayActive) }, 7 * 1000);
+
+// Combine all three functions into one function
 
 this.postsService.getLatestShows().subscribe(
 data => {
@@ -62,12 +71,12 @@ data => {
 
 this.postsService.getHighlights().subscribe(
 data => {
-  console.log(data);
   data.forEach((item, index) => {
     let sliderData = {
       title: this.helpersService.HtmlEncode(item.title["rendered"]),
       excerpt: this.helpersService.HtmlEncode(item.excerpt["rendered"].replace(/<[^>]*>/g, '')),
       content: this.helpersService.HtmlEncode(item.content["rendered"].replace(/<[^>]*>/g, '')),
+      low_res_image: item._embedded["wp:featuredmedia"][0].media_details.sizes["portfolio-auto"].source_url,
       featured_image: item._embedded["wp:featuredmedia"][0].source_url
     }
     this.highlights.push(sliderData);
@@ -116,5 +125,21 @@ data => {
 
   listenToLatestShow(show) {
     this.playerService.playShow(show);
+  }
+
+  slideImage1HasLoaded() {
+    this.slide1HasLoaded = true;
+    this.lazyService.imageHasLoaded();
+  }
+
+  slideImage2HasLoaded() {
+    this.slide2HasLoaded = true;
+    this.autoplayActive = true;
+    this.lazyService.imageHasLoaded();
+  }
+
+  slideImage3HasLoaded() {
+    this.slide3HasLoaded = true;
+    this.lazyService.imageHasLoaded();
   }
 }

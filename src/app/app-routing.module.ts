@@ -10,6 +10,7 @@ import { ShowsComponent} from './shows/shows.component';
 import { ShowSingleComponent } from './shows/show-single/show-single.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { ScheduleSingleComponent } from './schedule/schedule-single/schedule-single.component';
+import { UpcomingComponent } from './home/upcoming/upcoming.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
@@ -22,7 +23,7 @@ const routes: Routes = [
   {path: 'residents/:title', component: ResidentSingleComponent},
   {path: 'shows', component: ShowsComponent },
   {path: 'shows/:title', component: ShowSingleComponent },
-  {path: 'schedule', component: ScheduleComponent },
+  {path: 'schedule', component: UpcomingComponent },
   {path: 'schedule/:title', component: ScheduleSingleComponent }
   // {path: 'blog/:id/:title', component: BlogPostComponent},
   // {path: 'livestream', component: LivestreamComponent }

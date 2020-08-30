@@ -11,6 +11,15 @@
 
 }
 
+.hidden {
+  display: none;
+}
+
+.temp-img {
+  filter: blur(12px);
+  min-height: 215px;
+}
+
 // .slide-image img {
 //   max-width: 1200px;
 // }
@@ -131,6 +140,8 @@ cursor: crosshair;
   .slide-image img {
   max-height: 100vh;
   }
+
+
 
 }
 

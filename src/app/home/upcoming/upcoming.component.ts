@@ -1,10 +1,8 @@
 import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { isPlatformBrowser } from "@angular/common";
 import { PostsService } from '../../_services/posts.service';
 import { HelpersService } from '../../_services/helpers.service';
-//import { HtmlEncode } from '../../_helpers/helpers';
-
 
 @Component({
   selector: 'app-upcoming',
@@ -16,6 +14,7 @@ export class UpcomingComponent implements OnInit {
   constructor(private postsService: PostsService,
               private helpersService: HelpersService,
               private router: Router,
+              private route: ActivatedRoute,
               @Inject(PLATFORM_ID) private platformId) { }
 
   currentDateHK: string;
@@ -24,24 +23,35 @@ export class UpcomingComponent implements OnInit {
   upcomingHourHK : number;
   timeDifference : number;
   currentDate : Date;
+  mode: string;
+  isLoading: boolean;
+
+  daysOfWeek = [
+    'SUN','MON','TUE','WED',"THU","FRI","SAT"
+  ]
 
 
   ngOnInit() {
-
+    this.isLoading = true;
   }
+
+  // Move a lot of this computation to the back-end
 
   ngAfterViewInit() {
     if(isPlatformBrowser(this.platformId)) {
+
+      if(this.route.snapshot.url.length == 0 || this.route.snapshot.url[0].path == 'livestream') {
+      this.mode = 'home'
+      } else {
+      this.mode = 'archive'
+      }
+
 this.currentDateHK = new Date().toLocaleString("en-UK", {
 timeZone: "Asia/Hong_Kong"
 });
 
 this.currentDate = new Date()
 this.timeDifference = this.currentDate.getTimezoneOffset()/60 + 8;
-// console.log(this.timeDifference);
-// console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)
-// Splitting date string into date + time
-//  console.log(this.currentDateHK)
 
 let currentDateArr = this.currentDateHK.split(',');
 this.currentDateHK = currentDateArr[0].replace( /\//g, '-').split('-').reverse().join('-');
@@ -53,7 +63,6 @@ currentDateNewArr.forEach(item => {
   }
 })
 this.currentDateHK = currentDateNewArr.join('-');
-// console.log(this.currentDateHK);
 
 
 this.currentTimeHK = currentDateArr[1];
@@ -91,6 +100,7 @@ this.getUpcomingShows();
 
         data.forEach(upcoming => {
 
+          this.isLoading = false;
           let featured_img;
           if(upcoming._embedded["wp:featuredmedia"] == undefined) {
             featured_img = "assets/default_show.png";
@@ -104,7 +114,8 @@ this.getUpcomingShows();
           let excerptArr = excerpt.split('–');
           let date = excerptArr[0].trim().replace( /\//g, '-').split('-').reverse().join('-');
           let time = excerptArr[1].trim();
-
+          let dayDate = new Date(date);
+          let day = dayDate.getDay();
           // ---- Formatting date to always have DD / MM / YYYY format ----
           let upcomingDataArr = date.split('-');
           // upcomingDataArr.forEach(element => {
@@ -197,6 +208,7 @@ this.getUpcomingShows();
             excerpt: this.helpersService.HtmlEncode(upcoming.excerpt.rendered.replace(/<[^>]*>/g, '')),
             date : date,
             time: time,
+            day: day,
             local_time: local_time,
             featured_image: featured_img,
             has_show_aired: has_show_aired,
@@ -225,15 +237,21 @@ this.getUpcomingShows();
           if(item.up_next) {
             hasUpNext = true;
           }
+          if(this.mode == 'home') {
           let indexOfPeriod = item.content.indexOf('.');
           console.log(indexOfPeriod);
           item.content = item.content.substring(0, indexOfPeriod);
+          }
         })
         if (!hasUpNext) {
           if(this.upcomingShows[0].now_playing) {
           this.upcomingShows[1].up_next = true;
         } else {
           this.upcomingShows[0].up_next = true;
+        }
+
+        if(this.mode == 'home') {
+          this.upcomingShows = this.upcomingShows.splice(0,4);
         }
 
         }

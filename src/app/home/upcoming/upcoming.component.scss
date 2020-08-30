@@ -4,7 +4,7 @@
 }
 
 .chinesetext {
-  font-family: 'GBK'!important;
+//  font-family: 'GBK'!important;
   color: black;
   -webkit-text-stroke-width: 0px;
 }
@@ -22,7 +22,8 @@ position: relative;
 
 .upcoming-content {
   font-family: "Josefin Sans";
-  margin-top: 7px;
+  margin-top: 14px;
+  line-height: 1.333em;
   margin-bottom: 7px;
   font-size: 0.75em;
   color: #555;
@@ -98,6 +99,7 @@ h1 {
 .upcoming-title {
   font-family: "Josefin Sans", sans-serif;
   padding-top: 4px;
+  margin-bottom: 7px;
 }
 
 .upcoming-date {
@@ -106,6 +108,33 @@ h1 {
   margin-top: 7px;
   color: #000;
 }
+
+.day {
+  font-family: "Orbitron",sans-serif;
+  color: #000;
+  -webkit-text-stroke-color: #000;
+  -webkit-text-stroke-width: 1px;
+  font-weight: 900;
+  font-size: 1em;
+  background-color: #ffec64;
+  padding: 4px;
+  margin-bottom: 7px;
+}
+
+.schedule-btn {
+  color: #000;
+  font-family: "Orbitron";
+  padding: 4px;
+  font-size: 1.333em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #000;
+  color: transparent;
+  margin-left: 14px;
+  display: inline-block;
+  margin-top: 14px;
+
+}
+
 
 .empty-message {
   font-family: "Josefin Sans", sans-serif;
@@ -121,7 +150,7 @@ left: -40px;
   }
 
   .upcoming-up-next {
-    left: -40px;
+    left: -56px;
   }
 
 }
