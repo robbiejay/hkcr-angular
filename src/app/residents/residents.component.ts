@@ -67,6 +67,7 @@ this.getResidents();
 
   goTo(location) {
                 if(isPlatformBrowser(this.platformId)) {
+                  console.log(location.replace(/[^a-zA-Z0-9]+/g, "-").toLowerCase());
     this.router.navigate(['residents/' + location.replace(/[^a-zA-Z0-9]+/g, "-").toLowerCase()]);
   }
   }

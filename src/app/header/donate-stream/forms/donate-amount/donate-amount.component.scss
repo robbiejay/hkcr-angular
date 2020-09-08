@@ -1,0 +1,100 @@
+form .amount-preset {
+  text-align: center;
+  color: #000;
+  font-weight: 900;
+  border: 3px solid #000;
+  background: none;
+  padding: 7px 14px;
+  margin-top: 28px;
+  font-family: "Josefin Sans";
+  font-size: 1.333em;
+  border-radius: 7px;
+  outline: none;
+  width: 50%;
+  margin-left: 25%;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+form .amount-preset:hover {
+  color: #ffdf00;
+  background: #000;
+}
+
+label {
+  font-family: "Josefin Sans";
+  color: #000;
+  text-align: right;
+  float: left;
+  margin-top: 35px;
+  font-family: 0.75em;
+  margin-right:7px;
+
+}
+
+form .amount-number {
+  float: left;
+  text-align: center;
+  color: #000;
+  font-weight: 900;
+  border:none;
+  border-bottom: 3px solid #000;
+  background: #FFE019;
+  padding: 7px 14px;
+  margin-top: 28px;
+  font-family: "Josefin Sans";
+  font-size: 1.333em;
+  outline: transparent;
+  box-shadow: none;
+  width: 70px;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+
+.proceed-btn {
+  cursor: pointer;
+  transition: 0.2s;
+  border: 2px solid #000;
+  border-radius: 7px;
+  padding: 7px 35px;
+  margin-left: 0px;
+  color: #000;
+  text-align: center;
+  font-size: 1.333em;
+  display: inline-block;
+  margin-top: 29px;
+  background-color:transparent;
+  font-family: "Josefin Sans";
+}
+
+.proceed-btn:hover {
+  background-color: #000;
+  color: #ffdf00;
+}
+
+.go-back-btn {
+  font-family: "Josefin Sans";
+  font-size: 0.75em;
+  display: block;
+  margin-top: 4px;
+  font-weight: 900;
+  cursor: pointer;
+  color: #000;
+}
+
+h1 {
+  color: #000;
+  font-size: 1.777em;
+  margin-top: 21px;
+  width: 80%;
+  margin-left: 20%;
+  font-family: "Josefin Sans";
+}
+
+.disabled {
+  opacity: 0.2;
+  background-color: #000;
+  color: #ffdf00;
+  cursor: default;
+}

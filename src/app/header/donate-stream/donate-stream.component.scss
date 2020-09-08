@@ -116,47 +116,7 @@ form .amount-number {
   cursor: pointer;
 }
 
-.proceed-btn {
-  cursor: pointer;
-  transition: 0.2s;
-  border: 2px solid #000;
-  border-radius: 7px;
-  padding: 7px 35px;
-  margin-left: 0px;
-  color: #000;
-  text-align: center;
-  font-size: 1.333em;
-  display: inline-block;
-  margin-top: 29px;
-  background-color:transparent;
-  font-family: "Josefin Sans";
-}
 
-.proceed-btn:hover {
-  background-color: #000;
-  color: #ffdf00;
-}
-
-.pay-now-btn {
-  cursor: pointer;
-  transition: 0.2s;
-  border: 2px solid #000;
-  border-radius: 7px;
-  padding: 7px 35px;
-  margin-left: 0px;
-  color: #000;
-  text-align: center;
-  font-size: 1.333em;
-  display: inline-block;
-  margin-top: 29px;
-  background-color:transparent;
-  font-family: "Josefin Sans";
-}
-
-.pay-now-btn:hover {
-  background-color: #000;
-  color: #fff;
-}
 .donate-form-container h1 {
   color: #000;
   font-size: 1.777em;
@@ -194,82 +154,7 @@ form .amount-number {
     position: relative;
 }
 
-.slidecontainer {
-  width: 100%; /* Width of the outside container */
-}
 
-/* The slider itself */
-.slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
-  appearance: none;
-  margin-left: 5%;
-  width: 90%; /* Full-width */
-  height: 2px; /* Specified height */
-  background: rgba(0,0,0,1); /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.9; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
-  margin-top: 45px;
-}
-
-/* Mouse-over effects */
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
-
-}
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  border: 3px solid #000;
-  border-radius: 100%;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background-color:  #FFE019;
-  cursor: pointer; /* Cursor on hover */
-  transition: 0.2s;
-}
-
-.slider::-webkit-slider-thumb:hover {
-background-color: #000;
-}
-
-.slider::-moz-range-thumb {
-  border:  3px solid #000;
-  border-radius: 100%;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #fff; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-  background-color: #FFE019;
-    transition: 0.2s;
-}
-
-.slider::-moz-range-thumb:hover {
-  background-color: #000;
-}
-
-.split-form-container h1 {
-  color: #000;
-  font-size: 1.777em;
-  margin-top: 21px;
-  width: 80%;
-  margin-left: 20%;
-  font-family: "Josefin Sans";
-}
-
-
-
-.split-form-container h1 {
-  color: #000;
-  font-size: 1.777em;
-  margin-top: 21px;
-  width: 80%;
-  margin-left: 20%;
-  font-family: "Josefin Sans";
-}
 
 .payment-choice-container h1 {
   color: #000;

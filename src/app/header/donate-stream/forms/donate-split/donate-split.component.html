@@ -1,0 +1,28 @@
+<form [formGroup]='form' (submit)='onFormSubmit()' style='width: 100%;'>
+  <div class="row">
+    <div class="col-3">
+      <h1>How do you want to split your donation?</h1>
+    </div>
+    <div class="col-6">
+      <div class="row">
+        <div class="col-3">
+          <h2 class='donation-subheading'></h2>
+          <h2  class='donation-subheading' style='font-size: 0.75em;'>{{currentShow}}<span *ngIf='currentShow == ""'>Resident</span></h2><h2 class='donation-subheading' style='margin-top: 4px;'>${{donation - donation * form.value.split / 100 | number:'1.2-2'}}</h2>
+        </div>
+        <div class="col-6">
+          <div class="slidecontainer">
+            <input formControlName='split' type="range" min="10" max="90" value="50" class="slider" id="myRange">
+          </div>
+        </div>
+        <div class="col-3">
+<h2  class='donation-subheading' style='font-size: 0.75em;'>HKCR</h2><h2 class='donation-subheading' style='margin-top: 4px;'>${{donation * form.value.split / 100  | number:'1.2-2'}}</h2>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-3">
+      <button  class='pay-now-btn' type="submit" name="button">Proceed</button>
+      <span (click)='advanceToSlide2()' role='button' class='go-back-btn'><i class="fas fa-angle-double-left"></i> BACK</span>
+    </div>
+  </div>
+</form>

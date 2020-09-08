@@ -10,10 +10,19 @@ import { map } from 'rxjs/operators';
 })
 export class PostsService {
 
-  constructor(private http: HttpClient) { }
+  public nowPlaying: string;
+  nowPlayingStateChange: Subject<string> = new Subject<string>();
+
+
+  constructor(private http: HttpClient) {
+      this.nowPlayingStateChange.subscribe(value => {
+        this.nowPlaying = value;
+      })
+   }
 
   private shows = [];
   private showSubscription: Subscription;
+
 
   // getShowsbyPage(page): Observable<any> {
   //   let url = 'https://hkcr.live/wp_api/data/shows/shows_1.json';
@@ -22,6 +31,10 @@ export class PostsService {
   //     {observe: 'response'}
   //   )
   // }
+
+  changeNowPlaying(nowPlaying) {
+    this.nowPlayingStateChange.next(nowPlaying);
+  }
 
   getShows(page): Observable<any> {
     let url = 'https://hkcr.live/wp_api/data/shows/shows_' + page + '.json';

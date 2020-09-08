@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-
+import { PostsService } from '../../_services/posts.service';
+import { DonateService } from '../../_services/donate.service';
 
 @Component({
   selector: 'app-donate-stream',
@@ -27,35 +27,45 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class DonateStreamComponent implements OnInit {
 
-form: FormGroup;
 
-donateState = 'slide1';
-  constructor() { }
-
+  constructor(private postsService: PostsService,
+              private donateService: DonateService) { }
+currentShow: string;
+donateState: string;
   ngOnInit() {
-    this.form = new FormGroup({
-
-    })
+    if(this.postsService.nowPlaying !== '') {
+    this.currentShow = this.postsService.nowPlaying;
+  } else {
+    this.currentShow = 'HKCR';
   }
 
-  onFormSubmit() {
-    console.log(this.form)
+  this.donateService.donateStateChange.subscribe(value => {
+    this.donateState = value;
+  });
+
+  this.postsService.nowPlayingStateChange.subscribe(value => {
+    if(value !== '') {
+    this.currentShow = this.postsService.nowPlaying;
+  } else {
+    this.currentShow = 'HKCR';
+  }
+  });
   }
 
   advanceToSlide1() {
-      this.donateState = 'slide1';
+      this.donateService.changeSlide('slide1');
   }
 
 advanceToSlide2() {
-    this.donateState = 'slide2';
+    this.donateService.changeSlide('slide2');
 }
 
 advanceToSlide3() {
-    this.donateState = 'slide3';
+    this.donateService.changeSlide('slide3');
 }
 
 advanceToSlide4() {
-    this.donateState = 'slide4';
+    this.donateService.changeSlide('slide4');
 }
 
 

@@ -109,7 +109,6 @@ this.getUpcomingShows();
           }
 
           let excerpt = this.helpersService.HtmlEncode(upcoming.excerpt.rendered.replace(/<[^>]*>/g, ''));
-          // console.log(excerpt);
 
           let excerptArr = excerpt.split('–');
           let date = excerptArr[0].trim().replace( /\//g, '-').split('-').reverse().join('-');
@@ -118,11 +117,6 @@ this.getUpcomingShows();
           let day = dayDate.getDay();
           // ---- Formatting date to always have DD / MM / YYYY format ----
           let upcomingDataArr = date.split('-');
-          // upcomingDataArr.forEach(element => {
-          //   if (element.length < 2) {
-          //     element = '0' + element;
-          //   }
-          // });
 
           let currentDateHKArr = this.currentDateHK.split('-');
 
@@ -141,23 +135,10 @@ this.getUpcomingShows();
             currentDateHKArr[2] = temp_var;
           }
 
-          // currentDateHKArr.forEach(element => {
-          //   if (element.length < 2) {
-          //     console.log(element + 'is less than 2')
-          //     element = '0' + element;
-          //   }
-          // });
-
-          // console.log(time);
-
           let timeArr = time.split(':');
-          // console.log(this.timeDifference);
-          // console.log(timeArr);
           let newHour = parseInt(timeArr[0]) - this.timeDifference;
           timeArr[0] = JSON.stringify(newHour);
-          // console.log(timeArr[0]);
-          // console.log(this.timeDifference);
-          // console.log(newHour);
+
           if(newHour >= 24) {
             timeArr[0] = JSON.stringify(newHour - 24);
           }
@@ -190,14 +171,9 @@ this.getUpcomingShows();
               has_show_aired = true;
             }
 
-            // if (upNext) {
-            //   up_next = true;
-            //   upNext = false;
-            // }
 
             if (upcomingTimeArr[0].trim() == currentTimeHKArr[0].trim()) {
               now_playing = true;
-              // upNext = true;
             }
           }
 
