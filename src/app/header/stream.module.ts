@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { NgxPayPalModule } from 'ngx-paypal';
 
 import { LivestreamComponent } from './livestream/livestream.component';
 import { RadiostreamComponent } from './radiostream/radiostream.component';
@@ -9,6 +9,7 @@ import { ChatangoComponent } from './chatango/chatango.component';
 import { DonateStreamComponent } from './donate-stream/donate-stream.component';
 import { DonateAmountComponent } from './donate-stream/forms/donate-amount/donate-amount.component';
 import { DonateSplitComponent } from './donate-stream/forms/donate-split/donate-split.component';
+import { PaypalComponent } from './donate-stream/paypal/paypal.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { DonateSplitComponent } from './donate-stream/forms/donate-split/donate-
     ChatangoComponent,
     DonateStreamComponent,
     DonateAmountComponent,
-    DonateSplitComponent
+    DonateSplitComponent,
+    PaypalComponent
   ],
   exports: [
     LivestreamComponent,
@@ -31,7 +33,8 @@ import { DonateSplitComponent } from './donate-stream/forms/donate-split/donate-
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPayPalModule
   ]
 })
 export class StreamModule {}

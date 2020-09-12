@@ -90,5 +90,13 @@ pauseRadio($event) {
 activateLivestream() {
   this.playerService.livestreamActive = true;
     this._location.go('livestream');
+    var scrollToTop = window.setInterval(function () {
+        var pos = window.pageYOffset;
+        if (pos > 0) {
+            window.scrollTo(0, pos - 1000); // how far to scroll on each step
+        } else {
+            window.clearInterval(scrollToTop);
+        }
+    }, 60); // how fast to scroll (this equals roughly 60 fps)
 }
 }

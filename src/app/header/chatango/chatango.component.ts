@@ -2,6 +2,8 @@ import { Renderer2, Inject, PLATFORM_ID, Component, OnInit } from '@angular/core
 import { DOCUMENT } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
 
+declare var paypal;
+
 @Component({
   selector: 'app-chatango',
   templateUrl: './chatango.component.html',

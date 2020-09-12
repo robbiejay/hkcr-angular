@@ -6,12 +6,12 @@
   border-radius: 7px;
   padding: 7px 35px;
   margin-left: 0px;
-  color: #000;
+  color: #ffdf00;
   text-align: center;
   font-size: 1.333em;
   display: inline-block;
   margin-top: 29px;
-  background-color:transparent;
+  background-color:#000;
   font-family: "Josefin Sans";
 }
 
@@ -104,4 +104,20 @@ h1 {
   margin-top: 35px;
   font-family:"Josefin Sans";
   color: #000;
+}
+
+@media (max-width: 768px) {
+ h1 {
+   font-size: 1em;
+ }
+
+ .pay-now-btn {
+   margin-top: 14px;
+   margin-left: 5%;
+   width: 90%;
+ }
+
+ .go-back-btn {
+   margin-left: 5%;
+ }
 }

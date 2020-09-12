@@ -18,7 +18,8 @@ export class DonateAmountComponent implements OnInit {
       amount: new FormControl(null, {
         validators: [
           Validators.required,
-          Validators.min(1)
+          Validators.min(1),
+          Validators.pattern("^[0-9]*$")
         ]
       })
     })
@@ -32,9 +33,14 @@ export class DonateAmountComponent implements OnInit {
 
   onFormSubmit() {
     console.log(this.form.value.amount);
-    if(this.form.value.amount !== null && this.form.value.amount !==  0 && this.form.value.amount !==  '') {
-    this.donateService.updateDonation(this.form.value.amount);
+    console.log(this.form)
+    if(this.form.status == 'VALID') {
+    this.donateService.updateDonation(+this.form.value.amount);
+    if (window.innerWidth > 768) {
     this.advanceToSlide3();
+  } else {
+    this.advanceToSlide5();
+  }
   }
   }
 
@@ -44,6 +50,10 @@ export class DonateAmountComponent implements OnInit {
 
   advanceToSlide3() {
     this.donateService.changeSlide('slide3');
+  }
+
+  advanceToSlide5() {
+    this.donateService.changeSlide('slide5');
   }
 
 }

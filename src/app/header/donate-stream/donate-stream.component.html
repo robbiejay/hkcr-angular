@@ -1,10 +1,15 @@
 <div class="vertical-slider-container">
+  <div class="row confirmation-container" *ngIf='paymentConfirmed' style='background-color: #00ff5d;'>
+<div class="col-12">
+<h1><i class="fas fa-check-circle"></i> &nbsp; Payment Confirmed! Thank you for your donation!</h1>
+  </div>
+  </div>
   <div class="row donate-container" [@slide]='donateState'>
-    <div class="col-9">
+    <div class="col-12 col-md-9">
   <h1>Support {{currentShow}} Directly</h1>
-  <p>The events industry is under threat, so we need to react. We've introduced a donation button so you can support the artist now playing directly!</p>
+  <p>Donate to HKCR from this livestream! Your donation goes directly to the artists and helps keep HKCR running!</p>
     </div>
-    <div class="col-3">
+    <div class="col-12 col-md-3">
       <span (click)='advanceToSlide2()' class='donate-btn' role='button'>Donate</span>
     </div>
   </div>
@@ -18,17 +23,21 @@
 
   <div class="row payment-choice-container">
       <div class="row" style='width:100%;'>
-        <div class="col-1">
-          <i (click)="advanceToSlide3()" id='pointy-boi' style='font-size: 4.109em;margin-top: 14px;color:#000;margin-left:35px;' class="fas fa-long-arrow-alt-left"></i>
+        <div class="col-3 col-md-1">
+          <i (click)="advanceToSlide3()" id='pointy-boi' class="fas fa-long-arrow-alt-left"></i>
         </div>
-        <div class="col-2">
-          <h1>How do you want to pay?</h1>
+        <div class="col-9 col-md-3">
+          <h1 class='confirm-heading'>Confirm?</h1>
         </div>
-        <div class="col-3">
-          <button class='pay-opt-btn' type="button" name="button">Credit / Debit Card</button>
+        <div class="col-12 col-md-3">
+          <h6 class='donate-subheading'>Thank you for considering a donation!</h6>
+          <p class='donate-paragraph'>Your donation will pay for {{valueOfDonationInServerDays}} days of server time</p>
         </div>
-        <div class="col-3">
-          <button class='pay-opt-btn' type="button" name="button">Paypal</button>
+        <div class="col-12 col-md-3">
+          <app-paypal></app-paypal>
+        </div>
+        <div class="col-12 col-md-2">
+<h1 style='margin-top: 35px; color: #000;font-size:1.777em;'><span style='font-size: 0.56em;'>AMOUNT</span> : ${{ this.donateService.donateAmount}}<span style='font-size: 0.56em;'>.00</span></h1>
         </div>
       </div>
   </div>

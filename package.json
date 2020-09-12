@@ -36,6 +36,7 @@
     "core-js": "^2.5.4",
     "domino": "^2.1.6",
     "moment": "^2.25.3",
+    "ngx-paypal": "^5.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",

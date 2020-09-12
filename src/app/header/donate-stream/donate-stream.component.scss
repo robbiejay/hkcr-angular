@@ -21,6 +21,28 @@ overflow-x:hidden;
   position: relative;
 }
 
+.donate-subheading {
+  margin-top: 14px;
+  font-size: 1.333em;
+font-family: "Josefin Sans";
+margin-bottom: 7px;
+}
+
+
+.donate-paragraph {
+  font-family: "Josefin Sans";
+}
+
+.confirmation-container h1 {
+  color: #fff;
+  font-size: 1.777em;
+  margin-top: 21px;
+  width: 90%;
+  margin-left: 5%;
+  font-weight: 700;
+  font-family: "Josefin Sans", sans-serif;
+}
+
 .donate-container h1 {
   color: #000;
   font-size: 1.777em;
@@ -44,7 +66,8 @@ overflow-x:hidden;
   border: 2px solid #000;
   border-radius: 7px;
   padding: 7px 35px;
-  color: #000;
+  color: #ffdf00;
+  background-color: #000;
   text-align: center;
   font-size: 1.333em;
   display: inline-block;
@@ -54,7 +77,7 @@ overflow-x:hidden;
 
 .donate-btn:hover {
   background-color: #000;
-  color: #ffdf00;
+  color: #fff;
 }
 
 .donate-form-container {
@@ -116,6 +139,10 @@ form .amount-number {
   cursor: pointer;
 }
 
+.confirmation-container {
+  height: 96px;
+  position: relative;
+}
 
 .donate-form-container h1 {
   color: #000;
@@ -126,6 +153,9 @@ form .amount-number {
   font-family: "Josefin Sans";
 }
 
+.confirm-heading {
+  margin-top: 35px;
+}
 
 .pay-opt-btn {
   cursor: pointer;
@@ -173,4 +203,57 @@ form .amount-number {
 
 #pointy-boi {
 cursor:pointer;
+font-size: 4.109em;
+margin-top: 14px;
+color:#000;
+margin-left:35px;
+}
+
+@media (max-width: 768px) {
+  .vertical-slider-container {
+  height: 192px;
+  }
+
+  .donate-container {
+    height: 192px;
+  }
+
+  .donate-form-container {
+    height: 192px;
+  }
+
+  .split-form-container {
+    height: 192px;
+  }
+
+  .payment-choice-container{
+    height: 192px;
+  }
+
+  .donate-btn {
+    margin-top: 21px;
+  }
+
+  .confirmation-container {
+    height: 192px;
+  }
+
+#pointy-boi {
+    font-size: 1.777em;
+    margin-top: 7px;
+}
+
+  .confirm-heading {
+  display: none !important;
+  }
+
+  .donate-subheading {
+    margin-left: 10%;
+    margin-top: 0px;
+  }
+
+  .donate-paragraph {
+    margin-left: 10%;
+  }
+
 }

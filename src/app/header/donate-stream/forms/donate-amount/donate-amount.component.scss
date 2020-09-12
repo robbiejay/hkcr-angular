@@ -26,7 +26,7 @@ label {
   color: #000;
   text-align: right;
   float: left;
-  margin-top: 35px;
+  margin-top: 48px;
   font-family: 0.75em;
   margin-right:7px;
 
@@ -40,8 +40,9 @@ form .amount-number {
   border:none;
   border-bottom: 3px solid #000;
   background: #FFE019;
-  padding: 7px 14px;
+  padding: 14px 7px 7px 7px;
   margin-top: 28px;
+  height: 42px;
   font-family: "Josefin Sans";
   font-size: 1.333em;
   outline: transparent;
@@ -59,18 +60,18 @@ form .amount-number {
   border-radius: 7px;
   padding: 7px 35px;
   margin-left: 0px;
-  color: #000;
+  color: #ffdf00;
   text-align: center;
   font-size: 1.333em;
   display: inline-block;
   margin-top: 29px;
-  background-color:transparent;
+  background-color: #000;
   font-family: "Josefin Sans";
 }
 
 .proceed-btn:hover {
   background-color: #000;
-  color: #ffdf00;
+  color: #fff;
 }
 
 .go-back-btn {
@@ -97,4 +98,49 @@ h1 {
   background-color: #000;
   color: #ffdf00;
   cursor: default;
+}
+
+.amount-decimal {
+  display: inline;
+  float: left;
+  margin-top: 48px;
+  font-family: "Josefin Sans", sans-serif !important;
+  font-size: 0.75em;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1em;
+  }
+
+  form .amount-preset {
+    margin-top: 2px;
+    width: 75%;
+    margin-left: 12.5%;
+  }
+
+  form label {
+    margin-top: 18px;
+    margin-left: 7.5%;
+  }
+
+  .amount-decimal {
+    margin-top: 18px;
+  }
+
+  form .amount-number {
+    margin-top: 2px;
+        margin-left: 0%;
+        width: 50%;
+  }
+
+  .proceed-btn {
+    margin-top: 7px;
+    margin-left: 5%;
+    width: 90%;
+  }
+
+  .go-back-btn {
+    margin-left: 7.5%;
+  }
 }

@@ -68,7 +68,7 @@ export class BlogrollComponent implements OnInit {
           }
           this.posts.push(postData);
         })
-        this.posts = this.posts.slice(0,2)
+        this.posts = this.posts.slice(0,3)
         console.log(this.posts);
       }
     )
