@@ -1,4 +1,4 @@
-<div class="vertical-slider-container">
+<div class="vertical-slider-container" [@popup]='popupState'>
   <div class="row confirmation-container" *ngIf='paymentConfirmed' style='background-color: #00ff5d;'>
 <div class="col-12">
 <h1><i class="fas fa-check-circle"></i> &nbsp; Payment Confirmed! Thank you for your donation!</h1>
@@ -6,7 +6,7 @@
   </div>
   <div class="row donate-container" [@slide]='donateState'>
     <div class="col-12 col-md-9">
-  <h1>Support {{currentShow}} Directly</h1>
+  <h1>Support <span>{{currentShow}}</span> Directly</h1>
   <p>Donate to HKCR from this livestream! Your donation goes directly to the artists and helps keep HKCR running!</p>
     </div>
     <div class="col-12 col-md-3">

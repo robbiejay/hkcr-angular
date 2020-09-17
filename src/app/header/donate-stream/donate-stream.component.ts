@@ -34,6 +34,18 @@ declare var paypal: any;
         'margin-top':'-576px'
       })),
       transition('* => *', animate('333ms ease-in-out')),
+    ]),
+    trigger('popup', [
+      state('out', style({
+        'height':'0px'
+      })),
+      state('desktop-in', style({
+        'height':'96px'
+      })),
+      state('mobile-in', style({
+        'height':'192px'
+      })),
+      transition('* => *', animate(1200))
     ])
   ]
 })
@@ -46,6 +58,7 @@ export class DonateStreamComponent implements OnInit {
               private renderer2: Renderer2,
               @Inject(DOCUMENT) private _document: Document,
               @Inject(PLATFORM_ID) private platformId) { }
+              popupState = 'out';
 currentShow = 'HKCR';
 donateState: string;
 hkcrDonation: string;
@@ -86,7 +99,15 @@ paymentConfirmed: boolean;
 
   ngAfterViewInit() {
     if(isPlatformBrowser(this.platformId)) {
-
+      if (window.innerWidth > 768) {
+          setTimeout(() => {
+            this.popupState='desktop-in';
+          }, 12000);
+      } else {
+        setTimeout(() => {
+          this.popupState='mobile-in';
+        }, 12000);
+      }
   }
   }
 

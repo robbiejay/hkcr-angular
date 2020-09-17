@@ -50,6 +50,7 @@ import { UpNextComponent } from './home/up-next/up-next.component';
 import { GenresComponent } from './genres/genres.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { ArchiveComponent } from './archive/archive.component';
+import { LatestComponent } from './home/latest/latest.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { ArchiveComponent } from './archive/archive.component';
     ContactComponent,
     Page404Component,
     AdspaceComponent,
-    UpNextComponent
+    UpNextComponent,
+    LatestComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

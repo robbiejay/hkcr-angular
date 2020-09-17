@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild, OnInit, OnDestroy, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from "@angular/common";
+import { trigger, state, style, transition, animate } from '@angular/animations';
 import { PlayerService } from '../../_services/player.service';
 import videojs from 'video.js';
 // import 'hls.js';
@@ -15,11 +16,28 @@ import { Title, Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-livestream',
   templateUrl: './livestream.component.html',
-  styleUrls: ['./livestream.component.scss']
+  styleUrls: ['./livestream.component.scss'],
+  animations: [
+    trigger('fadeBG', [
+      state('fadeOut', style({
+        'background-color':'rgba(255,223,0,0)',
+        'filter': 'blur(35px)',
+        'opacity': 0,
+        'display': 'none'
+
+      })),
+      state('fadeIn', style({
+        'background-color':'rgba(255,255,255,1)',
+
+      })),
+      transition('* => *', animate(2400)),
+    ])
+  ]
 })
 export class LivestreamComponent implements OnInit, OnDestroy {
 
 
+  fadeBGState = 'fadeIn';
   livestreamPlayerWidth : number;
   livestreamPlayerHeight : number;
   video: any;
@@ -38,6 +56,7 @@ export class LivestreamComponent implements OnInit, OnDestroy {
 
   ngAfterViewInit() {
         if(isPlatformBrowser(this.platformId)) {
+
     this.livestreamPlayerHeight = window.innerHeight;
     this.livestreamPlayerWidth = window.innerWidth;
 
@@ -51,7 +70,9 @@ export class LivestreamComponent implements OnInit, OnDestroy {
         }
     const options = {
                   "preload": "auto",
+                  "controls": true,
                   "width": this.livestreamPlayerWidth - 10,
+                  "poster":"https://admin.hkcr.live/wp-content/uploads/2020/07/hkcr-meta.png",
                   hls: {
                     withCredentials: true
                   },
@@ -74,6 +95,7 @@ export class LivestreamComponent implements OnInit, OnDestroy {
                   this.video.play();
                   console.log(this.video.userActive());
                   console.log(this.video.readyState());
+                  this.fadeBGState = 'fadeOut';
       }
 
       this._title.setTitle("Livestream | HKCR")
