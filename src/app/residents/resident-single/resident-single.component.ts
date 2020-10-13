@@ -63,12 +63,12 @@ export class ResidentSingleComponent implements OnInit {
         }
 
         // SEO updates
-        this._title.setTitle(residentData.title);
-        this._meta.updateTag({ name: 'description', content: residentData.content});
-        this._meta.updateTag({ name: 'keywords', content: residentData.title + ', resident, DJ'});
-        this._meta.updateTag({ name: 'og:image', content: residentData.image_large});
-        this._meta.updateTag({ name: 'og:title', content: residentData.title});
-        this._meta.updateTag({ name: 'og:description', content: residentData.content});
+        // this._title.setTitle(residentData.title);
+        // this._meta.updateTag({ name: 'description', content: residentData.content});
+        // this._meta.updateTag({ name: 'keywords', content: residentData.title + ', resident, DJ'});
+        // this._meta.updateTag({ name: 'og:image', content: residentData.image_large});
+        // this._meta.updateTag({ name: 'og:title', content: residentData.title});
+        // this._meta.updateTag({ name: 'og:description', content: residentData.content});
 
 
         this.residents.push(residentData);

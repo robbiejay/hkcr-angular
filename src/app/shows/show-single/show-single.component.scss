@@ -3,6 +3,28 @@
   height: auto;
 }
 
+.show-img-container {
+  min-height: 420px;
+    overflow: hidden;
+      box-shadow: 0px 0px 24px 1px #cacaca;
+      margin-top: 35px;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.temp-img {
+  min-width: 420px;
+  filter: blur(12px);
+
+}
+
+.single-show-content-container {
+  padding-left: 35px;
+}
+
 .back-btn {
 
   font-family: "Orbitron";
@@ -137,6 +159,14 @@
 @media (max-width: 768px) {
   .back-btn {
     left: 10vw;
+  }
+
+  .show-img-container {
+    min-height: 240px;
+    margin-top: 0px;
+
+          box-shadow: 0px 0px 8px 1px #cacaca;
+
   }
 
   .show-img-container {

@@ -42,7 +42,6 @@ export class AppComponent implements OnInit {
           if (!(evt instanceof NavigationEnd)) {
               return;
           }
-          console.log(evt);
           if(evt instanceof NavigationEnd && evt.url !== '/livestream' && evt.url !== '/') {
           var scrollToTop = window.setInterval(function () {
               var pos = window.pageYOffset;

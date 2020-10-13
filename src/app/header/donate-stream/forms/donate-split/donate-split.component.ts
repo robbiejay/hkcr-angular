@@ -14,7 +14,7 @@ export class DonateSplitComponent implements OnInit {
 
   form: FormGroup;
   donation: number;
-  currentShow = 'Residents';
+  currentShow = '';
   constructor(private donateService: DonateService,
               private postsService : PostsService,
               private decimalPipe: DecimalPipe) { }
@@ -23,6 +23,15 @@ export class DonateSplitComponent implements OnInit {
     if(this.postsService.nowPlaying !== undefined) {
     this.currentShow = this.postsService.nowPlaying;
   }
+
+  this.postsService.nowPlayingStateChange.subscribe(value => {
+    if(value !== '') {
+    this.currentShow = this.postsService.nowPlaying;
+  } else {
+    this.currentShow = 'Residents';
+  }
+  });
+
       this.donateService.donateAmountStateChange.subscribe(value => {
         this.donation = value;
         console.log(this.donation);

@@ -8,9 +8,11 @@
       <div *ngFor="let show of shows" style='position: relative;'>
         <div class="row">
           <div class="col-12 col-md-6">
+            <div class="row">
               <span role='button' class='back-btn' (click)='goBack()'><</span>
             <div *ngIf='!videoActive' class='img-container show-img-container'>
-                    <img [src]="show.featured_image">
+              <img class='temp-img' *ngIf="!showImageHasLoaded" [src]="show.low_res_image">
+              <img [ngClass]="{'hidden': !showImageHasLoaded}" (load)='imageHasLoaded()' [src]="show.featured_image">
             </div>
             <div *ngIf='videoActive' class="video-container">
               <iframe style='margin-top: 35px;'
@@ -22,9 +24,10 @@
               allowfullscreen>
             </iframe>
             </div>
+            </div>
           </div>
 
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 single-show-content-container">
             <h1 class='single-show-title'>{{show.title}}</h1>
             <h2 class='single-show-airdate'>AIRDATE : {{show.date}}</h2>
             <ul class='genre-tags'>

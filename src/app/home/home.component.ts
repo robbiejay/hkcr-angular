@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from "@angular/common";
 import { ActivatedRoute, Params } from '@angular/router';
 import { PlayerService } from '../_services/player.service';
 import { Title, Meta } from '@angular/platform-browser';
@@ -13,13 +14,11 @@ export class HomeComponent implements OnInit {
   constructor(private _meta: Meta,
               private _title: Title,
               private playerService: PlayerService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              @Inject(PLATFORM_ID) private platformId) { }
 
   ngOnInit() {
 
-    if(this.route.snapshot.url.length !== 0) {
-      this.playerService.livestreamActive = true;
-    }
 
     this._title.setTitle("HKCR | Hong Kong Community Radio");
     this._meta.updateTag({ name: 'description', content: "HKCR 🌐 | Hong Kong Community Radio, independent livestream platform for latest mixes, podcasts, DJs & music from Hong Kong. 香港聯合電台 (簡稱HKCR) ，一個提供最新電台Mix ， Podcast 廣播以及地下音樂的獨立網上平台。"});
@@ -28,5 +27,15 @@ export class HomeComponent implements OnInit {
     this._meta.updateTag({ name: 'og:title', content: "HKCR | Hong Kong Community Radio"});
     this._meta.updateTag({ name: 'og:description', content: "HKCR 🌐 | Hong Kong Community Radio, independent platform for latest mixes, podcasts, DJs & music from Hong Kong. 香港聯合電台 (簡稱HKCR) ，一個提供最新電台Mix ， Podcast 廣播以及地下音樂的獨立網上平台。"});
   }
+
+  ngAfterViewInit() {
+        if(isPlatformBrowser(this.platformId)) {
+        if(this.route.snapshot.url.length !== 0) {
+          this.playerService.livestreamActive = true;
+        }
+      }
+  }
+
+
 
 }

@@ -4,6 +4,8 @@ import { isPlatformBrowser } from "@angular/common";
 import { PostsService } from '../../_services/posts.service';
 import { HelpersService } from '../../_services/helpers.service';
 
+import * as moment from 'moment-timezone';
+
 @Component({
   selector: 'app-upcoming',
   templateUrl: './upcoming.component.html',
@@ -17,12 +19,17 @@ export class UpcomingComponent implements OnInit {
               private route: ActivatedRoute,
               @Inject(PLATFORM_ID) private platformId) { }
 
+  currentDateHKMoment: string;
+  currentDateMoment: string;
+  currentTimeHKMoment : string;
+  timeDifferenceMoment: number;
+
   currentDateHK: string;
   currentTimeHK: string;
   currentHourHK : number;
   upcomingHourHK : number;
   timeDifference : number;
-  currentDate : Date;
+  currentDate : string;
   mode: string;
   isLoading: boolean;
 
@@ -46,45 +53,10 @@ export class UpcomingComponent implements OnInit {
       this.mode = 'archive'
       }
 
-this.currentDateHK = new Date().toLocaleString("en-UK", {
-timeZone: "Asia/Hong_Kong"
-});
-
-this.currentDate = new Date()
-this.timeDifference = this.currentDate.getTimezoneOffset()/60 + 8;
-
-let currentDateArr = this.currentDateHK.split(',');
-this.currentDateHK = currentDateArr[0].replace( /\//g, '-').split('-').reverse().join('-');
-
-let currentDateNewArr = this.currentDateHK.split('-');
-currentDateNewArr.forEach(item => {
-  if (item.length < 2) {
-    item = '0' + item;
-  }
-})
-this.currentDateHK = currentDateNewArr.join('-');
-
-
-this.currentTimeHK = currentDateArr[1];
-    console.log(this.currentTimeHK);
-if(this.currentTimeHK.includes('PM')) {
-  let twentyfourArr = this.currentTimeHK.split('PM');
-  let twentyfourHourArr = twentyfourArr[0].split(':');
-  twentyfourHourArr[0] = JSON.stringify(parseInt(twentyfourHourArr[0]) + 12);
-  this.currentTimeHK = twentyfourHourArr.join(':');
-}
-
-if(this.currentTimeHK.includes('AM')) {
-  let twentyfourArr = this.currentTimeHK.split('AM');
-  let twentyfourHourArr = twentyfourArr[0].split(':');
-  if (twentyfourHourArr[0].length < 1) {
-    twentyfourHourArr[0] = '0' + twentyfourHourArr[0];
-  }
-  this.currentTimeHK = twentyfourHourArr.join(':');
-}
-console.log(this.currentTimeHK);
-
-
+this.currentDateHK = moment().tz("Asia/Hong_Kong").format('YYYY-MM-DD');
+this.currentDate = moment().local().format('YYYY-MM-DD');
+this.currentTimeHK = moment().tz("Asia/Hong_Kong").format('HH:mm:SS');
+this.timeDifference = 8 - (moment().local().utcOffset() / 60);
 
 this.getUpcomingShows();
 }
@@ -113,27 +85,11 @@ this.getUpcomingShows();
           let excerptArr = excerpt.split('–');
           let date = excerptArr[0].trim().replace( /\//g, '-').split('-').reverse().join('-');
           let time = excerptArr[1].trim();
-          let dayDate = new Date(date);
-          let day = dayDate.getDay();
-          // ---- Formatting date to always have DD / MM / YYYY format ----
-          let upcomingDataArr = date.split('-');
 
+          let day = moment(date).format('d');
+          let upcomingDataArr = date.split('-');
           let currentDateHKArr = this.currentDateHK.split('-');
 
-          let is12Hour = false;
-          currentDateHKArr.forEach((element, i) => {
-            // console.log(element.length)
-            if (element.length == 1) {
-              currentDateHKArr[i] = '0' + element;
-              is12Hour = true;
-            }
-          });
-
-          if(is12Hour) {
-            let temp_var = currentDateHKArr[1]
-            currentDateHKArr[1] = currentDateHKArr[2];
-            currentDateHKArr[2] = temp_var;
-          }
 
           let timeArr = time.split(':');
           let newHour = parseInt(timeArr[0]) - this.timeDifference;
@@ -146,16 +102,13 @@ this.getUpcomingShows();
             timeArr[0] = JSON.stringify(newHour + 24);
           }
           let local_time = timeArr.join(':');
-          // console.log(local_time);
+
+
 
           let has_show_aired = false;
           let now_playing = false;
           let up_next = false;
 
-
-          // ---- Finding if show has aired or not ----
-          // -- Checking if time has passed if day is the same --
-          console.log(upcomingDataArr.join('') + ' ' + currentDateHKArr.join(''))
 
           if (upcomingDataArr.join('') < currentDateHKArr.join('')) {
             has_show_aired = true;
@@ -165,8 +118,7 @@ this.getUpcomingShows();
             let upcomingTimeArr = time.split(':');
             let currentTimeHKArr = this.currentTimeHK.split(':');
 
-            console.log(this.currentTimeHK + ' ' + time)
-            console.log(upcomingTimeArr[0].trim() + ' < ' + currentTimeHKArr[0].trim())
+
             if (upcomingTimeArr[0].trim() < currentTimeHKArr[0].trim()) {
               has_show_aired = true;
             }
@@ -196,9 +148,9 @@ this.getUpcomingShows();
           this.upcomingShows.push(upcomingData);
           }
 
-
-
         })
+
+
           this.upcomingShows.sort((a, b) => {
           if (a.date > b.date) { return 1 }
           if (a.date < b.date) { return -1}
@@ -215,7 +167,6 @@ this.getUpcomingShows();
           }
           if(this.mode == 'home') {
           let indexOfPeriod = item.content.indexOf('.');
-          console.log(indexOfPeriod);
           item.content = item.content.substring(0, indexOfPeriod);
           }
         })
@@ -231,7 +182,6 @@ this.getUpcomingShows();
         }
 
         }
-        // console.log(this.upcomingShows);
       })
   }
 }

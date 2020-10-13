@@ -69,6 +69,7 @@ import { LatestComponent } from './home/latest/latest.component';
     UpcomingComponent,
     BlogSingleComponent,
     BlogComponent,
+    BlogrollComponent,
     ResidentSingleComponent,
     ShowSingleComponent,
     ScheduleSingleComponent,

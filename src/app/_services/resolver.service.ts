@@ -9,11 +9,19 @@ import { makeStateKey, TransferState } from '@angular/platform-browser';
 //import { SearchService } from '@app/services/search.service';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
+import { PostsService } from './posts.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ResolverService{
+export class ResolverService implements Resolve<any> {
+  constructor(private postsService: PostsService) { }
 
-  constructor() { }
+  resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<any> {
+    return this.postsService.getSingleShow(route.paramMap.get('title'));
+  }
+
 }

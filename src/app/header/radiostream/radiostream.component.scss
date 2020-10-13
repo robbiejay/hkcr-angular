@@ -121,10 +121,10 @@ display: inline-block;
   display: inline;
   float: right;
 
-  top: -5px;
+  top: -6px;
   margin-left: 7px;
   margin-top: 1px;
-    border: 2px solid #00ff5d;
+    //border: 2px solid #00ff5d;
   position: relative;
   height: 32px;
   border-radius: 7px;
@@ -144,10 +144,14 @@ display: inline-block;
 }
 
 .video-stream h1 {
-  color: #fff;
+//  color: #fff;
   padding: 2px 14px;
   border-radius: 4px;
-    font-size: 0.56em;
+  -webkit-text-stroke-color: #00ff5d;
+  -webkit-text-stroke-width: 1px;
+  margin-top: 2px;
+  color: transparent;
+  font-size: 1.777em;
 }
 
 .video-stream span {

@@ -37,13 +37,15 @@ declare var paypal: any;
     ]),
     trigger('popup', [
       state('out', style({
-        'height':'0px'
+        'height':'0px',
       })),
       state('desktop-in', style({
-        'height':'96px'
+        'height':'96px',
+        'visibility':'visible'
       })),
       state('mobile-in', style({
-        'height':'192px'
+        'height':'192px',
+        'visibility':'visible'
       })),
       transition('* => *', animate(1200))
     ])

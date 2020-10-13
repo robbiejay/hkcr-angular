@@ -7,7 +7,7 @@
     <i *ngIf='!radioActive' class="fas fa-play livestream-play-button" (click)='playRadio($event)'></i>
     <i *ngIf='radioActive' class="fas fa-pause livestream-play-button" (click)='pauseRadio($event)'></i>
     <div class='video-stream' style='d-none lg-block'>
-      <h1 (click)='activateLivestream()'><i class="fas fa-tv"></i> WATCH LIVESTREAM NOW</h1>
+      <h1 (click)='activateLivestream()'><i class="fas fa-tv"></i></h1>
     </div>
   <!-- <div *ngIf="this.playerService.nowPlaying == ''" style='float: left; display: inline-block; padding-right: 21px; border-right: 1px solid #fff;'>
     <img src="assets/radio-loading.gif">
@@ -21,10 +21,6 @@
   </div>
 
 
-  <!-- <div *ngIf="this.playerService.upNext !== ''" class='up-next' style='d-none md-block'>
-    <h1>UP NEXT</h1>
-    <h2>{{this.playerService.upNext}}</h2>
-  </div> -->
   </div>
 </div>
 <div class='radiostream-container'>

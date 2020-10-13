@@ -9,7 +9,7 @@ position: relative;
   left: -50%;
   top: -50%;
   height: 200%;
-  background-color: rgba(255,255,255,1);
+  background-color: rgba(255,223,0,1);
   opacity: 1;
   z-index: 99;
 }
@@ -54,6 +54,21 @@ position: relative;
   margin-left: 50%;
   transform: translateX(-480px);
 }
+}
+
+@media (max-width: 990px) {
+  h1 {
+    margin-right: 7px !important;
+  }
+
+  .hkcr-cover {
+    position: absolute;
+    width: 100%;
+    left: 0%;
+    top: 0%;
+    height: 100%;
+
+  }
 }
 
 .donate-btn {

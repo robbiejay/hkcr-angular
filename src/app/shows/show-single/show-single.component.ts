@@ -5,6 +5,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { PostsService } from '../../_services/posts.service';
 import { PlayerService } from '../../_services/player.service';
 import { HelpersService } from '../../_services/helpers.service';
+import { LazyService } from '../../_services/lazy.service';
 //import { HtmlEncode } from '../../_helpers/helpers';
 
 @Component({
@@ -22,10 +23,12 @@ export class ShowSingleComponent implements OnInit {
   isLoading : boolean;
   youtubeVideo = '';
   videoActive : boolean;
+  showImageHasLoaded : boolean;
 
   constructor(private postsService: PostsService,
               private playerService: PlayerService,
               private helpersService: HelpersService,
+              private lazyService: LazyService,
               private route: ActivatedRoute,
               private router: Router,
               private _location: Location,
@@ -38,6 +41,7 @@ export class ShowSingleComponent implements OnInit {
 }
 
   ngOnInit() {
+    this.showImageHasLoaded = false;
     this.isLoading = true;
     this.videoActive = false;
     this.showpost = {
@@ -60,27 +64,18 @@ export class ShowSingleComponent implements OnInit {
         console.log(data);
         this.isLoading = false;
         let featured_img;
+        let low_res_image;
         if(data.image_full == "DEFAULT") {
           featured_img = "assets/default_show.png";
         } else {
           featured_img = data.image_full;
+          low_res_image = data.image_thumbnail;
         }
         let titleArr = this.helpersService.HtmlEncode(data.title).split('–');
         let date = titleArr.pop();
         let title = titleArr.join();
 
-        let content = this.helpersService.HtmlEncode(data.content);
-        let contentArr = content.split('[youtube]');
-        let contentNewArr = [];
-        contentArr.forEach((chunk, index) => {
-          if (index !== 0) {
-            let chunkArr = chunk.split('[/youtube]');
-            this.youtubeVideo = chunkArr[0];
-            chunk = chunkArr[1];
-          }
-            contentNewArr.push(chunk);
-        })
-        content = contentNewArr.join('');
+        let content = this.splitShowYoutube(this.helpersService.HtmlEncode(data.content))
 
         let showData = {
           title: title,
@@ -88,21 +83,35 @@ export class ShowSingleComponent implements OnInit {
           date: date,
           excerpt: this.helpersService.HtmlEncode(data.excerpt),
           featured_image: featured_img,
+          low_res_image: low_res_image,
           tags: data.tags
         }
         this.shows.push(showData);
         this.tags.push(data.tags);
-      console.log(this.shows);
 
       // SEO updates
-      this._title.setTitle(showData.title);
-      this._meta.updateTag({ name: 'description', content: showData.content},"name='description'");
-      this._meta.updateTag({ name: 'keywords', content: showData.title + ', mix, ' + JSON.stringify(showData.tags)},"name='keywords'");
-      this._meta.updateTag({ name: 'og:image', content: showData.featured_image},"name='og:image'");
-      this._meta.updateTag({ name: 'og:title', content: showData.title},"name='og:title'");
-      this._meta.updateTag({ name: 'og:description', content: showData.content},"name='og:description'");
+      // this._title.setTitle(showData.title);
+      // this._meta.updateTag({ name: 'description', content: showData.content},"name='description'");
+      // this._meta.updateTag({ name: 'keywords', content: showData.title + ', mix, ' + JSON.stringify(showData.tags)},"name='keywords'");
+      // this._meta.updateTag({ name: 'og:image', content: showData.featured_image},"name='og:image'");
+      // this._meta.updateTag({ name: 'og:title', content: showData.title},"name='og:title'");
+      // this._meta.updateTag({ name: 'og:description', content: showData.content},"name='og:description'");
       this.getRelatedShows(data.tags[0]);
     })
+  }
+
+  splitShowYoutube(content) {
+    let contentArr = content.split('[youtube]');
+    let contentNewArr = [];
+    contentArr.forEach((chunk, index) => {
+      if (index !== 0) {
+        let chunkArr = chunk.split('[/youtube]');
+        this.youtubeVideo = chunkArr[0];
+        chunk = chunkArr[1];
+      }
+        contentNewArr.push(chunk);
+    })
+    return contentNewArr.join('');
   }
 
   listenShow(show){
@@ -163,5 +172,10 @@ export class ShowSingleComponent implements OnInit {
 
       goBack() {
         this._location.back();
+      }
+
+      imageHasLoaded() {
+        this.showImageHasLoaded = true;
+        this.lazyService.imageHasLoaded();
       }
 }

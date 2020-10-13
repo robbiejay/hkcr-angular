@@ -9,6 +9,16 @@
         <div class="navstream">
     <app-radiostream *ngIf='this.playerService.livestreamActive == false'></app-radiostream>
     </div>
+    <div class="coming-up-section">
+      <div [@comingUpSlide]='comingUpSliderState' class='now-playing' *ngIf='this.nowPlaying !== ""'>
+        <h3>NOW PLAYING :</h3>
+        <h2>{{this.nowPlaying}}</h2>
+      </div>
+      <div class='up-next'>
+        <h3>UP NEXT : <span style='background-color: #ffdf00; margin-left: 4px; color: #000; border-radius: 7px;padding: 2px 4px; position: relative; top: -1px; font-weight: 700;'>{{this.upNextTime}}</span></h3>
+        <h2>{{this.upNext}}</h2>
+      </div>
+    </div>
     </div>
 </div>
 <div class="social-menu-container col-lg-6 d-none d-lg-block">

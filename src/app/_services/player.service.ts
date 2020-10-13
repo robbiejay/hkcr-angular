@@ -27,51 +27,14 @@ export class PlayerService {
   }
 
     playShow(show) {
-  //    this.state = 'slidIn';
       this.playerVisibilityChange.next(true);
       this.show = show;
       this.hasOpenedShow = true;
-    //   let widget = window.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget"));
-    //
-    //     // console.log(window.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget")));
-    //     let iframe = document.getElementById("mixcloud-widget");
-    //     let iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-    //     if (  iframeDoc.readyState  == 'complete' ) {
-    //         iframe.contentWindow.onload = function(){
-    //             alert("I am loaded");
-    //         };
-    //         // The loading is complete, call the function we want executed once the iframe is loaded
-    //         afterLoading();
-    //         widget.ready.then((a)=>{
-    //         widget.play();
-    //         });
-    //         return;
-    //     }
-    //     // If we are here, it is not loaded. Set things up so we check   the status again in 100 milliseconds
-    //     window.setTimeout(checkIframeLoaded, 100);
-    //
-    // function afterLoading(){
-    //     alert("I am here");
-    // }
-
-
-
-        // console.log(this.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget")));
-
-        // window.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget")).play();
-        // window.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget")).togglePlay();
-        // window.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget")).events.play();
-      //  console.log(window.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget")).events);
-      //  window.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget")).events.togglePlay();
-
 
     }
 
     mixcloudLoaded() {
-      // let widget = this.window.Mixcloud.PlayerWidget(document.getElementById("mixcloud-widget"));
-      // widget.ready.then((a)=>{
-      //   widget.play();
-      // });
+
     }
 
     closePlayer() {

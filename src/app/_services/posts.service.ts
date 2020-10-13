@@ -13,10 +13,24 @@ export class PostsService {
   public nowPlaying: string;
   nowPlayingStateChange: Subject<string> = new Subject<string>();
 
+  public upNext: string;
+  upNextStateChange: Subject<string> = new Subject<string>();
+
+  public upNextTime: string;
+  upNextTimeStateChange: Subject<string> = new Subject<string>();
+
 
   constructor(private http: HttpClient) {
       this.nowPlayingStateChange.subscribe(value => {
         this.nowPlaying = value;
+      })
+
+      this.upNextStateChange.subscribe(value => {
+        this.upNext = value;
+      })
+
+      this.upNextTimeStateChange.subscribe(value => {
+        this.upNextTime = value;
       })
    }
 
@@ -34,6 +48,14 @@ export class PostsService {
 
   changeNowPlaying(nowPlaying) {
     this.nowPlayingStateChange.next(nowPlaying);
+  }
+
+  changeUpNext(upNext) {
+    this.upNextStateChange.next(upNext);
+  }
+
+  changeUpNextTime(upNextTime) {
+    this.upNextTimeStateChange.next(upNextTime);
   }
 
   getShows(page): Observable<any> {

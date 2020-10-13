@@ -171,10 +171,10 @@ export class BlogSingleComponent implements OnInit {
           this.posts.push(postData);
           // SEO updates
           this._title.setTitle(postData.title);
-          this._meta.updateTag({ name: 'description', content: postData.excerpt});
-          this._meta.updateTag({ name: 'og:image', content: postData.image_large});
-          this._meta.updateTag({ name: 'og:title', content: postData.title});
-          this._meta.updateTag({ name: 'og:description', content: postData.excerpt});
+          // this._meta.updateTag({ name: 'description', content: postData.excerpt});
+          // this._meta.updateTag({ property: 'og:image', content: postData.image_large});
+          // this._meta.updateTag({ property: 'og:title', content: postData.title});
+          // this._meta.updateTag({ property: 'og:description', content: postData.excerpt});
 
         // ADD KEYWORDS for blogs
         //  this._meta.updateTag({ name: 'keywords', content: postData.title + ', blog, ' + JSON.stringify(postData.tags)});
