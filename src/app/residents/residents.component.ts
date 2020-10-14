@@ -49,7 +49,6 @@ this.getResidents();
             if(isPlatformBrowser(this.platformId)) {
     this.postsService.getResidents().subscribe(
       data => {
-       console.log(data);
         data.forEach(resident => {
           let residentData = {
             title: this.helpersService.HtmlEncode(resident.title.rendered),
@@ -58,8 +57,6 @@ this.getResidents();
           }
           this.residents.push(residentData);
         })
-        console.log(this.residents);
-        console.log(this.residents.length);
       }
     )
   }

@@ -2,6 +2,7 @@ import { Renderer2, Inject, PLATFORM_ID, Component, OnInit } from '@angular/core
 import { DOCUMENT } from '@angular/platform-browser';
 import { isPlatformBrowser } from '@angular/common';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { ActivatedRoute, Params } from '@angular/router';
 import { PlayerService } from '../_services/player.service';
 import { PostsService } from '../_services/posts.service';
 import { HelpersService } from '../_services/helpers.service';
@@ -21,6 +22,25 @@ import * as moment from 'moment-timezone';
         'margin-top':'-40px'
       })),
       transition('* => *', animate(500)),
+    ]),
+    trigger('chatToggle', [
+      state('chatClosed', style({
+        'height': '0px'
+      })),
+      state('chatOpen', style({
+        'height': '380px'
+      })),
+      transition('* => *', animate(500))
+    ]),
+    trigger('chatPanelToggle', [
+      state('panelNotActive', style({
+        'opacity': '1'
+      })),
+      state('panelActive', style({
+        'opacity': '0',
+        'visibility': 'hidden'
+      })),
+      transition('* => *', animate(500))
     ])
   ]
 })
@@ -28,10 +48,16 @@ export class HeaderComponent implements OnInit {
 
   comingUpSliderState = 'comingUpSlide1';
 
+  isLivestreamPage: boolean;
+  chatPanelActive = false;
+  chatPanelToggleState = 'panelNotActive';
+  chatActive = 'chatClosed';
+
   constructor(public playerService: PlayerService,
     private postsService: PostsService,
     private helpersService: HelpersService,
               private renderer2: Renderer2,
+              private route: ActivatedRoute,
               @Inject(DOCUMENT) private _document: Document,
               @Inject(PLATFORM_ID) private platformId) { }
   mobileMenuActive = false;
@@ -56,15 +82,17 @@ export class HeaderComponent implements OnInit {
   ]
 
   ngOnInit() {
+    if(this.route.snapshot.url.length !== 0) {
+    if(this.route.snapshot.url[0].path == 'livestream') {
+      this.isLivestreamPage = true;
+    }
+    }
   }
 
   ngAfterViewInit() {
     if(isPlatformBrowser(this.platformId)) {
 
       this.nowPlaying = '';
-
-
-
       setInterval(()=> { this.autoplayComingUp() }, 11 * 1000);
       const videojs_script = this.renderer2.createElement('script')
       videojs_script.src = 'https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js';
@@ -235,6 +263,17 @@ this.upcomingShows = this.upcomingShows.splice(0,4);
     }
   }
 }
+
+  toggleChat() {
+    if(!this.chatPanelActive) {
+    this.chatPanelToggleState = 'panelActive';
+    this.chatActive = 'chatOpen';
+  } else {
+    this.chatPanelToggleState = 'panelNotActive';
+    this.chatActive = 'chatClosed';
+  }
+  this.chatPanelActive = !this.chatPanelActive;
+  }
 }
 
 // <script async src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>

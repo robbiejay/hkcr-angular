@@ -64,9 +64,18 @@
     <a target="_blank" href='https://soundcloud.com/hkcrlive'><li><i class="fab fa-soundcloud"></i> &nbsp;soundcloud</li></a>
   </ul>
 </div>
+<div *ngIf='this.playerService.livestreamActive == false' [@chatPanelToggle]='chatPanelToggleState' class="open-chat-tab" (click)='toggleChat()'>
+  <span role='button'><i class="fas fa-comments"></i> Chat</span>
+</div>
+<div *ngIf='chatPanelActive' class="close-chat-tab" (click)='toggleChat()'>
+  <span role='button'><i class="fas fa-times"></i> Close</span>
+</div>
 </div>
 <div class='stream-container'>
   <app-livestream *ngIf='this.playerService.livestreamActive == true'></app-livestream>
+  <div *ngIf='this.playerService.livestreamActive == false' [@chatToggle]='chatActive' class="chat-panel-container">
+      <app-chatango></app-chatango>
+  </div>
   </div>
   <!-- -->
 

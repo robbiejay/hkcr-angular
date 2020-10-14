@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, OnInit, OnDestroy, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from "@angular/common";
+import { Location, isPlatformBrowser } from "@angular/common";
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { PlayerService } from '../../_services/player.service';
 import videojs from 'video.js';
@@ -42,7 +42,9 @@ export class LivestreamComponent implements OnInit, OnDestroy {
   livestreamPlayerHeight : number;
   video: any;
 
-  constructor(private _title: Title, private playerService: PlayerService,
+  constructor(private _title: Title,
+    private _location: Location,
+    private playerService: PlayerService,
   @Inject(PLATFORM_ID) private platformId) { }
   @ViewChild('video') videoElement: ElementRef;
   name = 'Angular 6';
@@ -108,5 +110,6 @@ export class LivestreamComponent implements OnInit, OnDestroy {
 
       deactivateLivestream() {
         this.playerService.livestreamActive = false;
+        this._location.go('home');
       }
 }
