@@ -49,6 +49,7 @@ this.getResidents();
             if(isPlatformBrowser(this.platformId)) {
     this.postsService.getResidents().subscribe(
       data => {
+         console.log(data);
         data.forEach(resident => {
           let residentData = {
             title: this.helpersService.HtmlEncode(resident.title.rendered),
@@ -60,6 +61,7 @@ this.getResidents();
       }
     )
   }
+  console.log(this.residents);
   }
 
   goTo(location) {

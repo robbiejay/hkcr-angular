@@ -1,3 +1,4 @@
+<div class="fluid-container" style='background-color: #fff;position:relative;padding:0px;'>
 <div class="container">
   <h1><span class="chinesetext">節目表</span> UPCOMING<span class='strikethrough'>&nbsp;</span></h1>
   <div class='upcoming-card' *ngFor='let show of upcomingShows; let i = index;' (click)="goTo(show.filename)">
@@ -20,3 +21,5 @@
 <p class='empty-message' *ngIf='upcomingShows.length == 0 && !isLoading'>We haven't updated our schedule yet. Check back soon!</p>
 <a *ngIf='mode == "home"' class='schedule-btn' routerLink='/schedule'><i class="fa fa-id-card" aria-hidden="true"></i>
 > Full Schedule</a>
+</div>
+</div>

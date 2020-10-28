@@ -82,11 +82,7 @@ export class HeaderComponent implements OnInit {
   ]
 
   ngOnInit() {
-    if(this.route.snapshot.url.length !== 0) {
-    if(this.route.snapshot.url[0].path == 'livestream') {
-      this.isLivestreamPage = true;
-    }
-    }
+
   }
 
   ngAfterViewInit() {
@@ -106,6 +102,7 @@ export class HeaderComponent implements OnInit {
       this.currentDate = moment().local().format('YYYY-MM-DD');
       this.currentTimeHK = moment().tz("Asia/Hong_Kong").format('HH:mm:SS');
       this.timeDifference = 8 - (moment().local().utcOffset() / 60);
+
 
       this.getUpcomingShows();
 
@@ -268,6 +265,14 @@ this.upcomingShows = this.upcomingShows.splice(0,4);
     if(!this.chatPanelActive) {
     this.chatPanelToggleState = 'panelActive';
     this.chatActive = 'chatOpen';
+    var scrollToTop = window.setInterval(function () {
+        var pos = window.pageYOffset;
+        if (pos > 0) {
+            window.scrollTo(0, pos - 1000); // how far to scroll on each step
+        } else {
+            window.clearInterval(scrollToTop);
+        }
+    }, 60); // how fast to scroll (this equals roughly 60 fps)
   } else {
     this.chatPanelToggleState = 'panelNotActive';
     this.chatActive = 'chatClosed';

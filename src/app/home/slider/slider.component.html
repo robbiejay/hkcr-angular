@@ -67,6 +67,68 @@
       </a>
     </div>
 
+    <div class='slide' *ngIf='slide3HasLoaded'>
+      <a *ngIf="highlights[3] !== undefined" target="_blank" [href]='highlights[3].excerpt'>
+
+
+          <div class='slide-image'>
+            <img class='temp-img' *ngIf="!slide4HasLoaded" [src]="highlights[3].low_res_image">
+          <img [ngClass]="{'hidden': !slide4HasLoaded}" (load)='slideImage4HasLoaded()' *ngIf="highlights[3] !== undefined" [src]="highlights[3].featured_image">
+
+
+          <div class='slide-copy'>
+            <h1 *ngIf="highlights[3] !== undefined">{{highlights[3].title}}</h1>
+            <h2 *ngIf="highlights[3] !== undefined">{{highlights[3].content}}</h2>
+          </div>
+
+          </div>
+
+
+      </a>
+    </div>
+
+    <div class='slide' *ngIf='slide4HasLoaded'>
+      <a *ngIf="highlights[4] !== undefined" target="_blank" [href]='highlights[4].excerpt'>
+
+
+          <div class='slide-image'>
+            <img class='temp-img' *ngIf="!slide5HasLoaded" [src]="highlights[4].low_res_image">
+          <img [ngClass]="{'hidden': !slide5HasLoaded}" (load)='slideImage5HasLoaded()' *ngIf="highlights[4] !== undefined" [src]="highlights[4].featured_image">
+
+
+          <div class='slide-copy'>
+            <h1 *ngIf="highlights[4] !== undefined">{{highlights[4].title}}</h1>
+            <h2 *ngIf="highlights[4] !== undefined">{{highlights[4].content}}</h2>
+          </div>
+
+          </div>
+
+
+      </a>
+    </div>
+
+    <div class='slide' *ngIf='slide5HasLoaded'>
+      <a *ngIf="highlights[5] !== undefined" target="_blank" [href]='highlights[5].excerpt'>
+
+
+          <div class='slide-image'>
+            <img class='temp-img' *ngIf="!slide6HasLoaded" [src]="highlights[5].low_res_image">
+          <img [ngClass]="{'hidden': !slide6HasLoaded}" (load)='slideImage6HasLoaded()' *ngIf="highlights[5] !== undefined" [src]="highlights[5].featured_image">
+
+
+          <div class='slide-copy'>
+            <h1 *ngIf="highlights[5] !== undefined">{{highlights[5].title}}</h1>
+            <h2 *ngIf="highlights[5] !== undefined">{{highlights[5].content}}</h2>
+          </div>
+
+          </div>
+
+
+      </a>
+    </div>
+
+
+
 
 
   </div>

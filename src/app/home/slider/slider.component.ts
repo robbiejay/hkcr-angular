@@ -25,6 +25,12 @@ import { LazyService } from '../../_services/lazy.service';
       state('slide4', style({
         'left':'-300vw'
       })),
+      state('slide5', style({
+        'left':'-400vw'
+      })),
+      state('slide6', style({
+        'left':'-500vw'
+      })),
       transition('* => *', animate(500)),
     ])
   ]
@@ -36,6 +42,9 @@ export class SliderComponent implements OnInit {
   slide1HasLoaded: boolean;
   slide2HasLoaded: boolean;
   slide3HasLoaded: boolean;
+  slide4HasLoaded: boolean;
+  slide5HasLoaded: boolean;
+  slide6HasLoaded: boolean;
   listenBack = [];
   highlights = [];
   constructor(private postsService: PostsService,
@@ -48,6 +57,9 @@ export class SliderComponent implements OnInit {
     this.slide1HasLoaded = false;
     this.slide2HasLoaded = false;
     this.slide3HasLoaded = false;
+    this.slide4HasLoaded = false;
+    this.slide5HasLoaded = false;
+    this.slide6HasLoaded = false;
 }
 
 ngAfterViewInit() {
@@ -90,7 +102,7 @@ data => {
     this.autoplayActive = false;
     let nextNum = this.sliderState.split('').pop();
     this.slideNumber = Number(nextNum);
-    if (this.slideNumber < 3) {
+    if (this.slideNumber < 6) {
     this.slideNumber++; }
     else {
       this.slideNumber = 1;
@@ -105,7 +117,7 @@ data => {
     if(this.slideNumber > 1) {
     this.slideNumber--;
   } else {
-    this.slideNumber = 3;
+    this.slideNumber = 6;
   }
   this.sliderState = 'slide' + this.slideNumber;
   }
@@ -114,7 +126,7 @@ data => {
     if (active) {
     let nextNum = this.sliderState.split('').pop();
     this.slideNumber = Number(nextNum);
-    if (this.slideNumber < 3) {
+    if (this.slideNumber < 6) {
     this.slideNumber++; }
     else {
       this.slideNumber = 1;
@@ -140,6 +152,21 @@ data => {
 
   slideImage3HasLoaded() {
     this.slide3HasLoaded = true;
+    this.lazyService.imageHasLoaded();
+  }
+
+  slideImage4HasLoaded() {
+    this.slide4HasLoaded = true;
+    this.lazyService.imageHasLoaded();
+  }
+
+  slideImage5HasLoaded() {
+    this.slide5HasLoaded = true;
+    this.lazyService.imageHasLoaded();
+  }
+
+  slideImage6HasLoaded() {
+    this.slide6HasLoaded = true;
     this.lazyService.imageHasLoaded();
   }
 }

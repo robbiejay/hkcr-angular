@@ -70,7 +70,7 @@ export class ChatangoComponent implements OnInit {
     // style="width: 300px;height: 400px;"
 
 if (this.playerService.livestreamActive == false) {
-  this.renderer2.appendChild(this._document.body.childNodes[1].childNodes[0].childNodes[1].childNodes[2], s)
+  this.renderer2.appendChild(this._document.body.childNodes[1].childNodes[0].childNodes[1].childNodes[2].childNodes[0].childNodes[0], s)
 } else {
   this.renderer2.appendChild(this._document.body.childNodes[1].childNodes[0].childNodes[1].childNodes[1].childNodes[0].childNodes[1], s);
 }
