@@ -84,9 +84,18 @@ export class LivestreamComponent implements OnInit, OnDestroy {
                       dynamicLabel: true
                     }
                   }
-               };
+               }
 
-                  this.video = videojs(this.videoElement.nativeElement, options);
+                  // this.video = videojs(this.videoElement.nativeElement, options, function() {
+                  //   this.updateSrc([
+                  //     {
+                  //   //    lastleftoffatthispoint
+                  //       // https://kmoskwiak.github.io/videojs-resolution-switcher
+                  //       // https://licson.net/post/setting-up-adaptive-streaming-with-nginx/
+                  //     }
+                  //   ])
+
+                  });
 
                   this.video.src([
                     {
