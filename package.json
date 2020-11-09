@@ -17,13 +17,13 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.14",
-    "@angular/common": "~8.2.14",
+    "@angular/common": "^9.1.12",
     "@angular/compiler": "~8.2.14",
-    "@angular/core": "~8.2.14",
+    "@angular/core": "^9.1.12",
     "@angular/forms": "~8.2.14",
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
-    "@angular/platform-server": "~8.2.14",
+    "@angular/platform-server": "^9.1.12",
     "@angular/router": "~8.2.14",
     "@nestjs/common": "^6.0.0",
     "@nestjs/core": "^6.0.0",
@@ -42,7 +42,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.3",
     "tslib": "^1.9.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "^0.10.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.29",
