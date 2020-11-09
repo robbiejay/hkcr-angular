@@ -25,7 +25,7 @@ export class RadiostreamComponent implements OnInit, OnDestroy {
     private _location: Location,
     private route: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId ) { }
-  @ViewChild('radio') radioElement: ElementRef;
+  @ViewChild('radio', { static: true }) radioElement: ElementRef;
 
 
   ngOnInit() {

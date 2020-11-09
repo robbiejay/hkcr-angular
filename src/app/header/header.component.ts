@@ -1,6 +1,6 @@
 import { Renderer2, Inject, PLATFORM_ID, Component, OnInit } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
-import { isPlatformBrowser } from '@angular/common';
+
+import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ActivatedRoute, Params } from '@angular/router';
 import { PlayerService } from '../_services/player.service';

@@ -46,7 +46,7 @@ export class LivestreamComponent implements OnInit, OnDestroy {
     private _location: Location,
     private playerService: PlayerService,
   @Inject(PLATFORM_ID) private platformId) { }
-  @ViewChild('video') videoElement: ElementRef;
+  @ViewChild('video', { static: true }) videoElement: ElementRef;
   name = 'Angular 6';
 
 
@@ -86,14 +86,14 @@ export class LivestreamComponent implements OnInit, OnDestroy {
                   }
                }
 
-                  // this.video = videojs(this.videoElement.nativeElement, options, function() {
-                  //   this.updateSrc([
-                  //     {
-                  //   //    lastleftoffatthispoint
-                  //       // https://kmoskwiak.github.io/videojs-resolution-switcher
-                  //       // https://licson.net/post/setting-up-adaptive-streaming-with-nginx/
-                  //     }
-                  //   ])
+                  this.video = videojs(this.videoElement.nativeElement, options, function() {
+                    this.updateSrc([
+                      {
+                    //    lastleftoffatthispoint
+                        // https://kmoskwiak.github.io/videojs-resolution-switcher
+                        // https://licson.net/post/setting-up-adaptive-streaming-with-nginx/
+                      }
+                    ])
 
                   });
 

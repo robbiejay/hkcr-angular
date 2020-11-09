@@ -1,10 +1,10 @@
 import { Renderer2, Inject, PLATFORM_ID, Component, OnInit } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
+
 import { isPlatformBrowser } from '@angular/common';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { PostsService } from '../../_services/posts.service';
 import { DonateService } from '../../_services/donate.service';
-import { DecimalPipe } from '@angular/common';
+import { DecimalPipe, DOCUMENT } from '@angular/common';
 
 declare var paypal: any;
 

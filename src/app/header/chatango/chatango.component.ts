@@ -1,7 +1,7 @@
 import { Renderer2, Inject, PLATFORM_ID, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { DOCUMENT } from '@angular/platform-browser';
-import { isPlatformBrowser } from '@angular/common';
+
+import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import { PlayerService } from '../../_services/player.service';
 
 declare var paypal;
