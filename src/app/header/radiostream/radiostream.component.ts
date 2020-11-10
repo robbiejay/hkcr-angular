@@ -7,9 +7,9 @@ import videojs from 'video.js';
 // import 'videojs-contrib-dash';
 // import 'videojs-contrib-eme';
 // import 'videojs-contrib-hls';
-import "@videojs/http-streaming";
-import 'videojs-contrib-quality-levels';
-import 'videojs-resolution-switcher';
+//import "@videojs/http-streaming";
+//import 'videojs-contrib-quality-levels';
+  //import 'videojs-resolution-switcher';
 
 @Component({
   selector: 'app-radiostream',
@@ -40,17 +40,8 @@ export class RadiostreamComponent implements OnInit, OnDestroy {
                   "controls": false,
                   hls: {
                     withCredentials: true
-                  },
-                  plugins: {
-                    videoJsResolutionSwitcher: {
-                      default: 'high',
-                      dynamicLabel: true
-                    }
                   }
                };
-
-
-
                   this.radio = videojs(this.radioElement.nativeElement, options);
 
                   this.radio.src([

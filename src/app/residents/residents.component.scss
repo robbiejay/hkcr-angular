@@ -26,6 +26,23 @@
   cursor: pointer;
 }
 
+.see-all-residents {
+  color: #fff;
+  width: 50%;
+  text-align: center;
+  margin-left: 25%;
+  padding: 14px 14px;
+  border: 1px solid #f0f0f0;
+  transition: 0.2s;
+  font-family: "Josefin Sans";
+}
+
+.see-all-residents:hover {
+  border: 1px solid #ffdf00;
+  text-decoration: none;
+  color: #ffdf00;
+}
+
 @media only screen and ( orientation : portrait ) {
   .resident-card{
   min-height: 16rem;

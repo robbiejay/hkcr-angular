@@ -4,7 +4,6 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { PostsService } from '../../_services/posts.service';
 import { PlayerService } from '../../_services/player.service';
 import { HelpersService } from '../../_services/helpers.service';
-import { LazyService } from '../../_services/lazy.service';
 // import { HtmlEncode } from '../../_helpers/helpers';
 
 @Component({
@@ -45,12 +44,12 @@ export class SliderComponent implements OnInit {
   slide4HasLoaded: boolean;
   slide5HasLoaded: boolean;
   slide6HasLoaded: boolean;
+  isMobile: boolean;
   listenBack = [];
   highlights = [];
   constructor(private postsService: PostsService,
               private playerService: PlayerService,
               private helpersService: HelpersService,
-              private lazyService: LazyService,
               @Inject(PLATFORM_ID) private platformId) { }
 
   ngOnInit() {
@@ -65,7 +64,9 @@ export class SliderComponent implements OnInit {
 ngAfterViewInit() {
   if(isPlatformBrowser(this.platformId)) {
 setInterval(()=> { this.autoplay(this.autoplayActive) }, 7 * 1000);
-
+if(window.innerWidth <= 480) {
+  this.isMobile = true;
+}
 // Combine all three functions into one function
 
 this.postsService.getLatestShows().subscribe(
@@ -140,33 +141,41 @@ data => {
   }
 
   slideImage1HasLoaded() {
+    if(!this.isMobile) {
     this.slide1HasLoaded = true;
-    this.lazyService.imageHasLoaded();
+} else {
+  this.autoplayActive = true;
+}
   }
 
   slideImage2HasLoaded() {
+    if(!this.isMobile) {
     this.slide2HasLoaded = true;
     this.autoplayActive = true;
-    this.lazyService.imageHasLoaded();
+  }
   }
 
   slideImage3HasLoaded() {
+    if(!this.isMobile) {
     this.slide3HasLoaded = true;
-    this.lazyService.imageHasLoaded();
+  }
   }
 
   slideImage4HasLoaded() {
+    if(!this.isMobile) {
     this.slide4HasLoaded = true;
-    this.lazyService.imageHasLoaded();
+  }
   }
 
   slideImage5HasLoaded() {
+    if(!this.isMobile) {
     this.slide5HasLoaded = true;
-    this.lazyService.imageHasLoaded();
+  }
   }
 
   slideImage6HasLoaded() {
+    if(!this.isMobile) {
     this.slide6HasLoaded = true;
-    this.lazyService.imageHasLoaded();
+}
   }
 }

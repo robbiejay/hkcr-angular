@@ -5,7 +5,6 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { PostsService } from '../../_services/posts.service';
 import { PlayerService } from '../../_services/player.service';
 import { HelpersService } from '../../_services/helpers.service';
-import { LazyService } from '../../_services/lazy.service';
 //import { HtmlEncode } from '../../_helpers/helpers';
 
 @Component({
@@ -28,7 +27,6 @@ export class ShowSingleComponent implements OnInit {
   constructor(private postsService: PostsService,
               private playerService: PlayerService,
               private helpersService: HelpersService,
-              private lazyService: LazyService,
               private route: ActivatedRoute,
               private router: Router,
               private _location: Location,
@@ -176,6 +174,5 @@ export class ShowSingleComponent implements OnInit {
 
       imageHasLoaded() {
         this.showImageHasLoaded = true;
-        this.lazyService.imageHasLoaded();
       }
 }

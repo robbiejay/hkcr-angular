@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { ArchiveComponent } from './archive/archive.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogSingleComponent } from './blog/blog-single/blog-single.component';
 import { ResidentsComponent } from './residents/residents.component';
 import { ResidentSingleComponent } from './residents/resident-single/resident-single.component';
 import { ShowsComponent} from './shows/shows.component';
 import { ShowSingleComponent } from './shows/show-single/show-single.component';
-import { ScheduleComponent } from './schedule/schedule.component';
 import { ScheduleSingleComponent } from './schedule/schedule-single/schedule-single.component';
-import { UpcomingComponent } from './home/upcoming/upcoming.component';
+import { UpcomingComponent } from './schedule/upcoming/upcoming.component';
 
 import { ShowGuardService as ShowGuard } from './_services/_guards/show-guard.service';
 import { ResidentGuardService as ResidentGuard } from './_services/_guards/resident-guard.service';

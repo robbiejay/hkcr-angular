@@ -21,7 +21,11 @@ import { Page404Component } from './subpages/page404/page404.component';
 import { HomeComponent } from './home/home.component';
 import { SliderComponent } from './home/slider/slider.component';
 import { AdspaceComponent } from './home/adspace/adspace.component';
-import { UpcomingComponent } from './home/upcoming/upcoming.component';
+
+// Schedule Module
+
+import { UpcomingComponent } from './schedule/upcoming/upcoming.component';
+import { ScheduleSingleComponent } from './schedule/schedule-single/schedule-single.component';
 
 
 // Blog Module
@@ -33,7 +37,6 @@ import { IframePipe } from './_pipes/iframe.pipe';
 
 // Shows Module
 
-import { ScheduleSingleComponent } from './schedule/schedule-single/schedule-single.component';
 import { ShowsComponent } from './shows/shows.component';
 import { ShowSingleComponent } from './shows/show-single/show-single.component';
 import { PlayerComponent } from './player/player.component';
@@ -45,25 +48,15 @@ import { ResidentsComponent } from './residents/residents.component';
 import { ResidentSingleComponent } from './residents/resident-single/resident-single.component';
 
 
-// Unused as of 1.2
-import { UpNextComponent } from './home/up-next/up-next.component';
-import { GenresComponent } from './genres/genres.component';
-import { ScheduleComponent } from './schedule/schedule.component';
-import { ArchiveComponent } from './archive/archive.component';
-import { LatestComponent } from './home/latest/latest.component';
-
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     BlogrollComponent,
-    ScheduleComponent,
     ShowsComponent,
     SliderComponent,
     PlayerComponent,
-    ArchiveComponent,
     HomeComponent,
-    GenresComponent,
     FooterComponent,
     ResidentsComponent,
     UpcomingComponent,
@@ -79,9 +72,7 @@ import { LatestComponent } from './home/latest/latest.component';
     AboutComponent,
     ContactComponent,
     Page404Component,
-    AdspaceComponent,
-    UpNextComponent,
-    LatestComponent
+    AdspaceComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

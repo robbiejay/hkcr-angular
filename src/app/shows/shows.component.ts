@@ -5,7 +5,6 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { PostsService } from '../_services/posts.service';
 import { PlayerService } from '../_services/player.service';
 import { HelpersService } from '../_services/helpers.service';
-import { LazyService } from '../_services/lazy.service';
 //import { HtmlEncode } from '../_helpers/helpers';
 
 @Component({
@@ -40,7 +39,6 @@ export class ShowsComponent implements OnInit {
   constructor(private postsService: PostsService,
               public playerService: PlayerService,
               private helpersService: HelpersService,
-              private lazyService: LazyService,
               private route: ActivatedRoute,
               private router: Router,
             @Inject(PLATFORM_ID) private platformId) { }

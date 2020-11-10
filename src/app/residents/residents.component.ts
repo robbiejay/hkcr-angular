@@ -58,6 +58,9 @@ this.getResidents();
           }
           this.residents.push(residentData);
         })
+        if(this.mode == 'home') {
+          this.residents = this.residents.splice(0,12);
+        }
       }
     )
   }

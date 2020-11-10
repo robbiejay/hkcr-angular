@@ -31,7 +31,7 @@ export class BlogComponent implements OnInit {
           if(post._embedded['wp:featuredmedia'] == undefined) {
             featured_img = "assets/default_show.png";
           } else {
-            featured_img = post._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url;
+            featured_img = post._embedded['wp:featuredmedia'][0].media_details.sizes["large"].source_url;
           }
 
 

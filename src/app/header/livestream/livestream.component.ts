@@ -7,9 +7,9 @@ import videojs from 'video.js';
 // import 'videojs-contrib-dash';
 // import 'videojs-contrib-eme';
 // import 'videojs-contrib-hls';
-import "@videojs/http-streaming";
-import 'videojs-contrib-quality-levels';
-import 'videojs-resolution-switcher';
+//import "@videojs/http-streaming";
+//import 'videojs-contrib-quality-levels';
+    //import 'videojs-resolution-switcher';
 import { Title, Meta } from '@angular/platform-browser';
 
 

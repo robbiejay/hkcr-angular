@@ -49,6 +49,7 @@ export class HeaderComponent implements OnInit {
   comingUpSliderState = 'comingUpSlide1';
 
   isLivestreamPage: boolean;
+  viewHasLoaded = false;
   chatPanelActive = false;
   chatPanelToggleState = 'panelNotActive';
   chatActive = 'chatClosed';
@@ -87,7 +88,6 @@ export class HeaderComponent implements OnInit {
 
   ngAfterViewInit() {
     if(isPlatformBrowser(this.platformId)) {
-
       this.nowPlaying = '';
       setInterval(()=> { this.autoplayComingUp() }, 11 * 1000);
       const videojs_script = this.renderer2.createElement('script')
@@ -117,6 +117,7 @@ export class HeaderComponent implements OnInit {
       this.postsService.upNextTimeStateChange.subscribe(value => {
         this.upNextTime = this.postsService.upNextTime;
       });
+      this.viewHasLoaded = true;
     }
   }
 

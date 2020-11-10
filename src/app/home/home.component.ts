@@ -10,13 +10,12 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  hasScrolled = false;
   constructor(private _meta: Meta,
               private _title: Title,
               private playerService: PlayerService,
               private route: ActivatedRoute,
               @Inject(PLATFORM_ID) private platformId) { }
-
   ngOnInit() {
 
 
